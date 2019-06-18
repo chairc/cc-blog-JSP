@@ -1,0 +1,93 @@
+@charset "UTF-8";
+body,html{height:100%}
+body,h1,h2,h3,h4,h5,h6,ul,a{margin:0}
+
+
+.nav_all{
+	width:100%;
+	height:65px;
+	background-color:#2f4154;
+/* 	background-color:#23262E; */
+	position: absolute;
+}
+.work_style{
+	width: 100%;
+	height:100%;
+	position: absolute;
+	z-index: 1;
+	padding-top: 70px;
+}
+.login_style{
+	width: 100%;
+	height: 45%;
+	position: fixed;
+	padding-left:30%;
+	padding-right:30%;
+	margin:0 auto;
+}
+.border_thin{
+	border-top:1px solid #dddddd;
+	border-bottom:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+}
+.border_thin_1{
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	padding-top: 11px;
+	padding-bottom: 11px;
+}
+.border_thin_2{
+	border-bottom:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	padding-bottom: 11px;
+}
+.register_style{
+	width: 100%;
+	height: 60%;
+	padding-left:30%;
+	padding-right:30%;
+	margin:0 auto;
+}
+.register_border{
+	width: 20%;
+	position: fixed;
+	padding-top:11px;
+	padding-left:33px;
+	padding-right:33px;
+	padding-bottom:11px;
+}
+.showall_style{
+/* 	width:100%; */
+/* 	margin:0 auto;	 */
+}
+.nav_back{
+	width:55px;
+	height:55px;
+}
+
+.icon {
+/*   width: 1em; */
+/*   height: 1em; */
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.icon_back{
+	
+	height:35px;
+	width:25px;
+	color: #ffffff;
+}
+
+.overflow_char{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;/*显示几行*/
+	overflow: hidden;
+}
+.menu-nav{
+	
+}
