@@ -1,4 +1,6 @@
 # JSP-ManageSystem
+CN：
+
 管理后台基础代码(jsp+servlet)
 
 测试网站：http://47.102.117.38/ManageSystem/ChairC_Index.jsp
@@ -38,11 +40,12 @@ CREATE TABLE `user_message_info` (
   `m_info` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`m_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
-
-Management background code (jsp+servlet)
+ 
+ 
+ 
+EN： 
+ 
+Management basic code (jsp+servlet)
 
 Test website: http://47.102.117.38/ManageSystem/ChairC_Index.jsp
 
