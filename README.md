@@ -4,7 +4,9 @@
 测试网站：http://47.102.117.38/ManageSystem/ChairC_Index.jsp
 
 数据库：mysql8.0
+
 IDE：eclipse/VSCode
+
 部署服务器：apache-tomcat-8.0.39
 
 数据库表名：
@@ -45,7 +47,9 @@ Management background code (jsp+servlet)
 Test website: http://47.102.117.38/ManageSystem/ChairC_Index.jsp
 
 Database: mysql8.0
+
 IDE: eclipse/VSCode
+
 Deployment server: apache-tomcat-8.0.39
 
 Database table name:
