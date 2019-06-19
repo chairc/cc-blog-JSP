@@ -1,8 +1,11 @@
 # JSP
 ManageSystem(jsp+servlet)
+
 数据库：mysql8.0
 IDE：eclipse/VSCode
+
 数据库表名：
+
 1)
 CREATE TABLE `user_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
