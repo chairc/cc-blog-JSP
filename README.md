@@ -1,4 +1,7 @@
-# JSP
+# JSP-ManageSystem
+
+测试网站：http://47.102.117.38/ManageSystem/ChairC_Index.jsp
+
 ManageSystem(jsp+servlet)
 
 数据库：mysql8.0
