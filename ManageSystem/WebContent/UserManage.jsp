@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>ChairC's Blog - 修改个人资料</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -78,18 +79,18 @@
 							</div>
 							<div style="text-align: center; padding-top: 8px;">
 								<div style="float: left; width: 50%;">
-									<input class="btn btn-primary" type="reset" style="width: 80%"
+									<input class="btn btn-primary" type="reset" style="width: 80%;cursor: pointer;"
 										value="重置">
 								</div>
 								<div style="float: left; width: 50%;">
 									<input class="btn btn-primary" type="button"
-										onclick="JavaScript:history.go(-1)" style="width: 80%"
+										onclick="JavaScript:history.go(-1)" style="width: 80%;cursor: pointer;"
 										value="返回">
 								</div>
 							</div>
 							<div
 								style="text-align: center; float: left; width: 100%; padding-top: 20px;">
-								<input class="btn btn-primary" type="submit" style="width: 90%"
+								<input class="btn btn-primary" type="submit" style="width: 90%;cursor: pointer;" 
 									value="修改">
 							</div>
 						</form>

@@ -7,11 +7,54 @@
 %>
 <!DOCTYPE html>
 <html>
+<!-- 
+	别看了 这只小猪就是你！
+
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO@@@@@@@@OOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO@@[`          .[\@@@@OOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO@/                    [@@@OOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO@/                        =@OOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOO@@@@/[[[[[[\`.]@@@].                    ,@@OOOOOOOO
+OOOOOOOOOOOOOO`   /@[.             /^     ,@.                   .@@OOOOOOO
+OOOOOOOOOOOO/   /[                          \`                   .@OOOOOOO
+OOOOOOOOOOOO../` .             .`            @.                   =@OOOOOO
+OOOOOOOOOOOO@/  ,..           ..,.       .   =^                    @OOOOOO
+OOOOOOOOOOO@`                             \]. \`       .           =@OOOOO
+OOOOOOOOOO@`                                 ,[.      O            =@OOOOO
+OOOOOOOOO@^ =====           =====                    /`            @OOOOOO
+OOOOOOOO/.    ______________         .              .@            =@OOOOOO
+OOOOOO@^     / @        @  @\                       .@           ,@OOOOOOO
+OOOOOO@.     |@ @      @ @  |                .\      \\         ,@OOOOOOOO
+OOOOOO@^     \ @        @   /`               .@.      ,@\      /@OOOOOOOOO
+OOOOOOO@^     \____________/                 =@ .\     ./@@[.,@OOOOOOOOOOO
+OOOOOOOOO@\`                                //.   /...]@@\ .]@@OOOOOOOOOOO
+OOOOOOOOOOOO@@\]`                       .]@@\]]`,@@OOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOO@@@]]]]]]]]/@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+				↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+						这就是你！！！！！
+	
+	我是彩蛋！
+	你居然还能发现！
+	看来你很喜欢看控制台！
+	不如你帮我写前端吧！
+	我想要很炫的那种
+	
+	好的我是铁直男！
+	 
+-->
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Success!</title>
+<title>ChairC's Blog - 关于我们</title>
 <link rel="stylesheet"
 	 href="${pageContext.request.contextPath}/css/flat-ui.css" 
 	 type="text/css">
@@ -43,5 +86,4 @@
 	</div>
 	
 </body>
-
 </html>

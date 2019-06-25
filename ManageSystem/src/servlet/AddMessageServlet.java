@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -26,16 +28,19 @@ public class AddMessageServlet extends HttpServlet{
 		String addmessagename=new String(request.getParameter("addmessagename").getBytes("ISO-8859-1"),"utf-8");		
 		String addmessageinfo=new String(request.getParameter("addmessageinfo").getBytes("ISO-8859-1"),"utf-8");
 		
+		String servertime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		
 		MessageInfo msg=new MessageInfo();
 		
 		msg.setAddmessagename(addmessagename);
 		msg.setAddmessageinfo(addmessageinfo);
+		msg.setServertime(servertime);
 		
 		ShowInfo addmsg=new ShowInfoImpl();
 		
 		if(addmsg.addmsinfo(msg)) {
 			request.setAttribute("msginfo", msg);  //向request域中放置参数
-			request.getRequestDispatcher("/MessageServlet").forward(request, response);  //转发到登录页面
+			request.getRequestDispatcher("/MessageIndexServlet").forward(request, response);  //转发到登录页面
 		}
 	}
 }

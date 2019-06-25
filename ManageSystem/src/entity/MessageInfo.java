@@ -9,6 +9,7 @@ public class MessageInfo {
 	private int addmessageid;
 	private String addmessagename;
 	private String addmessageinfo;
+	private String servertime;
 	
 	
 	public int getMessageid() {
@@ -65,6 +66,14 @@ public class MessageInfo {
 
 	public void setAddmessageid(int addmessageid) {
 		this.addmessageid = addmessageid;
+	}
+
+	public String getServertime() {
+		return servertime;
+	}
+
+	public void setServertime(String servertime) {
+		this.servertime = servertime;
 	}
 
 }

@@ -22,7 +22,7 @@ public class JsonSelect {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cy?useUnicode = true&characterEncoding = utf-8&useSSL = false&serverTimezone = GMT&allowPublicKeyRetrieval=true","root","*19980424*");
-			String sql = "select id,name,pwd,sex,home,info from user_info";
+			String sql = "select id,name,pwd,sex,home,info,servertime,ip from user_info";
 			PreparedStatement pstmt = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 
 			rs = pstmt.executeQuery();

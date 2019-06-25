@@ -5,13 +5,25 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<% String name = (String)session.getAttribute("username"); %>
 <!DOCTYPE html>
 <html>
+<!-- 
+	如果你在关于我们里一条一条控制台打开属性！
+	也许会在关于我们那个连接里的iframe里找到点神奇的东西呢！
+	
+	还有！内心呐喊！
+	
+	<script type="text/javascript">
+		alert("内心OS：我想要个牛批的前端！给我写超炫的那种页面！");
+	</script>
+-->
+ 
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Success!</title>
+<title>欢迎<%=name%>来到个人空间</title>
 <link rel="stylesheet"
 	 href="${pageContext.request.contextPath}/css/flat-ui.css" 
 	 type="text/css">
@@ -38,12 +50,8 @@
 		<div class="swiper-wrapper"
 			style="transition-duration: 0ms; transform: translate3d(-320px, 0px, 0px);">
 			<div class="swiper-slide menu swiper-slide-prev">
-<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;">菜单幻灯片</font></font> -->
 				<div class="menu" style="">
 					<div style="text-align: center;">
-						
-						<% String name = (String)session.getAttribute("username"); %>
 						<img src="avatorImg/<%=name%>header.jpg" class="menu-nav-img"><br>
 						<%=name%>
 					</div>
@@ -52,9 +60,9 @@
 					<a href="UserManage.jsp" target="aaa">修改信息</a><br>
 					<a href="MessageServlet" target="aaa">留言板</a><br>
 					<a href="Donation.jsp" target="_blank">前去赞助</a><br>
-					
+					<a href="SearchLoginLogServlet" target="aaa">登陆日志</a><br>
 					<a href="Aboutus.jsp" target="aaa">关于我们</a><br>
-					<a href="showinfo">退出</a>
+					<a href="ChairC_Index.jsp">退出</a>
 				</div>
 			</div>
 			<div class="swiper-slide content swiper-slide-active">
@@ -68,8 +76,10 @@
 					</div>
 					<div class="menu-artical swiper-no-swiping">
 						<ul class="menu-artical-ul">
-							<li id="liclick" class="menu-artical-li" style="width: 60px;">
-								<a href="showinfo">退出</a>
+							<li id="liclick" class="menu-artical-li" style="width: 50px;">
+								<a href="ChairC_Index.jsp">
+									<div>退出</div>
+								</a>
 							</li>
 							<li class="menu-artical-li" style="width:auto;">
 								<a id="btn_1" onclick="abc1()" style="cursor: pointer;">
@@ -81,9 +91,14 @@
 									</div>										
 								</a>								
 							</li>
-							<li id="liclick" class="menu-artical-li" style="width: 60px;">
+							<li id="liclick" class="menu-artical-li" style="width: 50px;">
 								<a href="IframeIndex.jsp" target="aaa">
-									主页
+									<div>主页</div>
+								</a>
+							</li>
+							<li id="liclick" class="menu-artical-li" style="width: 50px;">
+								<a href="ChairC_Index.jsp">
+									<div>Blog</div>
 								</a>
 							</li>
 						</ul>
@@ -91,13 +106,9 @@
 				</div>
 				
 				<div style="width: 100%;height: 100%;">
-					<iframe src="IframeIndex.jsp" frameborder="no" border="0" name="aaa" style="width: 100%;height: 100%;padding-top: 65px;">
+					<iframe src="IframeIndex.jsp" frameborder="no" border="0" name="aaa" style="width: 100%;height:100%;padding-top: 65px;">
 					
 					</iframe>
-				
-				
-<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;"> 内容幻灯片 </font></font> -->
 				</div>
 				
 				

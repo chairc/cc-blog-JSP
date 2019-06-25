@@ -5,13 +5,14 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<% String name = (String)session.getAttribute("username"); %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Success!</title>
+<title>欢迎<%=name%>来到个人空间</title>
 <link rel="stylesheet"
 	 href="${pageContext.request.contextPath}/css/flat-ui.css" 
 	 type="text/css">
@@ -39,24 +40,26 @@
 		<div class="swiper-wrapper"
 			style="transition-duration: 0ms; transform: translate3d(-320px, 0px, 0px);">
 			<div class="swiper-slide menu swiper-slide-prev">
-<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;">菜单幻灯片</font></font> -->
 				<div class="menu" style="">
 					<div style="text-align: center;">
-						<% String name = (String)session.getAttribute("username"); %>
 						<img src="avatorImg/<%=name%>header.jpg" class="menu-nav-img"><br>
 						
 						<%=name%>
 					</div>
-					<a href="IframeIndex.jsp" target="aaa">主界面</a><br>
+<!-- 					<ul class="aaa"> -->
+<!-- 						<li data-id="iframeindex">主界面</li> -->
+<!-- 						<li data-id="showall">主界面</li> -->
+<!-- 					</ul> -->
+					<a href="IframeIndex.jsp" target="aaa">主界面</a><br> 
 					<a href="Success_layui.jsp">layui界面</a><br>
 					<a href="ShowAll_new.jsp" target="aaa">查看所有用户</a><br>
 					<a href="Editall" target="aaa">编辑所有用户</a><br>
 					<a href="Editinfo" target="aaa">修改信息</a><br>
+					<a href="SearchLoginLogServlet" target="aaa">登陆日志</a><br>
 					<a href="MessageServlet" target="aaa">留言板</a><br>
 					<a href="Donation.jsp" target="_blank">前去赞助</a><br>
 					<a href="Aboutus.jsp" target="aaa">关于我们</a><br>
-					<a href="showinfo">退出</a>
+					<a href="ChairC_Index.jsp">退出</a>
 				</div>
 			</div>
 			<div class="swiper-slide content swiper-slide-active">
@@ -70,8 +73,10 @@
 					</div>
 					<div class="menu-artical swiper-no-swiping">	
 						<ul class="menu-artical-ul">
-							<li id="liclick" class="menu-artical-li" style="width: 60px;">
-								<a href="showinfo">退出</a>
+							<li id="liclick" class="menu-artical-li" style="width: 50px;">
+								<a href="ChairC_Index.jsp">
+									<div>退出</div>
+								</a>
 							</li>
 							<li class="menu-artical-li" style="width:auto;">
 								<a id="btn_1" onclick="abc1()" style="cursor: pointer;">
@@ -83,23 +88,28 @@
 									</div>										
 								</a>								
 							</li>
-							<li id="liclick" class="menu-artical-li" style="width: 60px;">
+							<li id="liclick" class="menu-artical-li" style="width: 50px;">
 								<a href="IframeIndex.jsp" target="aaa">
-									主页
+									<div>主页</div>
+								</a>
+							</li>
+							<li id="liclick" class="menu-artical-li" style="width: 50px;">
+								<a href="ChairC_Index.jsp">
+									<div>Blog</div>
 								</a>
 							</li>
 						</ul>					
 					</div>
 				</div>
 				
-				<div style="width: 100%;height: 100%;">
-					<iframe src="IframeIndex.jsp" frameborder="no" border="0" name="aaa" style="width: 100%;height: 100%;padding-top: 65px;">
+				<div id="aaa" style="width: 100%;height: 100%;">
+					
+					<iframe id="aaa" src="IframeIndex.jsp" scrolling="yes" 
+					frameborder="no" border="0" name="aaa" sandbox="allow-scripts allow-forms"
+					style="width: 100%;height:100%;padding-top: 65px;overflow: scroll;">
 					
 					</iframe>
 				
-				
-<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;"> 内容幻灯片 </font></font> -->
 				</div>
 
 
@@ -215,6 +225,48 @@
 		window.opener.location.reload();//刷新Success_new.jsp
 		
 		}
+	
+	function setIframeHeight(id){
+        try{
+            var iframe = document.getElementById("aaa");
+            if(iframe.attachEvent){
+                iframe.attachEvent("onload", function(){
+                    iframe.height =  iframe.contentWindow.document.documentElement.scrollHeight;
+                });
+                return;
+            }else{
+                iframe.onload = function(){
+                    iframe.height = iframe.contentDocument.body.scrollHeight;
+
+                };
+                return;
+            }
+        }catch(e){
+            console.warn('setIframeHeight Error');
+        }
+    }
+	
+	
+	
+// 	$(function(){
+// 	    $(".aaa").on("click", "li", function(){
+// 	        var sId = $(this).data("id");  //获取data-id的值
+// 	        window.location.hash = sId;  //设置锚点
+// 	        loadInner(sId);
+// 	    });
+// 	    function loadInner(sId){
+// 	        var sId = window.location.hash;
+// 	        var pathn, i;
+// 	        switch(sId){
+// 	            case "#iframeindex": pathn = "IframeIndex.jsp"; i = 0; break;
+// 	            case "#showall": pathn = "Showall"; i = 1	; break;
+// 			}
+// 	        $("#aaa").load(pathn); //加载相对应的内容
+// 	       // $(".aaa li").eq(i).addClass("current").siblings().removeClass("current"); //当前列表高亮
+// 	    }
+// 	    var sId = window.location.hash;
+// 	    loadInner(sId);
+// 	});
 </script>
 
 </html>

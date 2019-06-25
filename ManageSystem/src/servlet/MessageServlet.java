@@ -22,9 +22,25 @@ public class MessageServlet extends HttpServlet{
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ShowInfo addms=new ShowInfoImpl();
-		List<MessageInfo> addmsall=addms.showmsinfo();
-		request.setAttribute("MessageAll", addmsall);
-		request.getRequestDispatcher("/Message.jsp").forward(request, response);
+		if(request.getParameter("page")!=null) {
+			String page = new String(request.getParameter("page").getBytes("ISO-8859-1"),"utf-8");
+			int curPage = Integer.parseInt(page);
+			request.getSession().setAttribute("pagenum",page);
+			
+			ShowInfo addms=new ShowInfoImpl();
+			List<MessageInfo> addmsall=addms.showmsinfo(curPage);
+			request.setAttribute("MessageAll", addmsall);
+			request.getRequestDispatcher("/Message.jsp").forward(request, response);
+		}else {
+			String page="1";
+			int curPage = 1;
+			request.getSession().setAttribute("pagenum",page);
+			
+			ShowInfo addms=new ShowInfoImpl();
+			List<MessageInfo> addmsall=addms.showmsinfo(curPage);
+			request.setAttribute("MessageAll", addmsall);
+			request.getRequestDispatcher("/Message.jsp").forward(request, response);
+		}
+		
 	}
 }

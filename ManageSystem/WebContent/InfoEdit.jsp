@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
 <base href="<%=basePath%>">
-<title>信息发布修改</title>
+<title>ChairC's Blog - 信息发布修改</title>
 </head>
   
 <body>

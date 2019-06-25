@@ -17,6 +17,10 @@
     <servlet-class>servlet.LoginServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>LoginBackstageServlet</servlet-name>
+    <servlet-class>servlet.LoginBackstageServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>servlet.RegisterServlet</servlet-class>
   </servlet>
@@ -53,6 +57,10 @@
     <servlet-class>servlet.MessageServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>MessageIndexServlet</servlet-name>
+    <servlet-class>servlet.MessageIndexServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>AddMessageServlet</servlet-name>
     <servlet-class>servlet.AddMessageServlet</servlet-class>
   </servlet>
@@ -76,11 +84,23 @@
     <servlet-name>PortraitServlet</servlet-name>
     <servlet-class>servlet.PortraitServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SearchLoginLogServlet</servlet-name>
+    <servlet-class>servlet.SearchLoginLogServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Page</servlet-name>
+    <servlet-class>servlet.Page</servlet-class>
+  </servlet>
 
   
   <servlet-mapping><!--servlet类映射配置-->
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginBackstageServlet</servlet-name>
+    <url-pattern>/LoginBackstageServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
@@ -119,6 +139,10 @@
     <url-pattern>/MessageServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+    <servlet-name>MessageIndexServlet</servlet-name>
+    <url-pattern>/MessageIndexServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>AddMessageServlet</servlet-name>
     <url-pattern>/AddMessageServlet</url-pattern>
   </servlet-mapping>
@@ -142,6 +166,14 @@
     <servlet-name>PortraitServlet</servlet-name>
     <url-pattern>/PortraitServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchLoginLogServlet</servlet-name>
+    <url-pattern>/SearchLoginLogServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Page</servlet-name>
+    <url-pattern>/Page</url-pattern>
+  </servlet-mapping>
 
 
 	<jsp-config>
@@ -153,6 +185,7 @@
 
   
    <welcome-file-list><!--默认首地址 -->
-    <welcome-file>Index.jsp</welcome-file>
+    <welcome-file>ChairC_Index.jsp</welcome-file>
   </welcome-file-list>
+<!-- 其实都已经servlet3.0版本以上了，我还用web.xml配置，真的懒得改了！嗝儿！ -->
 </web-app>

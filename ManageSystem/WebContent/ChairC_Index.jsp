@@ -11,9 +11,9 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>ChairC的Blog</title>
+<title>ChairC's Blog - 首页</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet"
 	 href="${pageContext.request.contextPath}/css/flat-ui.css" 
 	 type="text/css">
@@ -60,34 +60,34 @@
                             <!--这是名字1的链接地址-->
                             <a class="header__link subdued" href="">
                                 <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon icon-pic iconfont"></span>
+                                <span aria-hidden="true" class="icon-pic iconfont"></span>
                                 <!--这是名字1-->
                                 <span class="complimentary push--left">@PIC</span>
                             </a>
                         </li>
                         <li class="nav__item ">
                             <!--这是名字2的链接地址-->
-                            <a class="header__link subdued" href="Message.jsp">
+                            <a class="header__link subdued" href="MessageIndexServlet">
                                 <!--这是图标2（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon icon-comments iconfont"></span>
+                                <span aria-hidden="true" class="icon-comments iconfont"></span>
                                 <!--这是名字2-->
-                                <span class="complimentary push--left">@COMM</span>
+                                <span class="complimentary push--left">留言板</span>
                             </a>
                         </li>
                         <li class="nav__item ">
                             <!--这是名字3的链接地址-->
-                            <a class="header__link subdued" href="showinfo">
+                            <a class="header__link subdued" href="LoginBackstageServlet">
                                 <!--这是图标3（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon icon-denglu iconfont"></span>
+                                <span aria-hidden="true" class="icon-denglu iconfont"></span>
                                 <!--这是名字3-->
-                                <span class="complimentary push--left">@LOGIN</span>
+                                <span class="complimentary push--left">个人</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
-                <a href="" class="brand header__link">
+                <a href="ChairC_Index.jsp" class="brand header__link">
                     <!--这是主页标签-->
-                    <b class="brand__forename">ChairC的Blog</b><b class="brand__surname"></b>
+                    <b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
                 </a>
             </div>
         </header>
@@ -118,7 +118,22 @@
                 </p>
                 <p>
                     <font style="vertical-align: inherit;"> <font
-                        style="vertical-align: inherit;"><font color="#E74C3C">施工进度：</font>用户头像上传（<font color="#E74C3C">已完成</font>）</font>
+                        style="vertical-align: inherit;"><font color="#E74C3C">施工进度：</font>！！IPhone兼容性严重问题！！（<font color="#E74C3C">未完成！！严重！</font>）</font>
+                    </font>
+                </p>
+                <p>
+                    <font style="vertical-align: inherit;"> <font
+                        style="vertical-align: inherit;">分页系统（<font color="#E74C3C">已完成</font>）</font>
+                    </font>
+                </p>
+                <p>
+                    <font style="vertical-align: inherit;"> <font
+                        style="vertical-align: inherit;">用户登录时间日志（<font color="#E74C3C">已完成</font>）</font>
+                    </font>
+                </p>
+                <p>
+                    <font style="vertical-align: inherit;"> <font
+                        style="vertical-align: inherit;">用户头像上传（<font color="#E74C3C">已完成</font>）</font>
                     </font>
                 </p>
                 <p>
@@ -151,7 +166,7 @@
 
             </div>
             <div class="index_bottom" style="padding-bottom:20px;">
-                <form action="showinfo">
+                <form action="LoginBackstageServlet">
                     <input class="btn btn-primary" type="submit" value="进入"
                         style="width: 100px;; margin-top: 40px;cursor:pointer; ">
                 </form>
@@ -185,11 +200,7 @@
 
             </div>
         </div>
-    </div>
-    
-
-
-    
+    </div>    
 </body>
 <script src="./js/Index/index_main.js"></script>
 
@@ -221,6 +232,9 @@
         //    });
         //    bttHeadroom.init();
     }());
+    
+    
+    
 </script>
 
 <!--******************************上面是导航栏方法******************************-->

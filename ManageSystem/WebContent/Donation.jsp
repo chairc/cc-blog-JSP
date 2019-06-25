@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="${pageContext.request.contextPath}/css/flat-ui.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/js/iconfont.js"></script>
-<title>Donation!</title>
+<title>ChairC's Blog - 赞助</title>
 <style type="text/css">
 .donation_style{
 	width: 100%;

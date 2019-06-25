@@ -926,7 +926,7 @@ code {
 .nav__item {
     display: inline-block;
     height: 65px;
-
+	opacity:0.8;
 }
 
 @media screen and (min-width:40em) {
@@ -977,7 +977,9 @@ code {
 }
 
 .nav--main .nav__item:hover {
-    background-color: rgba(78, 205, 196, 0.1)
+/*     background-color: rgba(78, 205, 196, 0.1) */
+	background-color:#34495e;
+		
 }
 
 .nav--main .nav__item--current a {
@@ -1465,8 +1467,8 @@ p+h3 {
 }   
 
 a.subdued:hover {
-    /*color: #fff;*/
-    color: #1abc9c;
+    color: #fff;
+/*     color: #1abc9c; */
 }
 
 .animated {

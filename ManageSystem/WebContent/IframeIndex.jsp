@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </style>
 
-<title>IframeIndex</title>
+<title>ChairC's Blog - 个人中心主页面</title>
 </head>
 <body>
 	<div>
@@ -156,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</div>
 						<div class="div_s_b">
-							<a href="http://47.102.117.38/demo/Headroom.js.html">demo网站</a>
+							<a href="http://47.102.117.38/demo/Headroom.js.html">网站</a>
 						</div>
 					</div>
 					<div class="div_s">
@@ -168,7 +168,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</div>
 						<div class="div_s_b">
-							<a href="http://47.102.117.38/plane/plane.html">飞机小游戏</a>
+							<a href="http://47.102.117.38/plane/plane.html">飞机</a>
 						</div>
 					</div>
 					<div class="div_s">
@@ -211,14 +211,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="div_s">
 						<div class="div_s_t">
-							<a href="">
+							<a href="UserManage.jsp">
 								<svg class="icon" aria-hidden="true">
   									<use xlink:href="#icon-tixingshixiang"></use>
 								</svg>
 							</a>
 						</div>
 						<div class="div_s_b">
-							<a href="">提醒</a>
+							<a href="UserManage.jsp">修改信息</a>
 						</div>
 					</div>
 					<div class="div_s">
@@ -337,7 +337,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-
 </body>
 
 <script type="text/javascript">

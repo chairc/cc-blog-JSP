@@ -11,7 +11,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Success!</title>
+<title>ChairC's Blog - 出现了一点意外</title>
 <link rel="stylesheet"
 	 href="${pageContext.request.contextPath}/css/bootsreap.min.css" 
 	 type="text/css">
@@ -37,8 +37,6 @@
 		<div class="swiper-wrapper"
 			style="transition-duration: 0ms; transform: translate3d(-320px, 0px, 0px);">
 			<div class="swiper-slide menu swiper-slide-prev">
-<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;">菜单幻灯片</font></font> -->
 				<div class="menu" style="">
 					<a href="MessageServlet" target="aaa">留言板</a><br>
 					<a href="Donation.jsp" target="_blank">前去赞助</a><br>
@@ -71,23 +69,16 @@
 								<a href="showinfo">返回登录界面</a>
 							</div>
 							<div>
-								<a href="Register.jsp">返回注册界面</a>
+								<a href="Register_new.jsp">返回注册界面</a>
 							</div>
-							<!-- 				<div> -->
-							<!-- 					<a href="showinfo">返回今日事件</a> -->
-							<!-- 				</div> -->
 							<div>
-								<a href="showinfo">返回主界面</a>
+								<a href="ChairC_Index.jsp">返回主界面</a>
 							</div>
 							<div>
 								<a href="Donation.jsp" target="_blank">赞助一波？</a>
 							</div>
 						</div>
 					</div>
-
-
-					<!-- 				<font style="vertical-align: inherit;"><font -->
-					<!-- 					style="vertical-align: inherit;"> 内容幻灯片 </font></font> -->
 				</div>
 			</div>
 		</div>

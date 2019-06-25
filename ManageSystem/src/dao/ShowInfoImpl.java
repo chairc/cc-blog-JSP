@@ -77,16 +77,21 @@ public class ShowInfoImpl implements ShowInfo {
 
 
 	@Override
-	public List<MessageInfo> showmsinfo() {//留言板显示信息
+	public List<MessageInfo> showmsinfo(int Page) {//留言板显示信息
+		int curPage = Page;
+		int pageSize = 8;
+		int startRow = (curPage - 1) * pageSize;		
+		
 		List<MessageInfo> msg_list = new ArrayList<MessageInfo>();
 		try {
 			DBconn.init();
-			ResultSet rs= DBconn.selectSql("select * from user_message");
+			ResultSet rs= DBconn.selectSql("select * from user_message limit "+startRow+",8");
 			while (rs.next()) {
 				MessageInfo setms=new MessageInfo();
 				setms.setAddmessageid(rs.getInt("addmessageid"));
 				setms.setAddmessagename(rs.getString("addmessagename"));
 				setms.setAddmessageinfo(rs.getString("addmessageinfo"));
+				setms.setServertime(rs.getString("servertime"));
 				msg_list.add(setms);
 			}
 					
@@ -104,8 +109,8 @@ public class ShowInfoImpl implements ShowInfo {
 	public boolean addmsinfo(MessageInfo msg) {//留言板存入信息
 		boolean flag = false;
 		DBconn.init();
-		int i =DBconn.addUpdDel("insert into user_message(addmessagename,addmessageinfo)" +
-				"values('"+msg.getAddmessagename()+"','"+msg.getAddmessageinfo()+"')");			
+		int i =DBconn.addUpdDel("insert into user_message(addmessagename,addmessageinfo,servertime)" +
+				"values('"+msg.getAddmessagename()+"','"+msg.getAddmessageinfo()+"','"+msg.getServertime()+"')");			
 		if(i>0){
 			flag = true;		
 		}

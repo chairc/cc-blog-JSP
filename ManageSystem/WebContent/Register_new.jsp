@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Success!</title>
+<title>ChairC's Blog - 注册</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css" 
 	type="text/css">
@@ -40,10 +40,8 @@
 		<div class="swiper-wrapper"
 			style="transition-duration: 0ms; transform: translate3d(-320px, 0px, 0px);">
 			<div class="swiper-slide menu swiper-slide-prev">
-<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;">菜单幻灯片</font></font> -->
 				<div class="menu" style="">
-					<a href="Index.jsp">公告</a><br>
+					<a href="ChairC_Index.jsp">Blog</a><br>
 					<a href="showinfo">登录</a><br>
 					<a href="Donation.jsp" target="_blank">前去赞助</a><br>
 					<a href="Aboutus.jsp" target="_blank">关于我们</a><br>
@@ -100,13 +98,6 @@
 										<div style="padding-top: 13px;">
 											<input class="form-control" name="home" type="text"
 												placeholder="请输入家乡">
-<!-- 											选择家乡: <select name="home"> -->
-<!-- 												<option value="上海">上海</option> -->
-<!-- 												<option value="北京" selected>北京</option> -->
-<!-- 												<option value="济南">济南</option> -->
-<!-- 												<option value="杭州">杭州</option> -->
-<!-- 												<option value="海外">海外</option> -->
-<!-- 											</select> -->
 										</div>
 										<div style="padding-top: 13px;">
 											<textarea class="form-control" name="info" row="5" cols="30" placeholder="请填写个人信息"></textarea>
@@ -123,21 +114,14 @@
 											<input class="btn btn-primary" type="submit" style="width: 90%" value="注册">
 										</div>
 									</form>
-
 								</div>
-
-
 							</div>
 						</div>
 					</div>
-
-					<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;"> 内容幻灯片 </font></font> -->
 				</div>
 			</div>
 		</div>
-		<span class="swiper-notification" aria-live="assertive"
-			aria-atomic="true"></span>
+		<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
 	</div>
 </body>
 <script type="text/javascript">

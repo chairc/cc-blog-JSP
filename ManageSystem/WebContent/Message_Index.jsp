@@ -1,30 +1,49 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8" isELIgnored="false"%>
-<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
-
+<% 
+String name = (String)session.getAttribute("username"); 
+String P = (String)session.getAttribute("pagenum");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>ChairC's Blog - 留言板</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link href="${pageContext.request.contextPath}/css/flat-ui.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
-<script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
+<link rel="stylesheet"
+	 href="${pageContext.request.contextPath}/css/flat-ui.css" 
+	 type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/swiper.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/main.css"
+	type="text/css">
+<script src="${pageContext.request.contextPath}/js/swiper.min.js"
+	type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" charset="UTF-8"
+	href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-<script src="./js/Index/index_main.js"></script>
-<base href="<%=basePath%>">
-<title>ChairC's Blog - 写留言</title>
+	
+	
 </head>
-
 <body>
-	<div>
+
+
+
+    <!--******************************下面是导航栏导航栏******************************-->
+
+    <div>
         <header id="header" class="header header--fixed hide-from-print animated slideDown" role="banner">
             <div class="container">
                 <nav id="nav" class="nav-wrapper" role="navigation">
@@ -65,53 +84,71 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </header>
     </div>
-    
-    
+
+    <!--******************************上面是导航栏导航栏******************************-->
+
+
+
+    <!--******************************下面是主页内容******************************-->
 	<div
 		style="width: 100%; height: 2500px; padding-top: 75px; background-color: #fff;">
 		<div style="text-align: center; padding-left: 5%; padding-right: 5%;">
-			<div style="width: 100%; height: 150px; text-align: left;">
+			<div style="width: 100%; height: 200px; text-align: left;">
 				<div style="width: 100%; float: left; padding-left: 3%;">
 					<h3 style="margin-top: 30px;margin-bottom: 15px;">留言板</h3>
 				</div>
+				<div style="width: 100%; float: left; padding-left: 3%; padding-top: 10px;">
+					<a href="AddMessage.jsp"> <input class="btn btn-default"
+						type="submit" value="我要留言" />
+					</a>
+				</div>
 			</div>
 
-			<div style="width: 100%; padding-left: 30%; padding-right: 30%;">
-				<form action="AddMessageServlet" method="post">
-					<div style="">
-						<div>
-							<%
-								String name = (String) session.getAttribute("username");
-							%>
-							<input type="text" style="width: 100%;" class="form-control"
-								name="addmessagename" value="<%=name%>" readonly="readonly">
+			<div style="width: 80%; height: 2000px; margin: 0 auto; padding-bottom: 200px; padding-top: 10px; text-align: left;">
+				<form action="" method="post">
+					<c:forEach var="M" items="${MessageAll}">
+						<div style="border: 1px solid #dddddd; padding-top: 10px;">
+							<div>
+								<p>${M.addmessageid}楼</p>
+							</div>
+							<div>
+								<p>
+									<font color="#34495e">${M.addmessagename}</font>
+									&nbsp;&nbsp;&nbsp;&nbsp; <font color="#6c757d">${M.servertime}</font>
+								</p>
+							</div>
+							<div style="word-wrap: break-word">
+								<p>${M.addmessageinfo}</p>
+							</div>
 						</div>
-						<div style="padding-top: 10px;">
-							<textarea class="form-control" name="addmessageinfo" row="5"
-								cols="30" style="height: 200px; width: 100%;" maxlength="120"></textarea>
+					</c:forEach>
+					<div style="padding-top: 10px;">
+						<div style="float: left; padding-right: 10px;">
+							<input id="maipageprev" name="maipageprev" type="submit"
+								formaction="Page" class="btn btn-primary" value="上一页">
 						</div>
-					</div>
-					<div style="padding-top: 55px; text-align: center;">
-						<div style="float: left; width: 50%;">
-							<input class="btn btn-primary" type="reset" style="width: 80%"
-								value="重置">
+						<div style="float: left; padding-right: 10px;">
+							<input id="maipagenext" name="maipagenext" type="submit"
+								formaction="Page" class="btn btn-primary" value="下一页">
 						</div>
-						<div style="float: left; width: 50%;">
-							<input class="btn btn-primary" type="submit" style="width: 80%"
-								value="留言">
+						<div style="float: left; padding-right: 10px;">
+							<input id="page" type="number" name="page" value="<%=P%>"
+								placeholder="输入页码" required="required" class="form-control"
+								style="width: 100px;">
 						</div>
-					</div>
-					<div
-						style="text-align: center; float: left; width: 100%; padding-top: 20px;">
-						<input class="btn btn-primary" type="button"
-							onclick="JavaScript:history.go(-1)" style="width: 90%" value="返回">
+						<div style="float: left;">
+							<input id="pageclick" type="submit"
+								formaction="MessageIndexServlet" class="btn btn-primary"
+								value="跳转">
+						</div>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-  	
 </body>
+<script src="./js/Index/index_main.js"></script>
+
 <script>
     //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓下面是导航栏隐藏↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
@@ -140,9 +177,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         //    });
         //    bttHeadroom.init();
     }());
-    
-    
-    
 </script>
 
 <!--******************************上面是导航栏方法******************************-->

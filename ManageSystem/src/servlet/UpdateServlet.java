@@ -39,7 +39,7 @@ public class UpdateServlet extends HttpServlet {
 		
 		if(ud.update(userId, name, pwd, sex, home, info)){
 			request.setAttribute("xiaoxi", "更新成功");
-			request.getRequestDispatcher("/Searchall").forward(request, response);
+			request.getRequestDispatcher("/Editall").forward(request, response);
 		}else{
 			response.sendRedirect("Failure.jsp");
 		}

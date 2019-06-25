@@ -5,6 +5,10 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<% 
+String name = (String)session.getAttribute("username");
+String P = (String)session.getAttribute("pagenum");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +26,17 @@
 	href="${pageContext.request.contextPath}/css/swiper.min.css"
 	type="text/css">
 <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/portrait.css?t="
+	type="text/css">
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/main.css"
 	type="text/css">
 <script src="${pageContext.request.contextPath}/js/swiper.min.js"
 	type="text/javascript"></script>
 <link type="text/css" rel="stylesheet" charset="UTF-8"
 	href="https://translate.googleapis.com/translate_static/css/translateelement.css">
-	
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/portrait.js?t="></script>		
 	
 </head>
 <body>
@@ -37,37 +45,60 @@
 		<div class="swiper-wrapper"
 			style="transition-duration: 0ms; transform: translate3d(-320px, 0px, 0px);">
 			<div class="swiper-slide menu swiper-slide-prev">
-<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;">菜单幻灯片</font></font> -->
 				<div class="menu" style="">
-					<a href="MessageServlet" target="aaa">留言板</a><br>
-					<a href="Donation.jsp" target="_blank">前去赞助</a><br>
-					<a href="About.jsp" target="_blank">关于我们</a><br>
+					<div style="text-align: center;">
+						<img src="avatorImg/<%=name%>header.jpg" class="menu-nav-img"><br>
+						
+						<%=name%>
+					</div>
+					<a href="IframeIndex.jsp">主界面</a><br> 
+					<a href="Success_layui.jsp">layui界面</a><br>
+					<a href="ShowAll_new.jsp">查看所有用户</a><br>
+					<a href="Editall">编辑所有用户</a><br>
+					<a href="Editinfo">修改信息</a><br>
+					<a href="SearchLoginLogServlet">登陆日志</a><br>
+					<a href="MessageServlet">留言板</a><br>
+					<a href="Donation.jsp">前去赞助</a><br>
+					<a href="Aboutus.jsp">关于我们</a><br>
+					<a href="showinfo">退出</a>
 				</div>
 			</div>
 			<div class="swiper-slide content swiper-slide-active">
 				<div>
-					<div class="menu-nav" style="width: 100%;height: 35px;">
-						<div class="menu-button">
+					<div class="menu-nav" style="width:100% ;height:65px;">
+						<div class="menu-button" style="float: left;">
 							<div class="bar"></div>
 							<div class="bar"></div>
 							<div class="bar"></div>					
-						</div>
-						<div>
-							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ul>
-						</div>
+						</div>						
 					</div>
-					<div class="menu-artical">
-					
+					<div class="menu-artical swiper-no-swiping">	
+						<ul class="menu-artical-ul">
+							<li id="liclick" class="menu-artical-li" style="width: 60px;">
+								<a href="showinfo">
+									<div>退出</div>
+								</a>
+							</li>
+							<li class="menu-artical-li" style="width:auto;">
+								<a id="btn_1" onclick="abc1()" style="cursor: pointer;">
+									<div style="float: left;padding-left: 10px;">									
+										<img src="avatorImg/<%=name%>header.jpg" class="menu-nav-img-s">																				
+									</div>										
+									<div style="float: left;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;padding-right: 10px;">
+ 										<%=name%>
+									</div>										
+								</a>								
+							</li>
+							<li id="liclick" class="menu-artical-li" style="width: 60px;">
+								<a href="IframeIndex.jsp" target="aaa">
+									<div>主页</div>
+								</a>
+							</li>
+						</ul>					
 					</div>
 				</div>
 				
-				<div style="width: 100%;height: 100%;">
+				<div style="width: 100%;height: 100%;overflow:scroll; ">
 					
 
 					<!-- 				<font style="vertical-align: inherit;"><font -->

@@ -13,7 +13,7 @@ public interface ShowInfo {
 
 	public boolean update(int messageid, String messagemaintitle, String messagetitle, String messageinfo);
 	
-	public List<MessageInfo> showmsinfo();//留言板信息展示
+	public List<MessageInfo> showmsinfo(int curPage);//留言板信息展示
 
 	public boolean addmsinfo(MessageInfo msg);//留言板留言
 

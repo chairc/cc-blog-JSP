@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Success!</title>
+<title>ChairC's Blog - 登录</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css" 
 	type="text/css">
@@ -40,10 +40,8 @@
 		<div class="swiper-wrapper"
 			style="transition-duration: 0ms; transform: translate3d(-320px, 0px, 0px);">
 			<div class="swiper-slide menu swiper-slide-prev">
-<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;">菜单幻灯片</font></font> -->
 				<div class="menu" style="">
-					<a href="Index_new.jsp">公告</a><br>
+					<a href="ChairC_Index.jsp">Blog</a><br>
 					<a href="Donation.jsp" target="_blank">前去赞助</a><br>
 					<a href="Aboutus.jsp" target="_blank">关于我们</a><br>
 				</div>
@@ -60,20 +58,20 @@
 					<div class="menu-artical swiper-no-swiping" style="z-index: 777;">
 						<ul class="menu-artical-ul">
 							<li id="liclick" class="menu-artical-li" style="width: 120px;">
-								<a href="Index_new.jsp">
-									主页
+								<a href="ChairC_Index.jsp">
+									<div>Blog</div>
 								</a>
 							</li>
 						</ul>
 					</div>					
 				</div>
-				<div style="width: 100%;height: 100%;" class="swiper-no-swiping">
+				<div style="width: 100%;height: 100%;overflow: scroll;" class="swiper-no-swiping">
 					<div style="position: absolute;z-index: 555;width: 100%;height: 100%;">
 						<div style="text-align: center;padding-top: 65px;width: 100%;">
 							<p><a id="a_click" href="showinfo" >今日事件：</a>Hello! Welcome to my Index!</p>
 						</div>
 						<div>
-							<div style="width: 100%; height: 210px; margin-top: 40px;"
+							<div style="width: 100%; height: 250px; margin-top: 40px;"
 								align="center">
 								<div style="width: 100%; height: 170px;position: absolute;z-index: 666;" align="center">
 									<c:forEach var="C" items="${InfoAll}">
@@ -92,8 +90,6 @@
 										<div
 											style="width: 100%;padding-top: 10px;">
 											<div style="text-align: center;">
-<!-- 												<div -->
-<!-- 													style="float: left; width: 35%; height: 42px; line-height: 42px;">用户名</div> -->
 												<div style="float: left; width: 95%;padding-left: 5%;">
 													<input class="form-control" type="text" name="name" placeholder="请输入用户名"
 														value="">
@@ -101,8 +97,6 @@
 											</div>
 
 											<div style="padding-top: 55px;text-align: center;">
-<!-- 												<div -->
-<!-- 													style="float: left; width: 35%; height: 42px; line-height: 42px;">密&nbsp;&nbsp;&nbsp;码</div> -->
 												<div style="float: left; width: 95%;padding-left: 5%;" >
 													<input class="form-control" type="password" name="pwd" placeholder="请输入密码"
 														value="">
@@ -128,15 +122,10 @@
 												type="submit" value="新用户注册">
 										</form>
 									</div>
-								</div>
-
-								
+								</div>								
 							</div>
 						</div>
 					</div>
-
-					<!-- 				<font style="vertical-align: inherit;"><font -->
-<!-- 					style="vertical-align: inherit;"> 内容幻灯片 </font></font> -->
 				</div>
 			</div>
 		</div>

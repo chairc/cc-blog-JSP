@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
 
 <base href="<%=basePath%>">
-<title>所有用户页面</title>
+<title>ChairC's Blog - 所有用户页面</title>
 <style type="text/css">
 .nav_all{
 	width:100%;
@@ -97,7 +97,9 @@ layui.use('table', function(){
       {field:'pwd', width:80, title: '密码', sort: true},
       {field:'sex', width:80, title: '性别'},
       {field:'home', width:80, title: '籍贯'},
-      {field:'info', width:160, title: '个人信息', sort: true}
+      {field:'info', width:160, title: '个人信息', sort: true},
+      {field:'servertime', width:200, title: '最后登录时间'},
+      {field:'ip', width:200, title: 'IP'}
     ]],
     page: true,
     limit:5,
@@ -105,9 +107,6 @@ layui.use('table', function(){
   });
 });
 </script>
-     
-          
-
 
 </body>
 </html>

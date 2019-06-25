@@ -5,7 +5,9 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%
+String P = (String)session.getAttribute("pagenum");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
 <base href="<%=basePath%>">
-<title>信息发布修改</title>
+<title>ChairC's Blog - 留言板</title>
 </head>
   
 <body>
@@ -40,31 +42,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 		<div style="width:80%;margin:0 auto;padding-bottom: 300px;padding-top: 10px;">
 			<!-- div -->
-			<c:forEach var="M" items="${MessageAll}">
-				<div style="border: 1px solid #dddddd;padding-top: 10px;">
-					<div>
-						<p>${M.addmessageid}</p>
+			<form action="" method="post">
+				<c:forEach var="M" items="${MessageAll}">
+					<div style="border: 1px solid #dddddd; padding-top: 10px;">
+						<div>
+							<p>${M.addmessageid}楼</p>
+						</div>
+						<div>
+							<p>
+								<font color="#34495e">${M.addmessagename}</font>
+								&nbsp;&nbsp;&nbsp;&nbsp; <font color="#6c757d">${M.servertime}</font>
+							</p>
+						</div>
+						<div style="word-wrap: break-word">
+							<p>${M.addmessageinfo}</p>
+						</div>
 					</div>
-					<div>
-						<p>${M.addmessagename}</p>
-					</div>
-					<div style="word-wrap: break-word">
-						<p>${M.addmessageinfo}</p>
-					</div>
-				</div>
-			</c:forEach>
-			
- 			<!-- table --> 
-<!-- 			<table width="500" border="1" cellpadding="0" style="border:0px;background:none;border-color: transparent;"> -->
-  				
-<%--      			<c:forEach var="M" items="${MessageAll}"> --%>
-<!--      				<tr> -->
-<%--      					<td><input type="text" value="${M.addmessageid}" name="addmessageid" style="width:30px;border:0px;background:none;" readonly="readonly"></td> --%>
-<%--        					<td><input type="text" value="${M.addmessagename}" name="addmessagename" style="width:50px;border:0px;background:none;" readonly="readonly"></td> --%>
-<%--        					<td><input type="text" value="${M.addmessageinfo}" name="addmessageinfo"style="width:270px;border:0px;background:none;" readonly="readonly"></td>	       					 --%>
-<!-- 	   				</tr>  				     				 -->
-<%--     			</c:forEach>   --%>
-<!--     		</table> -->
+				</c:forEach>
+				<div style="padding-top:10px; ">
+								<div style="float: left;padding-right: 10px;">
+									<input id="mapageprev" name="mapageprev" type="submit"  formaction="Page"
+									class="btn btn-primary" value="上一页">
+								</div>
+								<div style="float: left;padding-right: 10px;">
+									<input id="mapagenext" name="mapagenext" type="submit" formaction="Page"
+									class="btn btn-primary" value="下一页">
+								</div>
+								<div style="float: left;padding-right: 10px;">
+									<input id="page" type="number" name="page" value="<%=P%>" 
+									placeholder="输入页码" required="required"
+									class="form-control" style="width: 100px;">
+								</div>
+								<div style="float: left;">
+									<input id="pageclick" type="submit" formaction="MessageServlet"
+									class="btn btn-primary" value="跳转">
+								</div>								
+							</div>
+			</form>
 		</div>
 	</div>
   	

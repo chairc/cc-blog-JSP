@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import entity.User;
 import util.DBconn;
  
@@ -64,11 +63,15 @@ public class UserDaoImpl implements UserDao{
 		return flag;
 	}
     
-	public List<User> getUserAll() {//输出数据库user_info内容
+	public List<User> getUserAll(int Page) {//输出数据库user_info内容
+		int curPage = Page;
+		int pageSize = 8;
+		int startRow = (curPage - 1) * pageSize;
+		
 		List<User> list = new ArrayList<User>();
     	try {
 		    DBconn.init();
-			ResultSet rs = DBconn.selectSql("select * from user_info");
+			ResultSet rs = DBconn.selectSql("select * from user_info limit "+startRow+",8");
 			while(rs.next()){
 				User user = new User();
 				user.setId(rs.getInt("id"));
@@ -77,6 +80,8 @@ public class UserDaoImpl implements UserDao{
 				user.setSex(rs.getString("sex"));
 				user.setHome(rs.getString("home"));
 				user.setInfo(rs.getString("info"));
+				user.setServertime(rs.getString("servertime"));
+				user.setIp(rs.getString("ip"));
 				list.add(user);
 			}
 			DBconn.closeConn();
@@ -150,28 +155,47 @@ public class UserDaoImpl implements UserDao{
 		return flag;
 	}
 
-	
+	@Override
+	public boolean logintime(String name,String servertime,String ip) {
+		boolean flag = false;
+		DBconn.init();
+		String sql1 ="update user_info set servertime ='"+servertime+"',ip='"+ip+"' where name='"+name+"'";
+		String sql2 ="insert into user_logintimelog(logname,logtime,logip) values('"+name+"','"+servertime+"','"+ip+"')";
+		int i =DBconn.addUpdDel(sql1);
+		int j =DBconn.addUpdDel(sql2);
+		if(i>0&&j>0){
+			flag = true;
+		}
+		DBconn.closeConn();
+		return flag;
+	}
+
+	@Override
+	public List<User> getUserLogAll(String name,int Page) {
+		int curPage = Page;
+		int pageSize = 10;
+		int startRow = (curPage - 1) * pageSize;
+		
+		List<User> list = new ArrayList<User>();
+    	try {
+		    DBconn.init();
+			ResultSet rs = DBconn.selectSql("select * from user_logintimelog where logname='"+name+"' order by logid DESC limit "+startRow+",10");
+			while(rs.next()){
+				User user = new User();
+				//user.setLogid(rs.getInt("logid"));
+				user.setLogname(rs.getString("logname"));
+				user.setTimelog(rs.getString("logtime"));
+				list.add(user);
+			}
+			DBconn.closeConn();
+			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 
 
-
-//	@Override
-//	public boolean remember(String name) {
-//		boolean flag = false;
-//		try {
-//			    DBconn.init();
-//				ResultSet rs = DBconn.selectSql("select * from user_info where name='"+name+"'");
-//				while(rs.next()){
-//					if(rs.getString("name").equals(name)){
-//						flag = true;
-//					}
-//				}
-//				
-//				DBconn.closeConn();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return flag;
-//	}
     
 }
