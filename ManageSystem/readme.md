@@ -16,3 +16,9 @@
 		2.servlet配置格式：	
 			(1)web.xml配置		
 			(2)servlet3.0配置
+	
+	
+	关于数据库连接
+	
+		1.打开DBConn.java
+			找到static String url = "jdbc:mysql://127.0.0.1:3306/数据库名?useUnicode = true&characterEncoding = utf-8&useSSL = false&serverTimezone = GMT&allowPublicKeyRetrieval=true";
