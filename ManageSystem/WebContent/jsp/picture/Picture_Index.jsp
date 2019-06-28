@@ -16,7 +16,7 @@ String P = (String)session.getAttribute("pagenum");
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>ChairC's Blog - 留言板</title>
+<title>ChairC's Blog - 照片墙</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet"
@@ -50,7 +50,7 @@ String P = (String)session.getAttribute("pagenum");
                     <ul class="nav nav--main">
                         <li class="nav__item ">
                             <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
+                            <a class="header__link subdued" href="">
                                 <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
                                 <span aria-hidden="true" class="icon-pic iconfont"></span>
                                 <!--这是名字1-->
@@ -90,60 +90,10 @@ String P = (String)session.getAttribute("pagenum");
 
 
     <!--******************************下面是主页内容******************************-->
-	<div
-		style="width: 100%; height: 2500px; padding-top: 75px; background-color: #fff;">
+    <div style="background-color: #ff730080;width: 100%;height: 100%;"></div>
+	<div style="width: 100%; height: 1000px; padding-top: 100%; background-color: #fff;">
 		<div style="text-align: center; padding-left: 5%; padding-right: 5%;">
-			<div style="width: 100%; height: 200px; text-align: left;">
-				<div style="width: 100%; float: left; padding-left: 3%;">
-					<h3 style="margin-top: 30px;margin-bottom: 15px;">留言板</h3>
-				</div>
-				<div style="width: 100%; float: left; padding-left: 3%; padding-top: 10px;">
-					<a href="jsp/message/AddMessage.jsp"> <input class="btn btn-default"
-						type="submit" value="我要留言" />
-					</a>
-				</div>
-			</div>
-
-			<div style="width: 80%; height: 2000px; margin: 0 auto; padding-bottom: 200px; padding-top: 10px; text-align: left;">
-				<form action="" method="post">
-					<c:forEach var="M" items="${MessageAll}">
-						<div style="border: 1px solid #dddddd; padding-top: 10px;">
-							<div>
-								<p>${M.addmessageid}楼</p>
-							</div>
-							<div>
-								<p>
-									<font color="#34495e">${M.addmessagename}</font>
-									&nbsp;&nbsp;&nbsp;&nbsp; <font color="#6c757d">${M.servertime}</font>
-								</p>
-							</div>
-							<div style="word-wrap: break-word">
-								<p>${M.addmessageinfo}</p>
-							</div>
-						</div>
-					</c:forEach>
-					<div style="padding-top: 10px;">
-						<div style="float: left; padding-right: 10px;">
-							<input id="maipageprev" name="maipageprev" type="submit"
-								formaction="Page" class="btn btn-primary" value="上一页">
-						</div>
-						<div style="float: left; padding-right: 10px;">
-							<input id="maipagenext" name="maipagenext" type="submit"
-								formaction="Page" class="btn btn-primary" value="下一页">
-						</div>
-						<div style="float: left; padding-right: 10px;">
-							<input id="page" type="number" name="page" value="<%=P%>"
-								placeholder="输入页码" required="required" class="form-control"
-								style="width: 100px;">
-						</div>
-						<div style="float: left;">
-							<input id="pageclick" type="submit"
-								formaction="MessageIndexServlet" class="btn btn-primary"
-								value="跳转">
-						</div>
-					</div>
-				</form>
-			</div>
+			
 		</div>
 	</div>
 	

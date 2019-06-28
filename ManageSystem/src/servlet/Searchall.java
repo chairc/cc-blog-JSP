@@ -23,7 +23,7 @@ import dao.UserDao;
 import dao.UserDaoImpl;
 import entity.User;
 
-@WebServlet("/Searchall")
+//@WebServlet("/Searchall")
 @SuppressWarnings("serial")
 public class Searchall extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -33,6 +33,7 @@ public class Searchall extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		JsonObject json=new JsonSelect().selectall();
 		System.out.println(json);
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		out.print(json);
 		
 		

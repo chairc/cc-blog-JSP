@@ -35,10 +35,10 @@
 <!--     <servlet-name>RegisterServlet</servlet-name> -->
 <!--     <servlet-class>servlet.RegisterServlet</servlet-class> -->
 <!--   </servlet> -->
-<!--   <servlet> -->
-<!--     <servlet-name>Searchall</servlet-name> -->
-<!--     <servlet-class>servlet.Searchall</servlet-class> -->
-<!--   </servlet> -->
+  <servlet>
+    <servlet-name>Searchall</servlet-name>
+    <servlet-class>servlet.Searchall</servlet-class>
+  </servlet>
 <!--   <servlet> -->
 <!--     <servlet-name>Editall</servlet-name> -->
 <!--     <servlet-class>servlet.Editall</servlet-class> -->
@@ -103,6 +103,12 @@
 <!--     <servlet-name>Page</servlet-name> -->
 <!--     <servlet-class>servlet.Page</servlet-class> -->
 <!--   </servlet> -->
+<!--   <servlet> -->
+<!--     <servlet-name>DownLoadFiles</servlet-name> -->
+<!--     <servlet-class>servlet.DownLoadFiles</servlet-class> -->
+<!--   </servlet> -->
+
+
 
 <!--   servlet类映射配置 -->
 <!--   <servlet-mapping> -->
@@ -121,10 +127,10 @@
 <!--     <servlet-name>RegisterServlet</servlet-name> -->
 <!--     <url-pattern>/RegisterServlet</url-pattern> -->
 <!--   </servlet-mapping> -->
-<!--   <servlet-mapping> -->
-<!--     <servlet-name>Searchall</servlet-name> -->
-<!--     <url-pattern>/Searchall</url-pattern> -->
-<!--   </servlet-mapping> -->
+  <servlet-mapping>
+    <servlet-name>Searchall</servlet-name>
+    <url-pattern>/Searchall</url-pattern>
+  </servlet-mapping>
 <!--   <servlet-mapping> -->
 <!--     <servlet-name>Editall</servlet-name> -->
 <!--     <url-pattern>/Editall</url-pattern> -->
@@ -188,6 +194,10 @@
 <!--   <servlet-mapping> -->
 <!--     <servlet-name>Page</servlet-name> -->
 <!--     <url-pattern>/Page</url-pattern> -->
+<!--   </servlet-mapping> -->
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>DownLoadFiles</servlet-name> -->
+<!--     <url-pattern>/DownLoadFiles</url-pattern> -->
 <!--   </servlet-mapping> -->
 
 

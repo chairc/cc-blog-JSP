@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" isELIgnored="false"%>
-<%@page contentType="text/html; charset=utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ page contentType="text/html; charset=utf-8" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -14,14 +13,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="${pageContext.request.contextPath}/css/flat-ui.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/layui.css" rel="stylesheet" media="all">
+<link href="${pageContext.request.contextPath}/css/modules/layer/default/layer.css?v=3.1.1">
 <script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
 <%-- <script src="${pageContext.request.contextPath}/js/jq-paginator.js" type="text/javascript"></script> --%>
 <script src="${pageContext.request.contextPath}/js/layui.js" charset="utf-8" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/lay/modules/layer.js" charset="utf-8" type="text/javascript"></script>
-<script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
 
 <base href="<%=basePath%>">
 <title>ChairC's Blog - 所有用户页面</title>
@@ -72,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 				</form> -->
 			</div>
 		</div>
-		<div class="work_style">
+		<div class="work_style" style="padding-top: 0px;">
 <!-- 			<div class="showall_work_left"> -->
 				
 <!-- 			</div> -->
@@ -91,7 +87,7 @@ layui.use('table', function(){
   
   table.render({
     elem: '#test',
-    url:'/ManageSystem/Searchall',
+    url:'${pageContext.request.contextPath}/Searchall',
     cols: [[
       {field:'id', width:80, title: 'ID', sort: true},
       {field:'name', width:80, title: '用户名'},
@@ -102,9 +98,6 @@ layui.use('table', function(){
       {field:'servertime', width:200, title: '最后登录时间'},
       {field:'ip', width:200, title: 'IP'}
     ]],
-    page: true,
-    limit:5,
-    limits: [10, 20, 30]
   });
 });
 </script>

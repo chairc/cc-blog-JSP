@@ -58,7 +58,7 @@
                     <ul class="nav nav--main">
                         <li class="nav__item ">
                             <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="">
+                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
                                 <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
                                 <span aria-hidden="true" class="icon-pic iconfont"></span>
                                 <!--这是名字1-->
@@ -123,6 +123,11 @@
                 </p>
                 <p>
                     <font style="vertical-align: inherit;"> <font
+                        style="vertical-align: inherit;">文件下载系统（详细在主页下方工具下载）（<font color="#E74C3C">已完成</font>）</font>
+                    </font>
+                </p>
+                <p>
+                    <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;">分页系统（<font color="#E74C3C">已完成</font>）</font>
                     </font>
                 </p>
@@ -168,10 +173,15 @@
             <div class="index_bottom" style="padding-bottom:20px;">
                 <form action="LoginBackstageServlet">
                     <input class="btn btn-primary" type="submit" value="进入"
-                        style="width: 100px;; margin-top: 40px;cursor:pointer; ">
+                        style="width: 100px; margin-top: 40px;cursor:pointer; ">
                 </form>
             </div>
             <div>
+            	<p>
+                    <font style="vertical-align: inherit;"> <font
+                        style="vertical-align: inherit;"><font color="#E74C3C">开发模式：</font>经典三层架构开发模式</font>
+                    </font>
+                </p>
                 <p>
                     <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;"><font color="#E74C3C">编程工具：</font>eclipse//VSCode</font>
@@ -197,6 +207,24 @@
                         style="vertical-align: inherit;"><font color="#E74C3C">GitHub：</font><a href="https://github.com/chairc/JSP" target="_blank">https://github.com/chairc/JSP</a></font>
                     </font>
                 </p>
+                <p>
+                    <font style="vertical-align: inherit;"> 
+                    	<font style="vertical-align: inherit;">                    		
+                    		<form action="DownLoadFiles" method="post">
+                    			<font color="#E74C3C">下载工具：</font>
+                       			<select name="selectfilename" class="form-control">
+                       				<option value="eclipse" selected>Eclipse</option>
+									<option value="jdk">JDK1.8</option>
+									<option value="mysql">MySQL8.0</option>
+									<option value="tomcat">Tomcat8.0</option>
+									<option value="navicat">Navicat</option>
+                       			</select>
+                        		<input type="submit" class="btn btn-inverse" 
+                        		name="downloadfiles" id="downloadfiles" value="下载">
+                        	</form>
+                        </font>
+                    </font>
+                </p>
 
             </div>
         </div>
@@ -211,7 +239,7 @@
     	<button id="backtop" class="btn btn-info navguide">返回头部</button>
     </div>   
 </body>
-<script src="./js/Index/index_main.js"></script>
+<script src="${pageContext.request.contextPath}/js/Index/index_main.js"></script>
 
 <script>
     //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓下面是导航栏隐藏↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -248,18 +276,18 @@
 
 <!--******************************上面是导航栏方法******************************-->
 
-<script src="./js/Index/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/Index/jquery.min.js"></script>
 
-<script src="./js/Index/h.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/Index/h.js" type="text/javascript"></script>
 
 <!--下面是h.js的备份-->
-<script src="./js/Index/h.js(备份用时删掉括号内容)" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/Index/h.js(备份用时删掉括号内容)" type="text/javascript"></script>
 <!--上面是h.js的备份-->
 
 
 <!--下面是图标-->
-<link rel="stylesheet" href="css/Index/index_iconfont.css">
-<script src="js/Index/index_iconfont.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css">
+<script src="${pageContext.request.contextPath}/js/Index/index_iconfont.js"></script>
 <!--上面是图标-->
 <script type="text/javascript">
 	var btn = document.getElementById('backtop');

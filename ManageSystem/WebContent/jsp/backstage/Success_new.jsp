@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -28,8 +29,8 @@
 <script src="${pageContext.request.contextPath}/js/swiper.min.js"
 	type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
-<link type="text/css" rel="stylesheet" charset="UTF-8"
-	href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+<!-- <link type="text/css" rel="stylesheet" charset="UTF-8" -->
+<!-- 	href="https://translate.googleapis.com/translate_static/css/translateelement.css"> -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/portrait.js?t="></script>	
 	

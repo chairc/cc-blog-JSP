@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-<script src="./js/Index/index_main.js"></script>
+<script src="${pageContext.request.contextPath}/js/Index/index_main.js"></script>
 <base href="<%=basePath%>">
 <title>ChairC's Blog - 写留言</title>
 </head>
@@ -147,17 +147,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!--******************************上面是导航栏方法******************************-->
 
-<script src="./js/Index/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/Index/jquery.min.js"></script>
 
-<script src="./js/Index/h.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/Index/h.js" type="text/javascript"></script>
 
 <!--下面是h.js的备份-->
-<script src="./js/Index/h.js(备份用时删掉括号内容)" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/Index/h.js(备份用时删掉括号内容)" type="text/javascript"></script>
 <!--上面是h.js的备份-->
 
 
 <!--下面是图标-->
-<link rel="stylesheet" href="css/Index/index_iconfont.css">
-<script src="js/Index/index_iconfont.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css">
+<script src="${pageContext.request.contextPath}/js/Index/index_iconfont.js"></script>
 <!--上面是图标-->
 </html>
