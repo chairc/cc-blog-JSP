@@ -28,15 +28,7 @@
 <link type="text/css" rel="stylesheet" charset="UTF-8"
 	href="https://translate.googleapis.com/translate_static/css/translateelement.css">
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript"> 
-// $(document).ready(function(){ 
-// 	$.ajax({
-// 		url:'IpServlet',
-// 		dataType:'text',
-// 	})
-// }) 
-</script>	
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>	
 	
 </head>
 <body>
@@ -159,7 +151,6 @@
                     </font>
                 </p>
                 
-
                 <p>
                     <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;"><a
@@ -175,6 +166,9 @@
                     <input class="btn btn-primary" type="submit" value="进入"
                         style="width: 100px; margin-top: 40px;cursor:pointer; ">
                 </form>
+                	<input class="btn btn-primary" type="button" value="垃圾分类查询" 
+                		onclick="location.href='<%=basePath%>jsp/garbageclass/SearchGarbageClass.jsp'"
+                        style="width: 200px; margin-top: 40px;cursor:pointer; ">
             </div>
             <div>
             	<p>
@@ -300,9 +294,10 @@
 }
 
 	// 设置为主页 
-	function SetHome(obj,vrl){ 
+	function SetHome(obj,url){ 
 		try{ 
-			obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl); 
+			obj.style.behavior='url(#default#homepage)';
+			obj.setHomePage(url); 
 		}catch(e){ 
 			if(window.netscape) { 
 				try { 
@@ -311,9 +306,9 @@
 					alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。"); 
 				} 
 				var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch); 
-				prefs.setCharPref('browser.startup.homepage',vrl); 
+				prefs.setCharPref('browser.startup.homepage',url); 
 			}else{ 
-				alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入："+vrl+"点击确定。"); 
+				alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入："+url+"点击确定。"); 
 			} 
 		} 
 	} 

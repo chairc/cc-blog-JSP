@@ -47,7 +47,7 @@ public class RegisterServlet extends HttpServlet {
 			}		
 		}else{
 			
-			response.sendRedirect("/jsp/others/Failure.jsp");//重定向到首页
+			response.sendRedirect("/jsp/others/Failure_new.jsp");//重定向到首页
 		}
 	}
 }

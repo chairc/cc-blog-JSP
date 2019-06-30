@@ -1,4 +1,4 @@
-# JSP-ManageSystem
+﻿# JSP-ManageSystem
 CN：
 
 管理后台基础代码(jsp+servlet)
@@ -84,3 +84,11 @@ CREATE TABLE `user_message_info` (
   `m_info` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`m_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+4)
+CREATE TABLE `garbage_class` (
+  `garbageid` int(5) NOT NULL AUTO_INCREMENT,
+  `garbagename` varchar(255) NOT NULL,
+  `garbageclass` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`garbageid`)
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

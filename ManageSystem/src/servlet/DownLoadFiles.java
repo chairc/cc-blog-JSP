@@ -53,7 +53,7 @@ public class DownLoadFiles extends HttpServlet {
 		os = response.getOutputStream(); 
 		bos = new BufferedOutputStream(os); 
 		     
-		byte[] bt = new byte[1024]; //缓存容量1024byte
+		byte[] bt = new byte[1024]; //缓存容量
 		int len = 0; 
 		while((len = bis.read(bt)) != -1){ //从文件中按字节读取内容，到文件尾部时read方法将返回-1
 			bos.write(bt,0,len); //将读取的字节转为字符串对象

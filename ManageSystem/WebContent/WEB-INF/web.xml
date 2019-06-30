@@ -107,6 +107,14 @@
 <!--     <servlet-name>DownLoadFiles</servlet-name> -->
 <!--     <servlet-class>servlet.DownLoadFiles</servlet-class> -->
 <!--   </servlet> -->
+<!--   <servlet> -->
+<!--     <servlet-name>AddGarbageClassServlet</servlet-name> -->
+<!--     <servlet-class>servlet.AddGarbageClassServlet</servlet-class> -->
+<!--   </servlet> -->
+<!--   <servlet> -->
+<!--     <servlet-name>GarbageClassServlet</servlet-name> -->
+<!--     <servlet-class>servlet.GarbageClassServlet</servlet-class> -->
+<!--   </servlet> -->
 
 
 
@@ -198,6 +206,14 @@
 <!--   <servlet-mapping> -->
 <!--     <servlet-name>DownLoadFiles</servlet-name> -->
 <!--     <url-pattern>/DownLoadFiles</url-pattern> -->
+<!--   </servlet-mapping> -->
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>AddGarbageClassServlet</servlet-name> -->
+<!--     <url-pattern>/AddGarbageClassServlet</url-pattern> -->
+<!--   </servlet-mapping> -->
+<!--     <servlet-mapping> -->
+<!--     <servlet-name>GarbageClassServlet</servlet-name> -->
+<!--     <url-pattern>/GarbageClassServlet</url-pattern> -->
 <!--   </servlet-mapping> -->
 
 
