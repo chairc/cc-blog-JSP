@@ -107,7 +107,12 @@ String P = (String)session.getAttribute("pagenum");
 					<input type="button" onclick="location.href='<%=basePath%>jsp/garbageclass/SearchGarbageClass.jsp'" 
 					class="btn btn-primary"	value="返回查询" style="cursor:pointer;">
 					<input type="button" onclick="location.href='<%=basePath%>jsp/garbageclass/AddGarbage.jsp'" 
-					class="btn btn-primary"	value="添加分类" style="cursor:pointer;">		
+					class="btn btn-primary"	value="添加分类" style="cursor:pointer;">
+					<article>
+						<header>垃圾分类可以这么记：</header>><br>
+						<p>猪能吃的是湿垃圾，猪不能吃的是干垃圾，<br>
+						猪吃了会死的是有害垃圾，卖了能买猪的是可回收垃圾！
+					</article>		
 				</div>
 			</div>			
 		</div>

@@ -61,8 +61,8 @@
 					</div>
 				</div>
 				
-				<div style="width: 100%;height: 1000px;">
-					<div style="position: absolute;z-index: 555;width: 100%;text-align: left;">
+				<div style="width: 100%;height: 100%;">
+					<div style="position: absolute;z-index: 555;width: 100%;height: 100%;text-align: left;">
 						<div style="text-align: center;padding-top: 65px;width: 100%;">
 							
 						</div>
