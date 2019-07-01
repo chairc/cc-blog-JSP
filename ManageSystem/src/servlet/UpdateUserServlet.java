@@ -39,10 +39,12 @@ public class UpdateUserServlet extends HttpServlet {
 		
 		if(ud.updateUser(name, pwd, sex, home, info)){
 
-			//request.setAttribute("xiaoxi", "更新成功");
+			request.setAttribute("xiaoxi", "更新成功!");
 			request.getRequestDispatcher("/jsp/backstage/IframeIndex.jsp").forward(request, response);
 		}else{
-			response.sendRedirect("/jsp/others/Failure.jsp");
+			request.setAttribute("xiaoxi", "更新失败！");
+			request.getRequestDispatcher("/jsp/backstage/IframeIndex.jsp").forward(request, response);
+			//response.sendRedirect("/jsp/others/Failure.jsp");
 		}
 	}
 }

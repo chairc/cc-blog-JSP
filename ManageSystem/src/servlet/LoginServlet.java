@@ -73,8 +73,10 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 				request.getRequestDispatcher("/ChairC_Index.jsp").forward(request, response);//转发到成功页面
 			}
 			
-		}else{			
-			response.sendRedirect("jsp/others/Failure.jsp"); //重定向到首页			
+		}else{
+			request.setAttribute("xiaoxi", "登录失败！");
+			request.getRequestDispatcher("jsp/others/Failure_new.jsp").forward(request, response);
+			//response.sendRedirect("jsp/others/Failure.jsp"); //重定向到首页			
 		}
 	}
 }

@@ -27,11 +27,15 @@ public class AddGarbageClassServlet extends HttpServlet {
 		gc.setGarbageclass(searchgarbageclass);
 		
 		GarbageClassDao gcd=new GarbageClassImpl();
-		if(gcd.addgarbage(gc)) {
-			request.getRequestDispatcher("jsp/garbageclass/ShowGarbageClass.jsp").forward(request, response);
+		
+		if(gcd.garbagevalidation(searchgarbagename)) {
+			if(gcd.addgarbage(gc)) {
+				request.getRequestDispatcher("jsp/garbageclass/ShowGarbageClass.jsp").forward(request, response);
+			}
 		}else{
-			
-			response.sendRedirect("/jsp/others/Failure_new.jsp");//重定向到首页
+			request.setAttribute("xiaoxi", "添加失败，请正确填写添加项！");
+			request.getRequestDispatcher("jsp/others/Failure_new.jsp").forward(request, response);
+			//response.sendRedirect("jsp/others/Failure_new.jsp");//重定向到首页
 		}			
 	}
 	public void doGet(HttpServletRequest request, HttpServletResponse response)

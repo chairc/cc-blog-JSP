@@ -29,7 +29,9 @@ public class DeleteServlet extends HttpServlet {
 			request.setAttribute("xiaoxi", "删除成功！");
 			request.getRequestDispatcher("/Searchall").forward(request, response);
 		}else{
-			response.sendRedirect("/jsp/others/Failure_new.jsp");
+			request.setAttribute("xiaoxi", "删除失败！");
+			request.getRequestDispatcher("/Searchall").forward(request, response);
+			//response.sendRedirect("/jsp/others/Failure_new.jsp");
 		}
 	}
  

@@ -42,7 +42,7 @@
 			<div class="swiper-slide menu swiper-slide-prev">
 				<div class="menu" style="">
 					<a href="ChairC_Index.jsp">Blog</a><br>
-					<a href="showinfo">登录</a><br>
+					<a href="<%=basePath %>showinfo">登录</a><br>
 					<a href="jsp/others/Donation.jsp" target="_blank">前去赞助</a><br>
 					<a href="jsp/others/Aboutus.jsp" target="_blank">关于我们</a><br>
 				</div>
@@ -61,16 +61,16 @@
 					</div>
 				</div>
 				
-				<div style="width: 100%;height: 100%;overflow: auto;">
-					<div style="position: absolute;z-index: 555;width: 100%;height: 100%;text-align: left;">
+				<div style="width: 100%;height: 1000px;">
+					<div style="position: absolute;z-index: 555;width: 100%;text-align: left;">
 						<div style="text-align: center;padding-top: 65px;width: 100%;">
 							
 						</div>
 						<div>
-							<div style="width: 100%; height: 120px;"
-								align="center">
+							<div style="width: 100%; height: 80px;padding-left: 5%;"
+								align="left">
 								<div>
-									<h1>注册</h1>
+									<h3>注册</h3>
 								</div>
 							</div>
 						</div>
@@ -78,11 +78,11 @@
 							style="padding-left: 27%; padding-right: 27%; padding-bottom: 10px;">
 							<div class="login_style">
 								<div class="border_thin_1">
-									<form action="RegisterServlet" method="post"
+									<form action="<%=basePath %>RegisterServlet" method="post"
 										style="padding-top: -700px">
 										<div>
 											<input class="form-control" name="name" type="text"
-												placeholder="请输入用户名,请不要输入汉字"
+												placeholder="请输入用户名,请不要输入汉字" required="required"
 												 onkeyup="value=value.replace(/[\W]/g,'') "
 												 onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
 										</div>
@@ -107,12 +107,12 @@
 												<input class="btn btn-primary" type="reset" style="width: 80%" value="重置">
 											</div>
 											<div style="float: left; width: 50%;">
-												<input class="btn btn-primary" type="button" onclick="JavaScript:history.go(-1)" style="width: 80%" value="返回">
+												<input class="btn btn-primary" type="submit" style="width: 80%" value="注册">
 											</div>
 										</div>
 										<div style="text-align: center;float: left; width: 100%;padding-top: 20px;">
-											<input class="btn btn-primary" type="submit" style="width: 90%" value="注册">
-										</div>
+											<input class="btn btn-primary" type="button" onclick="JavaScript:history.go(-1)" style="width: 90%" value="返回">
+										</div>										
 									</form>
 								</div>
 							</div>

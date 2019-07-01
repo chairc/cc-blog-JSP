@@ -65,4 +65,22 @@ public class GarbageClassImpl implements GarbageClassDao {
 		return null;
 	}
 
+	@Override
+	public boolean garbagevalidation(String searchgarbagename) {
+		boolean flag = false;
+		try {
+		    DBconn.init();
+			ResultSet rs = DBconn.selectSql("select * from garbage_class where name='"+searchgarbagename+"'");
+			while(rs.next()){
+				if(rs.getString("name").equals(searchgarbagename)){
+					flag = false;
+				}
+			}
+			DBconn.closeConn();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+		return flag;
+	}
+
 }

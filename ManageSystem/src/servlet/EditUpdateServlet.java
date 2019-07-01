@@ -30,10 +30,12 @@ public class EditUpdateServlet extends HttpServlet {
 		ShowInfo si = new ShowInfoImpl();
 		
 		if(si.update(m_id,messagemaintitle,messagetitle,messageinfo)){
-			request.setAttribute("xiaoxi", "更新成功");
+			request.setAttribute("xiaoxi", "更新成功！");
 			request.getRequestDispatcher("/Editinfo").forward(request, response);
 		}else{
-			response.sendRedirect("/jsp/others/Failure.jsp");
+			request.setAttribute("xiaoxi", "更新失败！");
+			request.getRequestDispatcher("/Editinfo").forward(request, response);
+			//response.sendRedirect("/jsp/others/Failure.jsp");
 		}
 	}
 }

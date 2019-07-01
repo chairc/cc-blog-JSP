@@ -38,14 +38,14 @@
 			style="transition-duration: 0ms; transform: translate3d(-320px, 0px, 0px);">
 			<div class="swiper-slide menu swiper-slide-prev">
 				<div class="menu" style="">
-					<a href="<%=basePath%>MessageServlet" target="aaa">留言板</a><br>
+					<a href="<%=basePath%>MessageIndexServlet">留言板</a><br>
 					<a href="<%=basePath%>jsp/others/Donation.jsp" target="_blank">前去赞助</a><br>
 					<a href="<%=basePath%>jsp/others/Aboutus.jsp" target="_blank">关于我们</a><br>
 				</div>
 			</div>
 			<div class="swiper-slide content swiper-slide-active">
 				<div>
-					<div class="menu-nav" style="width: 100%;height: 35px;">
+					<div class="menu-nav" style="width: 100%;height: 65px;">
 						<div class="menu-button">
 							<div class="bar"></div>
 							<div class="bar"></div>
@@ -62,9 +62,12 @@
 					<div class="border_thin"
 						style="width: 100%; position: fixed; margin: 0 auto; text-align: center;margin-top: 65px;">
 						<div>
-							<h1>失败</h1>
+							<h1>${xiaoxi}</h1>
 						</div>
 						<div style="padding-top: 30px;">
+							<div>
+								<a href="JavaScript:history.go(-1)">返回上一步</a>
+							</div>
 							<div>
 								<a href="<%=basePath%>showinfo">返回登录界面</a>
 							</div>

@@ -12,4 +12,6 @@ public interface GarbageClassDao {
 
 	public List<GarbageClass> searchgarbageall();
 
+	public boolean garbagevalidation(String searchgarbagename);
+
 }

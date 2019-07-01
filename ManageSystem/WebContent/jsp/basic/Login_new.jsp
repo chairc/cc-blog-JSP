@@ -42,6 +42,7 @@
 			<div class="swiper-slide menu swiper-slide-prev">
 				<div class="menu" style="">
 					<a href="ChairC_Index.jsp">Blog</a><br>
+					<a href="<%=basePath%>jsp/basic/Register_new.jsp">注册</a><br>
 					<a href="jsp/others/Donation.jsp" target="_blank">前去赞助</a><br>
 					<a href="jsp/others/Aboutus.jsp" target="_blank">关于我们</a><br>
 				</div>
@@ -71,7 +72,7 @@
 							<p><a id="a_click" href="showinfo" >今日事件：</a>Hello! Welcome to my Index!</p>
 						</div>
 						<div>
-							<div style="width: 100%; height: 250px; margin-top: 40px;"
+							<div style="width: 100%; height: 250px;"
 								align="center">
 								<div style="width: 100%; height: 170px;position: absolute;z-index: 666;" align="center">
 									<c:forEach var="C" items="${InfoAll}">
@@ -92,7 +93,7 @@
 											<div style="text-align: center;">
 												<div style="float: left; width: 95%;padding-left: 5%;">
 													<input class="form-control" type="text" name="name" placeholder="请输入用户名"
-														value="">
+														value="" required="required">
 												</div>
 											</div>
 
@@ -117,7 +118,7 @@
 										</div>
 									</form>
 									<div class="border_thin_2" style="padding-top: 70px;padding-bottom: 10px;">
-										<form action="Register_new.jsp">
+										<form action="<%=basePath %>jsp/basic/Register_new.jsp">
 											<input class="btn btn-primary" style="width: 90%;"
 												type="submit" value="新用户注册">
 										</form>

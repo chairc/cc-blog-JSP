@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@page contentType="text/html; charset=utf-8" %>
 <%
 String path = request.getContextPath();
@@ -37,8 +37,8 @@ html,body{
     	<p id='info'></p>
 	</div>
 </body>
-<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=28280ca3f178c4bf6fe0b2c4fab8f649&plugin=AMap.CitySearch"></script>
-<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=28280ca3f178c4bf6fe0b2c4fab8f649"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=你的key值&plugin=AMap.CitySearch"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=你的key值"></script>
 <script type="text/javascript">
 		var map = new AMap.Map('container',{
 			resizeEnable: true, //是否监控地图容器尺寸变化
@@ -74,7 +74,7 @@ html,body{
 // 	        zIndex: 10
 // 	    });
 // 	    map.add(trafficLayer);//添加图层到地图
-// 	var url = 'https://webapi.amap.com/maps?v=1.4.14&key=28280ca3f178c4bf6fe0b2c4fab8f649&callback=onLoad';
+// 	var url = 'https://webapi.amap.com/maps?v=1.4.14&key=你的key值&callback=onLoad';
 // 	var jsapi = doc.createElement('script');
 // 	jsapi.charset = 'utf-8';
 // 	jsapi.src = url;

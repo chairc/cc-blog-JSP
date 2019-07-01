@@ -44,10 +44,15 @@ public class RegisterServlet extends HttpServlet {
 				request.setAttribute("username", name);  //向request域中放置参数
 				//request.setAttribute("xiaoxi", "注册成功");
 				request.getRequestDispatcher("/showinfo").forward(request, response);  //转发到登录页面
-			}		
+			}else {
+				request.setAttribute("xiaoxi", "注册失败，请检查填写内容！");
+				request.getRequestDispatcher("/jsp/others/Failure_new.jsp").forward(request, response);
+				//response.sendRedirect("jsp/others/Failure_new.jsp");//重定向到首页
+			}	
 		}else{
-			
-			response.sendRedirect("/jsp/others/Failure_new.jsp");//重定向到首页
+			request.setAttribute("xiaoxi", "注册失败，用户名重复！");
+			request.getRequestDispatcher("/jsp/others/Failure_new.jsp").forward(request, response);
+			//response.sendRedirect("jsp/others/Failure_new.jsp");//重定向到首页
 		}
 	}
 }
