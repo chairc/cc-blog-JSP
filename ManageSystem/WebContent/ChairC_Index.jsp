@@ -35,8 +35,8 @@
 
     <!--******************************下面是背景特效******************************-->
 
-    <script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99"
-        src="js/Index/canvas-nest.min.js"></script>
+<!--     <script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" -->
+<!--         src="js/Index/canvas-nest.min.js"></script> -->
 
     <!--******************************上面是背景特效******************************-->
 
@@ -90,14 +90,14 @@
 
 
     <!--******************************下面是主页内容******************************-->
-    <div style="width:100%;height:2000px;padding-top: 75px;background-color: #fff;">
+    <div style="width:100%;height:auto;padding-top: 75px;padding-bottom: 75px;background-color: #fff;">
         <div style="text-align: center;padding-left: 5%;padding-right: 5%;">
-            <div style="padding-top: 40px;">
+            <div style="padding-top: 20px;">
                 <h2>
                     <font color="red">公告</font>
                 </h2>
             </div>
-            <div style="padding-top: 50px;">
+            <div style="padding-top: 20px;">
                 <h3>
                     <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;">欢迎大家来到我的还在施工且毫无防护的小型网站</font>
@@ -122,8 +122,6 @@
                     <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;">分页系统（<font color="#E74C3C">已完成</font>）</font>
                     </font>
-                </p>
-                <p>
                     <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;">用户登录时间日志（<font color="#E74C3C">已完成</font>）</font>
                     </font>
@@ -132,8 +130,6 @@
                     <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;">用户头像上传（<font color="#E74C3C">已完成</font>）</font>
                     </font>
-                </p>
-                <p>
                     <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;">留言板（<font color="#E74C3C">已完成</font>）</font>
                     </font>
@@ -141,6 +137,9 @@
                 <p>
                     <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;">普通用户修改界面（<font color="#E74C3C">已完成</font>）</font>
+                    </font>
+                    <font style="vertical-align: inherit;"> <font
+                        style="vertical-align: inherit;">使用Https安全协议（<font color="#E74C3C">已完成</font>）</font>
                     </font>
                 </p>
                 <p>
@@ -221,8 +220,24 @@
                 </p>
 
             </div>
-        </div>
+        </div>        
     </div> 
+    <div class="bottom-all">
+    	<div class="bottom-div-t">
+    		<p class="bottom-p">
+        		<a href="http://www.beian.miit.gov.cn/" class="bottom-t-a">
+        			<font color="#2c3e50">鲁ICP备19032053号</font>
+        		</a>
+        	</p>
+    	</div>        
+        <div class="bottom-div-b">
+        	<p class="bottom-p">
+        		<a href="<%=basePath%>jsp/others/Aboutus.jsp" target="_blank" class="bottom-b-a">关于我们</a>
+        		<a href="" target="_blank" class="bottom-b-a">联系我们</a>
+			</p>
+        </div>
+        
+    </div>
     
     
     <div style="position: fixed;right: 10px;bottom: 80px;width: 50px;z-index: 1999;">

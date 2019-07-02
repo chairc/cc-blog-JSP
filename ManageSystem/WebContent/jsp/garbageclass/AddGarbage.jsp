@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </nav>
                 <a href="<%=basePath%>ChairC_Index.jsp" class="brand header__link">
                     <!--这是主页标签-->
-                    <b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
+                    <b class="brand__forename" style="color: #34495e;">ChairC's Blog</b><b class="brand__surname"></b>
                 </a>
             </div>
         </header>
@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
 	<div
-		style="width: 100%; height: 2500px; padding-top: 75px; background-color: #fff;">
+		style="width: 100%; height: 1000px; padding-top: 75px; background-color: #fff;">
 		<div style="text-align: center; padding-left: 5%; padding-right: 5%;">
 			<div style="width: 100%; height: 150px; text-align: left;">
 				<div style="width: 100%; float: left; padding-left: 3%;">
@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 
-			<div style="width: 100%; padding-left: 30%; padding-right: 30%;">
+			<div style="width: 100%; padding-left: 20%; padding-right: 20%;">
 				<form action="AddGarbageClassServlet" method="post">
 					<div style="width: 100%;">
 						<div style="float: left;width: 60%;">							
@@ -94,11 +94,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div style="padding-top: 75px; text-align: center;">
 						<div style="float: left; width: 50%;">
-							<input class="btn btn-primary" type="reset" style="width: 80%"
+							<input class="btn btn-primary" type="reset" style="width: 80%;text-align: center;"
 								value="重置">
 						</div>
 						<div style="float: left; width: 50%;">
-							<input class="btn btn-primary" type="submit" style="width: 80%"
+							<input class="btn btn-primary" type="submit" style="width: 80%;text-align: center;"
 								value="添加">
 						</div>
 					</div>

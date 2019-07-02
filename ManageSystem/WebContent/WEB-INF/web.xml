@@ -227,6 +227,8 @@
   
    <welcome-file-list><!--默认首地址 -->
     <welcome-file>ChairC_Index.jsp</welcome-file>
+    <welcome-file>ChairC_Index.html</welcome-file>
+    <welcome-file>ChairC_Index.htm</welcome-file>
   </welcome-file-list>
 <!-- 其实都已经servlet3.0版本以上了，我还用web.xml配置，真的懒得改了！嗝儿！ -->
 </web-app>

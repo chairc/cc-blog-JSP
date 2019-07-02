@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
 	<div
-		style="width: 100%; height: 2500px; padding-top: 75px; background-color: #fff;">
+		style="width: 100%; height: auto; padding-top: 75px; background-color: #fff;">
 		<div style="text-align: center; padding-left: 5%; padding-right: 5%;">
 			<div style="width: 100%; height: 150px; text-align: left;">
 				<div style="width: 100%; float: left; padding-left: 3%;">
@@ -93,11 +93,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div style="padding-top: 55px; text-align: center;">
 						<div style="float: left; width: 50%;">
-							<input class="btn btn-primary" type="reset" style="width: 80%"
+							<input class="btn btn-primary" type="reset" style="width: 80%;text-align: center;"
 								value="重置">
 						</div>
 						<div style="float: left; width: 50%;">
-							<input class="btn btn-primary" type="submit" style="width: 80%"
+							<input class="btn btn-primary" type="submit" style="width: 80%;text-align: center;"
 								value="留言">
 						</div>
 					</div>

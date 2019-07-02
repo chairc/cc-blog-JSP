@@ -91,7 +91,7 @@ String P = (String)session.getAttribute("pagenum");
 
     <!--******************************下面是主页内容******************************-->
 	<div
-		style="width: 100%; height: 2500px; padding-top: 75px; background-color: #fff;">
+		style="width: 100%; height: auto; padding-top: 75px; background-color: #fff;">
 		<div style="text-align: center; padding-left: 5%; padding-right: 5%;">
 			<div style="width: 100%; height: 200px; text-align: left;">
 				<div style="width: 100%; float: left; padding-left: 3%;">
@@ -104,7 +104,7 @@ String P = (String)session.getAttribute("pagenum");
 				</div>
 			</div>
 
-			<div style="width: 80%; height: 2000px; margin: 0 auto; padding-bottom: 200px; padding-top: 10px; text-align: left;">
+			<div style="width: 80%; height: auto; margin: 0 auto; padding-bottom: 200px; padding-top: 10px; text-align: left;">
 				<form action="" method="post">
 					<c:forEach var="M" items="${MessageAll}">
 						<div style="border: 1px solid #dddddd; padding-top: 10px;">
