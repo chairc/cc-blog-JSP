@@ -92,19 +92,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 					</div>
 					<div style="padding-top: 55px; text-align: center;">
-						<div style="float: left; width: 50%;">
-							<input class="btn btn-primary" type="reset" style="width: 80%;text-align: center;"
+						<div style="float: left; width: 49%;">
+							<input class="btn btn-primary" type="reset" style="width: 100%;text-align: center;"
 								value="重置">
 						</div>
-						<div style="float: left; width: 50%;">
-							<input class="btn btn-primary" type="submit" style="width: 80%;text-align: center;"
+						<div style="float: right; width: 49%;">
+							<input class="btn btn-primary" type="submit" style="width: 100%;text-align: center;"
 								value="留言">
 						</div>
 					</div>
 					<div
 						style="text-align: center; float: left; width: 100%; padding-top: 20px;">
 						<input class="btn btn-primary" type="button"
-							onclick="JavaScript:history.go(-1)" style="width: 90%" value="返回">
+							onclick="JavaScript:history.go(-1)" style="width: 100%" value="返回">
 					</div>
 				</form>
 			</div>

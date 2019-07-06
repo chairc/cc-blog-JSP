@@ -225,7 +225,7 @@
     <div class="bottom-all">
     	<div class="bottom-div-t">
     		<p class="bottom-p">
-        		<a href="http://www.beian.miit.gov.cn/" class="bottom-t-a">
+        		<a href="http://www.beian.miit.gov.cn/" target="_blank" class="bottom-t-a">
         			<font color="#2c3e50">鲁ICP备19032053号</font>
         		</a>
         	</p>

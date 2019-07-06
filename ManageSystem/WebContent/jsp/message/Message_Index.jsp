@@ -107,19 +107,27 @@ String P = (String)session.getAttribute("pagenum");
 			<div style="width: 80%; height: auto; margin: 0 auto; padding-bottom: 200px; padding-top: 10px; text-align: left;">
 				<form action="" method="post">
 					<c:forEach var="M" items="${MessageAll}">
-						<div style="border: 1px solid #dddddd; padding-top: 10px;">
+						<div style="border: 1px solid #dddddd;padding: 4%;border-radius: 15px;">
 							<div>
 								<p>${M.addmessageid}楼</p>
 							</div>
+							<div style="height: 50px;line-height: 50px;">							
+								<p style="height: 50px;">
+									<img src="<%=basePath%>avatorImg/${M.addmessagename}header.jpg" class="menu-nav-img-m">
+									<font color="#34495e" size="5px">${M.addmessagename}</font>
+								</p>															
+							</div>
 							<div>
 								<p>
-									<font color="#34495e">${M.addmessagename}</font>
-									&nbsp;&nbsp;&nbsp;&nbsp; <font color="#6c757d">${M.servertime}</font>
+									<font color="#6c757d" size="3px">${M.servertime}</font>
 								</p>
 							</div>
 							<div style="word-wrap: break-word">
 								<p>${M.addmessageinfo}</p>
 							</div>
+						</div>
+						<div style="height: 10px;">
+						
 						</div>
 					</c:forEach>
 					<div style="padding-top: 10px;">
