@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
 encoding//WebContent/css/portrait.css=UTF-8
-encoding//src/servlet/PortraitServlet.java=UTF-8
+encoding//src/cc/ccblog/transmission/servlet/PortraitServlet.java=UTF-8
 encoding/<project>=UTF-8
 separateDerivedEncodings=true

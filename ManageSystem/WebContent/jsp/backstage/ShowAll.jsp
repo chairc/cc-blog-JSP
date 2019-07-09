@@ -21,7 +21,7 @@ String P = (String)session.getAttribute("pagenum");
 <%-- <script src="${pageContext.request.contextPath}/js/jq-paginator.js" type="text/javascript"></script> --%>
 <script src="${pageContext.request.contextPath}/js/layui.js" charset="utf-8" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/lay/modules/layer.js" charset="utf-8" type="text/javascript"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 <base href="<%=basePath%>">
 <title>ChairC's Blog - 编辑所有用户页面</title>
 <style type="text/css">
@@ -146,9 +146,17 @@ String P = (String)session.getAttribute("pagenum");
 	if(pagevalue =="" || page.value == null){
 		alert("请输入页码");
 	}
+	
+	
 </script>
 <script type="text/javascript">
-
+$(function() {
+	var prevban=document.getElementById('page').value;
+	if(prevban==1){
+		document.getElementById("sapageprev").className="btn btn-primary disabled";
+		$("#sapageprev").attr("disabled","disabled");
+	}
+})
 </script>    
         
 

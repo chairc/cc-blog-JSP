@@ -16,6 +16,7 @@ String P = (String)session.getAttribute("pagenum");
 <link href="${pageContext.request.contextPath}/css/flat-ui.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 <title>page_demo</title>
 </head>
 <body>
@@ -59,4 +60,13 @@ String P = (String)session.getAttribute("pagenum");
 		</form>
 	</div>
 </body>
+<script type="text/javascript">
+$(function() {
+	var prevban=document.getElementById('page').value;
+	if(prevban==1){
+		document.getElementById("sllpageprev").className="btn btn-primary disabled";
+		$("#sllpageprev").attr("disabled","disabled");
+	}
+})
+</script>
 </html>

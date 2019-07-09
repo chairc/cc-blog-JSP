@@ -57,6 +57,7 @@
 					<a href="<%=basePath%>Editall" target="aaa">编辑所有用户</a><br>
 					<a href="<%=basePath%>Editinfo" target="aaa">修改信息</a><br>
 					<a href="<%=basePath%>SearchLoginLogServlet" target="aaa">登陆日志</a><br>
+					<a href="<%=basePath%>jsp/article/WriteArticle.jsp">写文章</a><br>
 					<a href="<%=basePath%>MessageServlet" target="aaa">留言板</a><br>
 					<a href="<%=basePath%>jsp/others/Donation.jsp" target="_blank">前去赞助</a><br>
 					<a href="<%=basePath%>jsp/others/Aboutus.jsp" target="aaa">关于我们</a><br>

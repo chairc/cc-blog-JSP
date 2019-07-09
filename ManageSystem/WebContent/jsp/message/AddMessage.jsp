@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								name="addmessagename" value="<%=name%>" readonly="readonly">
 						</div>
 						<div style="padding-top: 10px;">
-							<textarea class="form-control" name="addmessageinfo" row="5"
+							<textarea class="form-control" name="addmessageinfo" row="5" id="con" wrap=hard
 								cols="30" style="height: 200px; width: 100%;" maxlength="120"></textarea>
 						</div>
 					</div>
@@ -154,6 +154,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--下面是h.js的备份-->
 <script src="${pageContext.request.contextPath}/js/Index/h.js(备份用时删掉括号内容)" type="text/javascript"></script>
 <!--上面是h.js的备份-->
+
 
 
 <!--下面是图标-->

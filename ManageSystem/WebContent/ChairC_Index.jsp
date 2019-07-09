@@ -144,9 +144,11 @@
                 </p>
                 <p>
                     <font style="vertical-align: inherit;"> <font
-                        style="vertical-align: inherit;"><font color="#E74C3C">更新：</font>更新了用户名注册重复判断//全新用户界面（自适应手机/PC）<br>
-                        两种操作界面（layui建议电脑使用）//修改个人资料<br>
-                        修改了主界面和登录界面滑动bug</font>
+                        style="vertical-align: inherit;">
+                        <font color="#E74C3C">更新：</font>
+                        	更新了用户名注册重复判断//全新用户界面（自适应手机/PC）<br>
+                        	两种操作界面（layui建议电脑使用）//修改个人资料<br>
+                        	修改了主界面和登录界面滑动bug//规范命名 界面修改 小功能修改</font>
                     </font>
                 </p>
                 
@@ -167,6 +169,9 @@
                 </form>
                 	<input class="btn btn-primary" type="button" value="垃圾分类查询" 
                 		onclick="location.href='<%=basePath%>jsp/garbageclass/SearchGarbageClass.jsp'"
+                        style="width: 200px; margin-top: 40px;cursor:pointer; ">
+                    <input class="btn btn-primary" type="button" value="归档" 
+                		onclick="location.href='<%=basePath%>ArticleServlet'"
                         style="width: 200px; margin-top: 40px;cursor:pointer; ">
             </div>
             <div>

@@ -111,22 +111,23 @@
 											style="width: 100%;padding-top: 10px;">
 											<div style="text-align: center;">
 												<div style="float: left; width: 95%;padding-left: 5%;">
-													<input class="form-control" type="text" name="name" placeholder="请输入用户名"
+													<input id="loginusername" class="form-control" type="text" name="name" placeholder="请输入用户名"
 														value="" required="required">
 												</div>
 											</div>
 
 											<div style="padding-top: 55px;text-align: center;">
 												<div style="float: left; width: 95%;padding-left: 5%;" >
-													<input class="form-control" type="password" name="pwd" placeholder="请输入密码"
+													<input id="loginpassword" class="form-control" type="password" name="pwd" placeholder="请输入密码"
 														value="">
 												</div>
 											</div>
 											<div style="padding-top: 70px;text-align: center;">
 												<div style="float: left; width: 49%;">
-													 <input
+													 <input id="loginbtn"
 														class="btn btn-primary" style="width: 100%;" type="submit"
 														value="登录">
+<!-- 													<button id="loginbtn" class="btn btn-primary" style="width: 100%;">登录</button> -->
 												</div>
 												<div style="float: right; width: 49%;">
 													<input class="btn btn-primary" style="width: 100%;"
@@ -202,15 +203,35 @@
 <script src="${pageContext.request.contextPath}/js/Index/index_iconfont.js"></script>
 <!--上面是图标-->
 <script type="text/javascript">
+	
+	/*滚动回头部*/
 	var btn = document.getElementById('backtop');
 	//var scrollTop  = document.documentElement.scrollTop||document.body.scrollTop;//兼容性写法，并且在滚动事件内可以实时获得滚动条距顶部的距离 ;
-
 	btn.onclick = function(){
-
  	$('body,html').animate({scrollTop:0},300)
-
 }
- 
+
+	/*登录*/
+// 	var loginbtn = document.getElementById('loginbtn');
+	
+// 	var username = document.getElementById('loginusername');
+// 	var password = document.getElementById('loginpassword');
+	
+// 	var data = {username:username,password:password};
+// 	loginbtn.onclick = function loginbtn() {
+// 		$.ajax({
+// 			type:"POST",
+// 			url:"/LoginServlet",
+// 			dataType:"json",
+// 			data:data,
+// 			success:function(data){
+// 				window.location.href = "/ChairC_Index.jsp";
+// 			},
+// 			error:function(e){
+// 				alert("用户名或密码有错！");
+// 			}
+// 		})
+// 	}
 </script>
 
 </html>

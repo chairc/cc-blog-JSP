@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					<th>操作</th>
   				</tr>
      			<c:forEach var="E" items="${EditInfoAll}">
-     				<form action="EditUpdateServlet" method="post">
+     				<form action="UpdateNoticeServlet" method="post">
      					<tr>
        						<td><input type="text" value="${E.messageid}" name="messageid" style="width:30px;border:0px;background:none;"></td>
        						<td><input type="text" value="${E.messagemaintitle}" name="messagemaintitle"style="width:270px;border:0px;background:none;" ></td>

@@ -35,10 +35,10 @@
 <!--     <servlet-name>RegisterServlet</servlet-name> -->
 <!--     <servlet-class>servlet.RegisterServlet</servlet-class> -->
 <!--   </servlet> -->
-  <servlet>
-    <servlet-name>Searchall</servlet-name>
-    <servlet-class>servlet.Searchall</servlet-class>
-  </servlet>
+<!--   <servlet> -->
+<!--     <servlet-name>Searchall</servlet-name> -->
+<!--     <servlet-class>servlet.Searchall</servlet-class> -->
+<!--   </servlet> -->
 <!--   <servlet> -->
 <!--     <servlet-name>Editall</servlet-name> -->
 <!--     <servlet-class>servlet.Editall</servlet-class> -->
@@ -60,8 +60,8 @@
 <!--     <servlet-class>servlet.Editinfo</servlet-class> -->
 <!--   </servlet> -->
 <!--   <servlet> -->
-<!--     <servlet-name>EditUpdateServlet</servlet-name> -->
-<!--     <servlet-class>servlet.EditUpdateServlet</servlet-class> -->
+<!--     <servlet-name>UpdateNoticeServlet</servlet-name> -->
+<!--     <servlet-class>servlet.UpdateNoticeServlet</servlet-class> -->
 <!--   </servlet> -->
 <!--   <servlet> -->
 <!--     <servlet-name>MessageServlet</servlet-name> -->
@@ -115,6 +115,21 @@
 <!--     <servlet-name>GarbageClassServlet</servlet-name> -->
 <!--     <servlet-class>servlet.GarbageClassServlet</servlet-class> -->
 <!--   </servlet> -->
+<!--   <servlet> -->
+<!--     <servlet-name>ArticleServlet</servlet-name> -->
+<!--     <servlet-class>servlet.ArticleServlet</servlet-class> -->
+<!--   </servlet> -->
+<!--   <servlet> -->
+<!--     <servlet-name>SeeArticleServlet</servlet-name> -->
+<!--     <servlet-class>servlet.SeeArticleServlet</servlet-class> -->
+<!--   </servlet> -->
+<!--   <servlet> -->
+<!--     <servlet-name>WriteArticleServlet</servlet-name> -->
+<!--     <servlet-class>servlet.WriteArticleServlet</servlet-class> -->
+<!--   </servlet> -->
+
+
+
 
 
 
@@ -135,10 +150,10 @@
 <!--     <servlet-name>RegisterServlet</servlet-name> -->
 <!--     <url-pattern>/RegisterServlet</url-pattern> -->
 <!--   </servlet-mapping> -->
-  <servlet-mapping>
-    <servlet-name>Searchall</servlet-name>
-    <url-pattern>/Searchall</url-pattern>
-  </servlet-mapping>
+<!--   <servlet-mapping> -->
+<!--     <servlet-name>Searchall</servlet-name> -->
+<!--     <url-pattern>/Searchall</url-pattern> -->
+<!--   </servlet-mapping> -->
 <!--   <servlet-mapping> -->
 <!--     <servlet-name>Editall</servlet-name> -->
 <!--     <url-pattern>/Editall</url-pattern> -->
@@ -160,8 +175,8 @@
 <!--     <url-pattern>/Editinfo</url-pattern> -->
 <!--   </servlet-mapping> -->
 <!--   <servlet-mapping> -->
-<!--     <servlet-name>EditUpdateServlet</servlet-name> -->
-<!--     <url-pattern>/EditUpdateServlet</url-pattern> -->
+<!--     <servlet-name>UpdateNoticeServlet</servlet-name> -->
+<!--     <url-pattern>/UpdateNoticeServlet</url-pattern> -->
 <!--   </servlet-mapping> -->
 <!--   <servlet-mapping> -->
 <!--     <servlet-name>MessageServlet</servlet-name> -->
@@ -215,6 +230,18 @@
 <!--     <servlet-name>GarbageClassServlet</servlet-name> -->
 <!--     <url-pattern>/GarbageClassServlet</url-pattern> -->
 <!--   </servlet-mapping> -->
+<!--     <servlet-mapping> -->
+<!--     <servlet-name>ArticleServlet</servlet-name> -->
+<!--     <url-pattern>/ArticleServlet</url-pattern> -->
+<!--   </servlet-mapping> --><!--     <servlet-mapping> -->
+<!--     <servlet-name>SeeArticleServlet</servlet-name> -->
+<!--     <url-pattern>/SeeArticleServlet</url-pattern> -->
+<!--   </servlet-mapping> --><!--     <servlet-mapping> -->
+<!--     <servlet-name>WriteArticleServlet</servlet-name> -->
+<!--     <url-pattern>/WriteArticleServlet</url-pattern> -->
+<!--   </servlet-mapping> -->
+
+
 
 
 	<jsp-config>

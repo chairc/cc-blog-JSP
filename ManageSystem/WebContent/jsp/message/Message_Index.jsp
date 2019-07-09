@@ -105,7 +105,7 @@ String P = (String)session.getAttribute("pagenum");
 			</div>
 
 			<div style="width: 80%; height: auto; margin: 0 auto; padding-bottom: 200px; padding-top: 10px; text-align: left;">
-				<form action="" method="post">
+				<form action="" method="get">
 					<c:forEach var="M" items="${MessageAll}">
 						<div style="border: 1px solid #dddddd;padding: 4%;border-radius: 15px;">
 							<div>
@@ -123,8 +123,8 @@ String P = (String)session.getAttribute("pagenum");
 								</p>
 							</div>
 							<div style="word-wrap: break-word">
-								<p>${M.addmessageinfo}</p>
-							</div>
+								<p id="tb">${M.addmessageinfo}</p>
+							</div>							
 						</div>
 						<div style="height: 10px;">
 						
@@ -209,13 +209,24 @@ String P = (String)session.getAttribute("pagenum");
 <!--上面是图标-->
 <script type="text/javascript">
 	var btn = document.getElementById('backtop');
-	//var scrollTop  = document.documentElement.scrollTop||document.body.scrollTop;//兼容性写法，并且在滚动事件内可以实时获得滚动条距顶部的距离 ;
-
+	//var scrollTop  = document.documentElement.scrollTop||document.body.scrollTop;
+	//兼容性写法，并且在滚动事件内可以实时获得滚动条距顶部的距离 ;
 	btn.onclick = function(){
-
  	$('body,html').animate({scrollTop:0},300)
+	};
+	
+	$(function(){
+	     var temp= $("#tb").text().replace(/\n/g,'<br>');
+	     $("#tb").html(temp);
+	 });
 
-}
- 
+	
+	$(function() {
+		var prevban=document.getElementById('page').value;
+		if(prevban==1){
+			document.getElementById("maipageprev").className="btn btn-primary disabled";
+			$("#maipageprev").attr("disabled","disabled");
+		}
+	});
 </script>
 </html>
