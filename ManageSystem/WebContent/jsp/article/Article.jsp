@@ -111,7 +111,7 @@ String P = (String)session.getAttribute("pagenum");
 						<div style="border: 1px solid #dddddd;padding: 4%;border-radius: 15px;">
 							<div>
 								<input type="submit" formaction="<%=basePath%>SeeArticleServlet" value="${A.articletitle}"
-								 style="border: 0px;background: transparent;font-size: 38px;color: #292f36;" name="articletitle">								
+								 style="border: 0px;background: transparent;font-size: 38px;color: #292f36;width: 100%;text-align: left;" name="articletitle">								
 							</div>
 							<div style="height: 50px;line-height: 50px;">							
 								<p style="height: 50px;">
@@ -127,11 +127,9 @@ String P = (String)session.getAttribute("pagenum");
 							<div style="word-wrap: break-word">
 								<p>${A.articlemain}</p>
 							</div>
-							<div style="height: 10px;float: right;">
+							<div style="height: 30px;">
 								<font size="3px">
-									第<input type="text" name="articleid" 
-									style="border: 0px;background: transparent;width:40px;text-align: center;" 
-									value="${A.articleid}"readonly="readonly">篇
+									<p>第${A.articleid}篇</p>
 								</font>
 							</div>
 						</div>
@@ -224,15 +222,16 @@ String P = (String)session.getAttribute("pagenum");
 
  	$('body,html').animate({scrollTop:0},300)
 
-}
-
+	};
 	
-	$(function() {
-		var prevban=document.getElementById('page').value;
-		if(prevban==1){
-			document.getElementById("artpageprev").className="btn btn-primary disabled";
-			$("#artpageprev").attr("disabled","disabled");
-		}
-	})
+</script>
+<script type="text/javascript">
+$(function() {
+	var prevban=document.getElementById('page').value;
+	if(prevban==1){
+		document.getElementById("artpageprev").className="btn btn-primary disabled";
+		$("#artpageprev").attr("disabled","disabled");
+	}
+});
 </script>
 </html>
