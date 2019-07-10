@@ -7,7 +7,7 @@ import cc.ccblog.entity.User;
 public interface UserDao {
 	boolean login(String name,String pwd);//登录
 	boolean register(User user);//注册
-	boolean registevalidation(String name);//登录是重名验证
+	boolean registevalidation(String name);//注册是重名验证
 	List<User> getUserAll(int curPage);//返回用户信息集合
 	boolean delete(int id) ;//根据id删除用户
 

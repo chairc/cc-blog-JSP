@@ -106,17 +106,18 @@ String P = (String)session.getAttribute("pagenum");
 			</div>
 
 			<div style="width: 80%; height: auto; margin: 0 auto; padding-bottom: 200px; padding-top: 10px; text-align: left;">
-				<form action="" method="post">
+				<form action="" method="get">
 					<c:forEach var="A" items="${ArticleAll}">
 						<div style="border: 1px solid #dddddd;padding: 4%;border-radius: 15px;">
 							<div>
 								<input type="submit" formaction="<%=basePath%>SeeArticleServlet" value="${A.articletitle}"
-								 style="border: 0px;background: transparent;font-size: 38px;color: #292f36;width: 100%;text-align: left;" name="articletitle">								
+								 style="border: 0px;background: transparent;font-size: 30px;color: #292f36;width: 100%;text-align: left;" 
+								 name="articletitle">								
 							</div>
 							<div style="height: 50px;line-height: 50px;">							
 								<p style="height: 50px;">
 									<img src="<%=basePath%>avatorImg/${A.articleauthor}header.jpg" class="menu-nav-img-m">
-									<font color="#34495e" size="5px">${A.articleauthor}</font>
+									<font color="#34495e" size="3px">${A.articleauthor}</font>
 								</p>															
 							</div>
 							<div>

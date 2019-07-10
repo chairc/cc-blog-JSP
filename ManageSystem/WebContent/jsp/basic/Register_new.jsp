@@ -33,8 +33,7 @@ String P = (String)session.getAttribute("pagenum");
 <link type="text/css" rel="stylesheet" charset="UTF-8"
 	href="https://translate.googleapis.com/translate_static/css/translateelement.css">
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-	
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>	
 	
 </head>
 <body>
@@ -110,7 +109,7 @@ String P = (String)session.getAttribute("pagenum");
 					</div>
 					<div style="padding-top: 13px;">
 						<input class="form-control" name="pwd" type="password" style="width: 100%;"
-							placeholder="请输入密码">
+							placeholder="请输入密码" required="required">
 					</div>
 					<div style="padding-top: 13px;padding-bottom:13px;float: left;">
 						选择性别: <input class="custom-radio" type="radio" name="sex"

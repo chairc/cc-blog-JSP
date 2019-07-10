@@ -94,7 +94,7 @@ String name = (String) session.getAttribute("username");
 								name="articleauthor" value="<%=name%>" readonly="readonly">
 						</div>
 						<div style="padding-top: 10px;">
-							<textarea class="form-control" name="articlemain" row="100"
+							<textarea class="form-control" name="articlemain" row="1000"
 								cols="100" style=" width: 100%;height:1000px;"maxlength="15000"></textarea>
 
 						</div>

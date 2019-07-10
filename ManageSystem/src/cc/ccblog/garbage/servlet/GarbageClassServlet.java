@@ -27,12 +27,12 @@ public class GarbageClassServlet extends HttpServlet {
 			GarbageClassDao gcd = new GarbageClassDaoImpl();
 			List<GarbageClass> searchgarbage = gcd.searchgarbageall();
 			request.setAttribute("searchgarbage", searchgarbage);
-			request.getRequestDispatcher("/jsp/garbageclass/ShowGarbageClass.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/garbageclass/Garbage.jsp").forward(request, response);
 		}else {
 			GarbageClassDao gcd = new GarbageClassDaoImpl();
 			List<GarbageClass> searchgarbage = gcd.searchgarbage(searchgarbagename);
 			request.setAttribute("searchgarbage", searchgarbage);
-			request.getRequestDispatcher("/jsp/garbageclass/ShowGarbageClass.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/garbageclass/Garbage.jsp").forward(request, response);
 		}
 		
 		

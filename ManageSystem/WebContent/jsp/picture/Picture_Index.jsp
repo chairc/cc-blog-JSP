@@ -14,27 +14,23 @@ String P = (String)session.getAttribute("pagenum");
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>ChairC's Blog - 照片墙</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet"
-	 href="${pageContext.request.contextPath}/css/flat-ui.css" 
-	 type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/swiper.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/main.css"
-	type="text/css">
-<script src="${pageContext.request.contextPath}/js/swiper.min.js"
-	type="text/javascript"></script>
-<link type="text/css" rel="stylesheet" charset="UTF-8"
-	href="https://translate.googleapis.com/translate_static/css/translateelement.css">
-<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flat-ui.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css">
+
+<script src="${pageContext.request.contextPath}/js/swiper.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/Index/index_main.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-	
+<script src="${pageContext.request.contextPath}/js/Index/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/Index/h.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/Index/h.js(备份用时删掉括号内容)" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/Index/index_iconfont.js"></script>
+
 	
 </head>
 <body>
@@ -90,19 +86,28 @@ String P = (String)session.getAttribute("pagenum");
 
 
     <!--******************************下面是主页内容******************************-->
-    <div style="background-color: #ff730080;width: 100%;height: 100%;"></div>
+    <div style="padding-top:65px;"></div>
+    <div style="background-color: #ff730080;width: 100%;height: 100%;">
+    	
+    </div>
+    <div style="background-color: #ff0000;width: 100%;height: 100%;padding-left: 20%;padding-top: 7%;padding-bottom: 7%;">
+    	<div style="background-color: #fc858580;width: 100%;height: 100%;">
+    	
+    	</div>
+    </div>
 	<div style="width: 100%; height: 1000px; padding-top: 100%; background-color: #fff;">
 		<div style="text-align: center; padding-left: 5%; padding-right: 5%;">
 			
 		</div>
 	</div>
+    
 	
 	
 	<div style="position: fixed;right: 10px;bottom: 80px;width: 50px;z-index: 1999;">
     	<button id="backtop" class="btn btn-info navguide">返回头部</button>
     </div>
 </body>
-<script src="${pageContext.request.contextPath}/js/Index/index_main.js"></script>
+
 
 <script>
     //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓下面是导航栏隐藏↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -136,19 +141,7 @@ String P = (String)session.getAttribute("pagenum");
 
 <!--******************************上面是导航栏方法******************************-->
 
-<script src="${pageContext.request.contextPath}/js/Index/jquery.min.js"></script>
 
-<script src="${pageContext.request.contextPath}/js/Index/h.js" type="text/javascript"></script>
-
-<!--下面是h.js的备份-->
-<script src="${pageContext.request.contextPath}/js/Index/h.js(备份用时删掉括号内容)" type="text/javascript"></script>
-<!--上面是h.js的备份-->
-
-
-<!--下面是图标-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css">
-<script src="${pageContext.request.contextPath}/js/Index/index_iconfont.js"></script>
-<!--上面是图标-->
 <script type="text/javascript">
 	var btn = document.getElementById('backtop');
 	//var scrollTop  = document.documentElement.scrollTop||document.body.scrollTop;//兼容性写法，并且在滚动事件内可以实时获得滚动条距顶部的距离 ;
@@ -160,4 +153,6 @@ String P = (String)session.getAttribute("pagenum");
 }
  
 </script>
+
+
 </html>

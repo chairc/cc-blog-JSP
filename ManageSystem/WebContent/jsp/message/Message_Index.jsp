@@ -98,9 +98,7 @@ String P = (String)session.getAttribute("pagenum");
 					<h3 style="margin-top: 30px;margin-bottom: 15px;">留言板</h3>
 				</div>
 				<div style="width: 100%; float: left; padding-left: 3%; padding-top: 10px;">
-					<a href="jsp/message/AddMessage.jsp"> <input class="btn btn-default"
-						type="submit" value="我要留言" />
-					</a>
+					<button id="backbottom" class="btn btn-default">我要留言</button>
 				</div>
 			</div>
 
@@ -130,7 +128,7 @@ String P = (String)session.getAttribute("pagenum");
 						
 						</div>
 					</c:forEach>
-					<div style="padding-top: 10px;">
+					<div style="height:auto;padding-top: 20px;padding-bottom: 60px;">
 						<div style="float: left; padding-right: 10px;">
 							<input id="maipageprev" name="maipageprev" type="submit"
 								formaction="Page" class="btn btn-primary" value="上一页">
@@ -151,6 +149,34 @@ String P = (String)session.getAttribute("pagenum");
 						</div>
 					</div>
 				</form>
+				<div id="addms" style="width: 100%;">
+					<form action="AddMessageServlet" method="post">
+						<div style="">
+							<div>
+								<input type="text" style="width: 100%;" class="form-control"
+									name="addmessagename" value="<%=name%>" readonly="readonly">
+							</div>
+							<div style="padding-top: 10px;">
+								<textarea class="form-control" name="addmessageinfo" row="5"
+									id="con" wrap=hard cols="30"
+									style="height: 200px; width: 100%;" maxlength="120"></textarea>
+							</div>
+						</div>
+						<div style="padding-top: 55px; text-align: center;">
+							<div style="float: left; width: 100%;">
+								<input class="btn btn-primary" type="submit"
+									style="width: 100px; text-align: center;" value="留言">
+									
+								<input class="btn btn-primary" type="reset"
+									style="width: 100px; text-align: center;" value="重置">
+															
+								<input class="btn btn-primary" type="button"
+									onclick="JavaScript:history.go(-1)" style="width: 100px"
+									value="返回">
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -209,17 +235,21 @@ String P = (String)session.getAttribute("pagenum");
 <!--上面是图标-->
 <script type="text/javascript">
 	var btn = document.getElementById('backtop');
+	var btnms = document.getElementById('backbottom');
 	//var scrollTop  = document.documentElement.scrollTop||document.body.scrollTop;
 	//兼容性写法，并且在滚动事件内可以实时获得滚动条距顶部的距离 ;
 	btn.onclick = function(){
  	$('body,html').animate({scrollTop:0},300)
 	};
+
+	btnms.onclick = function(){
+	 	$('body,html').animate({scrollTop:$('#addms').offset().top},300)
+		};
 	
 	$(function(){
 	     var temp= $("#tb").text().replace(/\n/g,'<br>');
 	     $("#tb").html(temp);
-	 });
-
+	 });	
 	
 	$(function() {
 		var prevban=document.getElementById('page').value;

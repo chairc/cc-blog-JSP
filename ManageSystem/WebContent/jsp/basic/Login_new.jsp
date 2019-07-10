@@ -112,14 +112,14 @@
 											<div style="text-align: center;">
 												<div style="float: left; width: 95%;padding-left: 5%;">
 													<input id="loginusername" class="form-control" type="text" name="name" placeholder="请输入用户名"
-														value="" required="required">
+														value="" required="required"  onkeyup="value=value.replace(/[\W]/g,'') ">
 												</div>
 											</div>
 
 											<div style="padding-top: 55px;text-align: center;">
 												<div style="float: left; width: 95%;padding-left: 5%;" >
 													<input id="loginpassword" class="form-control" type="password" name="pwd" placeholder="请输入密码"
-														value="">
+														value="" required="required">
 												</div>
 											</div>
 											<div style="padding-top: 70px;text-align: center;">

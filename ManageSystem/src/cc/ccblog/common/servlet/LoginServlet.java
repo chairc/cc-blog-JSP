@@ -21,12 +21,15 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 		doPost(request,response);  //将信息使用doPost方法执行   对应jsp页面中的form表单中的method
 	}
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		String name = new String(request.getParameter("name").getBytes("ISO-8859-1"),"utf-8"); //得到jsp页面传过来的参数
 		String pwd = new String(request.getParameter("pwd").getBytes("ISO-8859-1"),"utf-8");
 		
 		String servertime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());//获取登录时间
 		
-		request.getSession().setAttribute("username",name);//将用户名保存在整个会话期间  
+		request.getSession().setAttribute("username",name);//将用户名保存在整个会话期间
+		request.getSession().setAttribute("password", pwd);
 		
 		
 		String ip = request.getHeader("x-forwarded-for"); 
@@ -72,9 +75,11 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 			}
 			
 		}else{
-			request.setAttribute("xiaoxi", "登录失败！");
-			request.getRequestDispatcher("jsp/others/Failure_new.jsp").forward(request, response);
-			//response.sendRedirect("jsp/others/Failure.jsp"); //重定向到首页			
+//			response.setContentType("text/html;charset=utf-8");
+			response.getWriter().print("<script>alert('Alert:Please add information correctly!');window.location.href='showinfo';</script>");
+//			request.setAttribute("xiaoxi", "登录失败！");
+//			request.getRequestDispatcher("jsp/others/Failure_new.jsp").forward(request, response);
+//			response.sendRedirect("jsp/others/Failure.jsp"); //重定向到首页			
 		}
 	}
 }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cc.ccblog.entity.Article;
-import cc.ccblog.entity.MessageInfo;
 import cc.ccblog.util.DBconn;
 
 public class ArticleDaoImpl implements ArticleDao{

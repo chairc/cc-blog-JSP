@@ -168,7 +168,7 @@
                         style="width: 100px; margin-top: 40px;cursor:pointer; ">
                 </form>
                 	<input class="btn btn-primary" type="button" value="垃圾分类查询" 
-                		onclick="location.href='<%=basePath%>jsp/garbageclass/SearchGarbageClass.jsp'"
+                		onclick="location.href='<%=basePath%>jsp/garbageclass/Garbage.jsp'"
                         style="width: 200px; margin-top: 40px;cursor:pointer; ">
                     <input class="btn btn-primary" type="button" value="归档" 
                 		onclick="location.href='<%=basePath%>ArticleServlet'"
