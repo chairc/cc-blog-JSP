@@ -75,7 +75,7 @@ String P = (String)session.getAttribute("pagenum");
 						</div>
 						<div style="width: 100%; height: 90%;">
 											
-							<form action="" method="get">				
+							<form action="" method="post" target="_self">				
 								<table width="1050px" border="1" cellpadding="0">
 									<tr>
 										<th style="width: 30px;">ID</th>

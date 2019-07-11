@@ -29,12 +29,25 @@ public class Searchall extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		response.setContentType("application/json;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		JsonObject json=new JsonSelect().selectall();
-		System.out.println(json);
-		response.setHeader("Access-Control-Allow-Origin", "*");
-		out.print(json);
+		String name = (String) request.getSession().getAttribute("username");
+		String pwd = (String) request.getSession().getAttribute("password");
+		
+		UserDao ud = new UserDaoImpl();
+		if(ud.login(name, pwd)) {
+			response.setContentType("application/json;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			JsonObject json=new JsonSelect().selectall();
+			System.out.println(json);
+			response.setHeader("Access-Control-Allow-Origin", "*");
+			out.print(json);
+		}else {
+			if(name == null || pwd == null) {
+				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='showinfo';</script>");
+			}else {
+				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='showinfo';</script>");
+			}
+		}
+		
 		
 		
 		//列表输出

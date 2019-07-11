@@ -1,4 +1,4 @@
-package cc.ccblog.message.servlet;
+package cc.ccblog.useless;
 
 import java.io.IOException;
 import java.util.List;

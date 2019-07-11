@@ -87,13 +87,6 @@ layui.use('element', function(){
 								<a href="">超链接</a>
 							</dd>
 						</dl></li>
-					<li class="layui-nav-item"><a href="<%=basePath%>MessageServlet"
-						target="aaa">留言板</a>
-						<dl class="layui-nav-child">
-							<dd>
-								<a href="<%=basePath%>jsp/message/AddMessage.jsp" target="aaa">我要留言</a>
-							</dd>
-						</dl></li>
 					<li class="layui-nav-item"><a href="javascript:;">解决方案</a>
 						<dl class="layui-nav-child">
 							<dd>

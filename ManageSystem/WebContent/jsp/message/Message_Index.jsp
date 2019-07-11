@@ -103,7 +103,7 @@ String P = (String)session.getAttribute("pagenum");
 			</div>
 
 			<div style="width: 80%; height: auto; margin: 0 auto; padding-bottom: 200px; padding-top: 10px; text-align: left;">
-				<form action="" method="get">
+				<form action="" method="get" target="_self">
 					<c:forEach var="M" items="${MessageAll}">
 						<div style="border: 1px solid #dddddd;padding: 4%;border-radius: 15px;">
 							<div>
@@ -152,13 +152,9 @@ String P = (String)session.getAttribute("pagenum");
 				<div id="addms" style="width: 100%;">
 					<form action="AddMessageServlet" method="post">
 						<div style="">
-							<div>
-								<input type="text" style="width: 100%;" class="form-control"
-									name="addmessagename" value="<%=name%>" readonly="readonly">
-							</div>
 							<div style="padding-top: 10px;">
 								<textarea class="form-control" name="addmessageinfo" row="5"
-									id="con" wrap=hard cols="30"
+									id="con" wrap=hard cols="30" placeholder="请输入留言内容......"
 									style="height: 200px; width: 100%;" maxlength="120"></textarea>
 							</div>
 						</div>

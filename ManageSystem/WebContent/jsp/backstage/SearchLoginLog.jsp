@@ -21,7 +21,7 @@ String P = (String)session.getAttribute("pagenum");
 </head>
 <body>
 	<div class="work_style">
-		<form action="" method="post">
+		<form action="" method="post" target="_self">
 			<div style="padding-left: 20%;padding-right: 20%;padding-bottom: 200px;">
 				<c:forEach var="M" items="${userLogAll}">
 					<div style="border: 1px solid #dddddd;padding-top: 10px;">

@@ -15,7 +15,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="${pageContext.request.contextPath}/css/layui.css" rel="stylesheet" media="all">
 <link href="${pageContext.request.contextPath}/css/modules/layer/default/layer.css?v=3.1.1">
 <script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
-<%-- <script src="${pageContext.request.contextPath}/js/jq-paginator.js" type="text/javascript"></script> --%>
 <script src="${pageContext.request.contextPath}/js/layui.js" charset="utf-8" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/lay/modules/layer.js" charset="utf-8" type="text/javascript"></script>
 

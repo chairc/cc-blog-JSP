@@ -91,13 +91,6 @@ layui.use('element', function(){
 					<li class="layui-nav-item"><a href="<%=basePath%>jsp/backstage/ShowAll_new.jsp" target="aaa">查看所有用户</a></li>
 					<li class="layui-nav-item"><a href="<%=basePath%>Editall" target="aaa">编辑所有用户</a></li>
 					<li class="layui-nav-item"><a href="<%=basePath%>Editinfo" target="aaa">修改公告</a></li>
-					<li class="layui-nav-item"><a href="<%=basePath%>MessageServlet"
-						target="aaa">留言板</a>
-						<dl class="layui-nav-child">
-							<dd>
-								<a href="<%=basePath%>jsp/message/AddMessage.jsp" target="aaa">我要留言</a>
-							</dd>
-						</dl></li>
 					<li class="layui-nav-item"><a href="javascript:;">解决方案</a>
 						<dl class="layui-nav-child">
 							<dd>

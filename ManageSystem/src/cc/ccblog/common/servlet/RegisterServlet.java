@@ -21,7 +21,7 @@ public class RegisterServlet extends HttpServlet {
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
+		
 		
 		String name = new String(request.getParameter("name").getBytes("ISO-8859-1"),"utf-8"); //获取jsp页面传过来的参数
 		String pwd = new String(request.getParameter("pwd").getBytes("ISO-8859-1"),"utf-8");
@@ -45,13 +45,13 @@ public class RegisterServlet extends HttpServlet {
 				//request.setAttribute("xiaoxi", "注册成功");
 				request.getRequestDispatcher("/showinfo").forward(request, response);  //转发到登录页面
 			}else {
-				response.getWriter().print("<script>alert('Alert:Please add text correctly!\n请正确输入！');window.location.href='jsp/basic/Register_new.jsp'</script>");
+				response.getWriter().print("<script>alert('Alert:Please add text correctly!');window.location.href='jsp/basic/Register_new.jsp'</script>");
 				//request.setAttribute("xiaoxi", "注册失败，请检查填写内容！");
 				//request.getRequestDispatcher("/jsp/others/Failure_new.jsp").forward(request, response);
 				//response.sendRedirect("jsp/others/Failure_new.jsp");//重定向到首页
 			}	
 		}else{
-			response.getWriter().print("<script>alert('Alert:Username is not unique!\n用户名不唯一！');window.location.href='jsp/basic/Register_new.jsp'</script>");
+			response.getWriter().print("<script>alert('Alert:Username is not unique!');window.location.href='jsp/basic/Register_new.jsp'</script>");
 			//request.setAttribute("xiaoxi", "注册失败，用户名重复！");
 			//request.getRequestDispatcher("/jsp/others/Failure_new.jsp").forward(request, response);
 			//response.sendRedirect("jsp/others/Failure_new.jsp");//重定向到首页
