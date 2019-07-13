@@ -61,7 +61,7 @@
 					<a href="<%=basePath%>jsp/others/Donation.jsp" target="_blank">前去赞助</a><br>
 					<a href="<%=basePath%>SearchLoginLogServlet" target="aaa">登陆日志</a><br>
 					<a href="<%=basePath%>jsp/others/Aboutus.jsp" target="aaa">关于我们</a><br>
-					<a href="<%=basePath%>ChairC_Index.jsp">退出</a>
+					<a href="<%=basePath%>LogoutServlet">退出</a>
 				</div>
 			</div>
 			<div class="swiper-slide content swiper-slide-active">
@@ -76,7 +76,7 @@
 					<div class="menu-artical swiper-no-swiping">
 						<ul class="menu-artical-ul">
 							<li id="liclick" class="menu-artical-li" style="width: 50px;">
-								<a href="<%=basePath%>ChairC_Index.jsp">
+								<a href="<%=basePath%>LogoutServlet">
 									<div>退出</div>
 								</a>
 							</li>

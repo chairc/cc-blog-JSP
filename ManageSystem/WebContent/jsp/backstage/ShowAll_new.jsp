@@ -91,11 +91,15 @@ layui.use('table', function(){
       {field:'id', width:80, title: 'ID', sort: true},
       {field:'name', width:80, title: '用户名'},
       {field:'pwd', width:80, title: '密码', sort: true},
+      {field:'email', width:200, title: '邮箱'},
+      {field:'phone', width:200, title: '电话'},
       {field:'sex', width:80, title: '性别'},
       {field:'home', width:80, title: '籍贯'},
       {field:'info', width:160, title: '个人信息', sort: true},
       {field:'servertime', width:200, title: '最后登录时间'},
-      {field:'ip', width:200, title: 'IP'}
+      {field:'ip', width:200, title: 'IP'},
+      {field:'safequestion', width:200, title: '安全问题'},
+      {field:'safeanswer', width:200, title: '安全答案'}
     ]],
   });
 });

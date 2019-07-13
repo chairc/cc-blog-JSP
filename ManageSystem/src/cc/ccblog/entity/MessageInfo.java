@@ -11,6 +11,7 @@ public class MessageInfo {
 	private String addmessageinfo;
 	private String servertime;
 	
+	private String selectsafequestion;//安全问题列表    *未完成
 	
 	public int getMessageid() {
 		return messageid;
@@ -76,4 +77,12 @@ public class MessageInfo {
 		this.servertime = servertime;
 	}
 
+	public String getSelectsafequestion() {
+		return selectsafequestion;
+	}
+
+	public void setSelectsafequestion(String selectsafequestion) {
+		this.selectsafequestion = selectsafequestion;
+	}
+	
 }

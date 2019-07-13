@@ -92,8 +92,8 @@
 							<p><a id="a_click" href="showinfo" >今日事件：</a>Hello! Welcome to my Index!</p>
 						</div>
 						<div>
-							<div style="height: 250px;"align="center">
-								<div style="width: 100%; height: 170px;z-index: 666;" align="center">
+							<div style="height: auto;"align="center">
+								<div style="width: 100%;z-index: 666;" align="center">
 									<c:forEach var="C" items="${InfoAll}">
 										<h1>${C.messagemaintitle}</h1>
 										<p>${C.messagetitle}</p>
@@ -103,47 +103,48 @@
 							</div>
 						</div>
 						<div style="padding-left: 30%; padding-right: 30%;padding-bottom: 10px;">
-							<div>
-								<div>
-									<form action="LoginServlet" method="post"
-										style="padding-top: -700px;">
-										<div
-											style="width: 100%;padding-top: 10px;">
-											<div style="text-align: center;">
-												<div style="float: left; width: 95%;padding-left: 5%;">
-													<input id="loginusername" class="form-control" type="text" name="name" placeholder="请输入用户名"
-														value="" required="required"  onkeyup="value=value.replace(/[\W]/g,'') ">
-												</div>
-											</div>
-
-											<div style="padding-top: 55px;text-align: center;">
-												<div style="float: left; width: 95%;padding-left: 5%;" >
-													<input id="loginpassword" class="form-control" type="password" name="pwd" placeholder="请输入密码"
-														value="" required="required">
-												</div>
-											</div>
-											<div style="padding-top: 70px;text-align: center;">
-												<div style="float: left; width: 49%;">
-													 <input id="loginbtn"
-														class="btn btn-primary" style="width: 100%;" type="submit"
-														value="登录">
-<!-- 													<button id="loginbtn" class="btn btn-primary" style="width: 100%;">登录</button> -->
-												</div>
-												<div style="float: right; width: 49%;">
-													<input class="btn btn-primary" style="width: 100%;"
-														type="reset" value="重置">
-													
-												</div>
-											</div>											
+							<form action="LoginServlet" method="post"
+								style="padding-top: -700px;">
+								<div
+									style="width: 100%;padding-top: 10px;">
+									<div style="text-align: center;">
+										<div style="float: left; width: 100%;">
+											<input id="loginusername" class="form-control" type="text" name="name" placeholder="请输入用户名"
+												value="" required="required"  onkeyup="value=value.replace(/[\W]/g,'') ">
 										</div>
-									</form>
-									<div style="padding-top: 70px;padding-bottom: 10px;">
-										<form action="<%=basePath %>jsp/basic/Register_new.jsp">
-											<input class="btn btn-primary" style="width: 100%;"
-												type="submit" value="新用户注册">
-										</form>
+										<div style="float: right;">
+											<p><font size="2px"><a href="<%=basePath%>jsp/basic/RetrieveAccount.jsp">忘记用户名</a></font></p>
+										</div>
 									</div>
-								</div>								
+
+									<div style="padding-top: 55px;text-align: center;">
+										<div style="float: left; width: 100%;" >
+											<input id="loginpassword" class="form-control" type="password" name="pwd" placeholder="请输入密码"
+												value="" required="required">
+										</div>
+										<div style="float: right;">
+											<p><font size="2px"><a href="<%=basePath%>jsp/basic/RetrieveAccount.jsp">忘记密码</a></font></p>
+										</div>
+									</div>
+									<div style="float:left;width:100%;padding-top: 10px;text-align: center;">
+										<div style="float:left; width: 49%;">
+											<input id="loginbtn"
+												class="btn btn-primary" style="width: 100%;" type="submit"
+												value="登录">
+<!-- 											<button id="loginbtn" class="btn btn-primary" style="width: 100%;">登录</button> -->
+										</div>
+										<div style="float:right; width: 49%;">
+											<input class="btn btn-primary" style="width: 100%;"
+												type="reset" value="重置">													
+										</div>
+									</div>											
+								</div>
+							</form>
+							<div style="padding-top: 70px;padding-bottom: 10px;">
+								<form action="<%=basePath %>jsp/basic/Register_new.jsp">
+									<input class="btn btn-primary" style="width: 100%;"
+										type="submit" value="新用户注册">
+								</form>								
 							</div>
 						</div>
 					</div>

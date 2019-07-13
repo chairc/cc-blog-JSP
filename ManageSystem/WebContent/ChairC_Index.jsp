@@ -114,6 +114,9 @@
                     </font>
                 </p>
                 <p>
+                	<font style="vertical-align: inherit;"> <font
+                        style="vertical-align: inherit;">新增找回账号密码 强制改密（<font color="#E74C3C">已完成</font>）</font>
+                    </font>
                     <font style="vertical-align: inherit;"> <font
                         style="vertical-align: inherit;">文件下载系统（详细在主页下方工具下载）（<font color="#E74C3C">已完成</font>）</font>
                     </font>

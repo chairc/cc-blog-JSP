@@ -28,6 +28,10 @@ public class RegisterServlet extends HttpServlet {
 		String sex = new String(request.getParameter("sex").getBytes("ISO-8859-1"),"utf-8");
 		String home = new String(request.getParameter("home").getBytes("ISO-8859-1"),"utf-8");
 		String info = new String(request.getParameter("info").getBytes("ISO-8859-1"),"utf-8");
+		String email = new String(request.getParameter("email").getBytes("ISO-8859-1"),"utf-8");
+		String phone = new String(request.getParameter("phone").getBytes("ISO-8859-1"),"utf-8");
+		String safequestion = new String(request.getParameter("safequestion").getBytes("ISO-8859-1"),"utf-8");
+		String safeanswer = new String(request.getParameter("safeanswer").getBytes("ISO-8859-1"),"utf-8");
 		
 		User user = new User(); //实例化一个对象，组装属性
 		user.setName(name);
@@ -35,6 +39,10 @@ public class RegisterServlet extends HttpServlet {
 		user.setSex(sex);
 		user.setHome(home);
 		user.setInfo(info);
+		user.setEmail(email);
+		user.setPhone(phone);
+		user.setSafequestion(safequestion);
+		user.setSafeanswer(safeanswer);
 		
 		UserDao ud = new UserDaoImpl();
 		

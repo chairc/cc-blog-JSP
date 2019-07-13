@@ -16,7 +16,7 @@ String P = (String)session.getAttribute("pagenum");
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>ChairC's Blog - 注册</title>
+<title>ChairC's Blog - 找回用户名或密码</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet"
@@ -37,21 +37,21 @@ String P = (String)session.getAttribute("pagenum");
 
 
 <style type="text/css">
-.re{
+.fo{
 	width: 100%; 
 	padding-left: 30%; 
 	padding-right: 30%;
 	text-align: left;
 }
 @media screen and (max-width: 700px) {
-	.re{
+	.fo{
 		width: 100%; 
 		padding-left: 10%; 
 		padding-right: 10%;
 		text-align: left;
 	}
 }
-</style>
+</style>	
 </head>
 <body>
 
@@ -111,74 +111,65 @@ String P = (String)session.getAttribute("pagenum");
 		<div style="text-align: center; padding-left: 5%; padding-right: 5%;">
 			<div style="width: 100%; height: 100px; text-align: left;">
 				<div style="width: 100%; float: left; padding-left: 3%;">
-					<h3 style="margin-top: 30px; margin-bottom: 15px;">注册</h3>
+					<h3 style="margin-top: 30px; margin-bottom: 15px;">找回用户名或密码</h3>
 				</div>
 			</div>
 
-			<div class="re" style="">
-				<form action="<%=basePath%>RegisterServlet" method="post"
+			<div class="fo">
+				<form action="" method="post"
 					style="padding-top: -700px">
 					<div>
-						请输入用户名：
-						<input class="form-control" name="name" type="text" style="width: 100%;"
-							placeholder="请输入用户名,请不要输入汉字" required="required"
-							onkeyup="value=value.replace(/[\W]/g,'') " maxlength="255"
-							onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+						<h5>请选择你的找回方式</h5>
 					</div>
-					<div style="padding-top: 13px;">
-						请输入密码：
-						<input class="form-control" name="pwd" type="password" style="width: 100%;"
-							placeholder="请输入密码" required="required" maxlength="255">
+					<div style="height: 60px;padding-top:10px;">
+						<div style="float:left;width: 40%;padding-right: 5%;">
+							<select name="selectfindway" class="form-control" style="width: 100%">
+								<option value="用户名" selected>用户名</option>
+								<option value="电子邮箱">电子邮箱</option>
+								<option value="电话" >电话</option>
+							</select>
+						</div>
+						<div style="float: left;width: 60%;">							
+							<input type="text" class="form-control" style="width: 100%;"
+								name="findway" placeholder="找回方式"  maxlength="255">
+						</div>
 					</div>
-					<div style="padding-top: 13px;">
-						请输入邮箱：
-						<input class="form-control" name="email" type="email" style="width: 100%;"
-							placeholder="请输入邮箱" required="required" maxlength="255">
+					<div style="height: 60px;padding-top:10px;">
+						<div style="float:left;width: 40%;padding-right: 5%;">
+							<select name="safequestion" class="form-control" style="width: 100%">
+								<option value="我的生日" selected>我的生日（输入格式例如19980424）</option>
+								<option value="我最好的朋友">我最好的朋友</option>
+								<option value="最喜欢玩的游戏">最喜欢玩的游戏</option>
+								<option value="最爱的一首歌" >最爱的一首歌</option>
+							</select>
+						</div>
+						<div style="float: left;width: 60%;">							
+							<input type="text" class="form-control" style="width: 100%;"
+								name="safeanswer" placeholder="安全答案"  maxlength="255">
+						</div>
 					</div>
-					<div style="padding-top: 13px;">
-						请输入手机号：
-						<input class="form-control" name="phone" type="number" style="width: 100%;"
-							placeholder="请输入手机号" required="required" maxlength="20">					
-					</div>
-					<div style="padding-top: 13px;padding-bottom:13px;float: left;width: 100%;">
-						请选择性别: <input class="custom-radio" type="radio" name="sex"
-							value="男" checked>男 <input class="custom-radio"
-							type="radio" name="sex" value="女">女
-					</div>
-					<div style="padding-top: 13px;">
-						请输入家乡：
-						<input class="form-control" name="home" type="text" style="width: 100%;"
-							placeholder="请输入家乡">
-					</div>
-					<div style="padding-top: 13px;">
-						请输入个人信息：
-						<textarea class="form-control" name="info" row="5" cols="30" style="width: 100%;"
-							placeholder="请填写个人信息" maxlength="255"></textarea>
+					<div style="height: auto;">
+						<div style="padding-top: 75px;">
+							<c:forEach var="R" items="${retrieveaccount}">
+								<div style="border: 1px solid #dddddd; padding-top: 10px;">
+									<div>
+										<p>用户名：${R.name}</p>
+										<p>密&nbsp;码：${R.pwd}</p>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
 					</div>
 					
-					<div style="padding-top: 13px;">
-						请输入安全问题：
-						<select name="safequestion" class="form-control" style="width: 100%">
-							<option value="我的生日" selected>我的生日（输入格式例如19980424）</option>
-							<option value="我最好的朋友">我最好的朋友</option>
-							<option value="最喜欢玩的游戏">最喜欢玩的游戏</option>
-							<option value="最爱的一首歌" >最爱的一首歌</option>
-						</select>
-					</div>
-					<div style="padding-top: 13px;">
-						请输入安全答案：
-						<input class="form-control" name="safeanswer" type="text" style="width: 100%;"
-							placeholder="请输入安全问题" required="required" maxlength="255">
-					</div>
 					<div style="text-align: center; padding-top: 15px;">
-						<div style="float: left; width: 49%;">
-							<input class="btn btn-primary" type="submit" style="width: 100%;text-align: center;"
-								value="注册">
-						</div>
 						<div style="float: right; width: 49%;">
 							<input class="btn btn-primary" type="reset" style="width: 100%;text-align: center;"
 								value="重置">
-						</div>						
+						</div>
+						<div style="float: left; width: 49%;">
+							<input class="btn btn-primary" type="submit" style="width: 100%;text-align: center;"
+								value="提交" formaction="<%=basePath%>RetrieveAccountServlet">
+						</div>
 					</div>
 					<div
 						style="text-align: center; float: left; width: 100%; padding-top: 20px;">

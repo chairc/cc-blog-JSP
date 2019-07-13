@@ -67,7 +67,7 @@ String P = (String)session.getAttribute("pagenum");
 
 			<div class="showall_work_right">
 				<div class="showall_style">
-					<div style="width: 100%;height:100%;padding-left: 100px;padding-bottom: 150px;">
+					<div style="width: 100%;height:100%;padding-left: 50px;padding-bottom: 150px;">
 						<div style="width: 100%;height: 55px;">
 							<div style="width: 100%; height: 10%;">
 								<h3>${xiaoxi}</h3>
@@ -79,13 +79,17 @@ String P = (String)session.getAttribute("pagenum");
 								<table width="1050px" border="1" cellpadding="0">
 									<tr>
 										<th style="width: 30px;">ID</th>
-										<th style="width: 100px;">姓名</th>
-										<th style="width: 100px;">性别</th>
+										<th style="width: 100px;">用户名</th>
+										<th style="width: 20px;">性别</th>
 										<th style="width: 100px;">密码</th>
-										<th style="width: 100px;">家乡</th>
+										<th style="width: 100px;">电子邮箱</th>
+										<th style="width: 100px;">电话</th>
+										<th style="width: 50px;">家乡</th>
 										<th style="width: 270px;">备注</th>
 										<th style="width: 150px;">最后登陆时间</th>
 										<th style="width: 150px;">Ip</th>
+										<th style="width: 150px;">安全问题</th>
+										<th style="width: 150px;">安全答案</th>
 										<th style="width: 50px;">操作</th>
 									</tr>
 									<c:forEach var="U" items="${userAll}">
@@ -93,20 +97,28 @@ String P = (String)session.getAttribute("pagenum");
 											<tr>
 												<td><input type="text" value="${U.id}" name="id"
 													style="width: 30px; border: 0px; background: none;"></td>
-												<td><input type="text" value="${U.name}" name="name"
+												<td><input type="text" value="${U.name}" name="name" maxlength="255"
 													style="width: 100px; border: 0px; background: none;"></td>
-												<td><input type="text" value="${U.sex}" name="sex"
+												<td><input type="text" value="${U.sex}" name="sex" maxlength="255"
+													style="width: 20px; border: 0px; background: none;"></td>
+												<td><input type="text" value="${U.pwd}" name="pwd" maxlength="255"
 													style="width: 100px; border: 0px; background: none;"></td>
-												<td><input type="text" value="${U.pwd}" name="pwd"
+												<td><input type="text" value="${U.email}" name="email" maxlength="255"
 													style="width: 100px; border: 0px; background: none;"></td>
-												<td><input type="text" value="${U.home}" name="home"
+												<td><input type="text" value="${U.phone}" name="phone" maxlength="255"
 													style="width: 100px; border: 0px; background: none;"></td>
-												<td><input type="text" value="${U.info}" name="info"
+												<td><input type="text" value="${U.home}" name="home" maxlength="255"
+													style="width: 50px; border: 0px; background: none;"></td>
+												<td><input type="text" value="${U.info}" name="info" maxlength="255"
 													style="width: 270px; border: 0px; background: none;"></td>
 												<td><input type="text" value="${U.servertime}" name="servertime"
 													style="width: 150px; border: 0px; background: none;" disabled="disabled"></td>
 												<td><input type="text" value="${U.ip}" name="ip"
 													style="width: 150px; border: 0px; background: none;" disabled="disabled"></td>
+												<td><input type="text" value="${U.safequestion}" name="safequestion" maxlength="255"
+													style="width: 150px; border: 0px; background: none;"></td>
+												<td><input type="text" value="${U.safeanswer}" name="safeanswer" maxlength="255"
+													style="width: 150px; border: 0px; background: none;"></td>
 												<td><a style="width: 50px;" href="DeleteServlet?id=${U.id}">删除</a> <input
 													class="btn btn-primary" type="submit" value="更新" /></td>
 											</tr>

@@ -3,6 +3,7 @@ package cc.ccblog.common.servlet;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import cc.ccblog.common.dao.UserDao;
 import cc.ccblog.common.dao.UserDaoImpl;
+import cc.ccblog.entity.User;
 
 @WebServlet("/LoginServlet")
 @SuppressWarnings("serial")
@@ -64,15 +66,25 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 		UserDao ud = new UserDaoImpl();
 		
 		if(ud.login(name, pwd)){//进行登录判断
-			ud.logintime(name, servertime,ip);//更新登录账户时间和登录日志
-			if(name.equals("admin"))
-			{
-				request.setAttribute("xiaoxi", name); //向request域中放置信息
-				request.getRequestDispatcher("/ChairC_Index.jsp").forward(request, response);//转发到成功页面
+			if(ud.Searchsafetyverification(name)) {
+				System.out.println("成功");
+				ud.logintime(name, servertime,ip);//更新登录账户时间和登录日志
+				if(name.equals("admin"))
+				{
+					request.setAttribute("xiaoxi", name); //向request域中放置信息
+					request.getRequestDispatcher("/ChairC_Index.jsp").forward(request, response);//转发到成功页面
+				}else {
+					request.setAttribute("xiaoxi", name); //向request域中放置信息
+					request.getRequestDispatcher("/ChairC_Index.jsp").forward(request, response);//转发到成功页面
+				}
 			}else {
-				request.setAttribute("xiaoxi", name); //向request域中放置信息
-				request.getRequestDispatcher("/ChairC_Index.jsp").forward(request, response);//转发到成功页面
+				System.out.println("失败");
+				UserDao ud1=new UserDaoImpl();
+				List<User> sList = ud1.safetyverification(name);
+				request.setAttribute("verification", sList);
+				request.getRequestDispatcher("/jsp/verification/SafetyVerification.jsp").forward(request, response);
 			}
+			
 			
 		}else{
 //			response.setContentType("text/html;charset=utf-8");

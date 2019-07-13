@@ -10,6 +10,10 @@ public class User {
     private String info;
     private String servertime;
     private String ip;
+    private String email;
+    private String phone;
+    private String safequestion;
+    private String safeanswer;
     
     //页面返回值
     private int pageback;
@@ -91,6 +95,30 @@ public class User {
 	public void setPageback(int pageback) {
 		this.pageback = pageback;
 	}
-
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getSafequestion() {
+		return safequestion;
+	}
+	public void setSafequestion(String safequestion) {
+		this.safequestion = safequestion;
+	}
+	public String getSafeanswer() {
+		return safeanswer;
+	}
+	public void setSafeanswer(String safeanswer) {
+		this.safeanswer = safeanswer;
+	}
+	
 
 }
