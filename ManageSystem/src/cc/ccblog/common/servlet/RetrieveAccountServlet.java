@@ -35,6 +35,7 @@ public class RetrieveAccountServlet extends HttpServlet {
 		request.setAttribute("retrieveaccount", s);
 		request.getRequestDispatcher("/jsp/basic/RetrieveAccount.jsp").forward(request, response);
 		
+		System.out.println("--------------\n" + findway + "找回账号\n"+ "状态：成功1条\n" + "--------------");
 	}
 }
 

@@ -31,22 +31,29 @@ public class LoginBackstageServlet extends HttpServlet {//需要继承HttpServle
 		if(name!=null) {
 			if(ud.login(name, pwd)) {
 				if(name.equals("admin"))//后期用权重表示
-				{
-					
+				{					
 					request.getRequestDispatcher("/jsp/backstage/Success_new.jsp").forward(request, response);//转发到成功页面
-				}else {
-					
+
+					System.out.println("--------------\n" + "登录管理员后台---------成功\n"+ "用户：" + name + "\n--------------");
+
+				}else {					
 					request.getRequestDispatcher("/jsp/backstage/UserSuccess_new.jsp").forward(request, response);//转发到成功页面
-				}
 				
+					System.out.println("--------------\n" + "登录普通用户后台---------成功\n"+ "用户：" + name + "\n--------------");
+
+				}				
 			}else{	
 				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='showinfo';</script>");
+
+				System.out.println("--------------\n" + "登录后台---------失败\n原因：用户名或密码错误\n"+ "用户：" + name + "\n--------------");
 
 //				response.sendRedirect("showinfo"); //重定向到首页			
 			}
 		}else {
 			response.sendRedirect("showinfo");
-		}
-		
+			
+			System.out.println("--------------\n" + "登录后台---------失败\n原因：未登录\n"+ "用户：" + name + "\n--------------");
+
+		}		
 	}
 }

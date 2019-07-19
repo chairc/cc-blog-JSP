@@ -40,11 +40,17 @@ public class Searchall extends HttpServlet {
 			System.out.println(json);
 			response.setHeader("Access-Control-Allow-Origin", "*");
 			out.print(json);
+			
+			//System.out.println("--------------\n" + "Json查询所有用户---------成功\n" + "--------------");
 		}else {
 			if(name == null || pwd == null) {
 				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='showinfo';</script>");
+				
+				//System.out.println("--------------\n" + "Json查询所有用户---------失败\n原因：未登录\n" + "--------------");
 			}else {
 				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='showinfo';</script>");
+			
+				//System.out.println("--------------\n" + "Json查询所有用户---------失败\n原因：信息未验证正确\n" + "--------------");
 			}
 		}
 		

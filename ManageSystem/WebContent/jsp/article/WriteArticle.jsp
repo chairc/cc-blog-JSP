@@ -13,16 +13,24 @@ String name = (String) session.getAttribute("username");
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link href="${pageContext.request.contextPath}/css/flat-ui.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
-<script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/Index/index_main.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<%-- <link href="${pageContext.request.contextPath}/ueditor2/themes/default/css/umeditor.css" type="text/css" rel="stylesheet"> --%>
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/ueditor2/third-party/jquery.min.js"></script> --%>
+<%-- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/ueditor2/umeditor.config.js"></script> --%>
+<%-- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/ueditor2/umeditor.min.js"></script> --%>
+<%-- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/ueditor2/dialogs/emotion/emotion.js"></script> --%>
+<%-- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/ueditor2/dialogs/formula/formula.js"></script> --%>
+<%-- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/ueditor2/dialogs/image/image.js"></script> --%>
+<%-- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/ueditor2/dialogs/link/link.js"></script> --%>
+<%-- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/ueditor2/dialogs/map/map.js"></script> --%>
+<%-- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/ueditor2/dialogs/video/video.js"></script> --%>
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flat-ui.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css" type="text/css">
 
 
 <base href="<%=basePath%>">
@@ -37,7 +45,7 @@ String name = (String) session.getAttribute("username");
                     <ul class="nav nav--main">
                         <li class="nav__item ">
                             <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="">
+                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
                                 <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
                                 <span aria-hidden="true" class="icon-pic iconfont"></span>
                                 <!--这是名字1-->
@@ -64,10 +72,18 @@ String name = (String) session.getAttribute("username");
                         </li>
                     </ul>
                 </nav>
-                <a href="<%=basePath%>ChairC_Index.jsp" class="brand header__link">
+                <div class="nav__menu">
+                	
+                	<a href="<%=basePath%>" class="brand header__link nav__menu__a">
                     <!--这是主页标签-->
                     <b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
-                </a>
+                </a>  
+                </div> 
+                <div class="menu-button brand" style="float: left;position: absolute;">
+					<div class="bar"></div>
+					<div class="bar"></div>
+					<div class="bar"></div>					
+				</div>               
             </div>
         </header>
     </div>
@@ -95,14 +111,16 @@ String name = (String) session.getAttribute("username");
 						</div>
 						<div style="padding-top: 10px;">
 							<textarea class="form-control" name="articlemain" row="1000"
-								cols="100" style=" width: 100%;height:1000px;"maxlength="15000"></textarea>
-
+									cols="100" style=" width: 100%;height:1000px;"maxlength="15000"></textarea>
+<!-- 							<textarea id="myEditor" class="form-control edui-body-container" -->
+<!-- 									name="articlemain" contenteditable="true" -->
+<!-- 									style="width: 100%;"></textarea> -->
 						</div>
 					</div>
 					<div style="padding-top: 55px; text-align: center;padding-left: 30%;padding-right: 30%;">
 						<div style="float: left; width: 49%;">
 							<input class="btn btn-primary" type="reset" style="width: 100%;text-align: center;"
-								value="重写">
+								value="保存">
 						</div>
 						<div style="float: right; width: 49%;">
 							<input class="btn btn-primary" type="submit" style="width: 100%;text-align: center;"
@@ -120,6 +138,13 @@ String name = (String) session.getAttribute("username");
 	</div>
   	
 </body>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/index_main.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/h.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/index_iconfont.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/iconfont.js"></script>
+
 <script>
     //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓下面是导航栏隐藏↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
@@ -154,17 +179,7 @@ String name = (String) session.getAttribute("username");
 </script>
 
 <!--******************************上面是导航栏方法******************************-->
-
-<script src="${pageContext.request.contextPath}/js/Index/jquery.min.js"></script>
-
-<script src="${pageContext.request.contextPath}/js/Index/h.js" type="text/javascript"></script>
-
-<!--下面是h.js的备份-->
-<script src="${pageContext.request.contextPath}/js/Index/h.js(备份用时删掉括号内容)" type="text/javascript"></script>
-<!--上面是h.js的备份-->
-
-<!--下面是图标-->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css">
-<script src="${pageContext.request.contextPath}/js/Index/index_iconfont.js"></script>
-<!--上面是图标-->
+<script type="text/javascript">
+//	var um = UM.getEditor('myEditor');
+</script>
 </html>

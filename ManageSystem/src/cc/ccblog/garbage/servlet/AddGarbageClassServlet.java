@@ -19,7 +19,6 @@ public class AddGarbageClassServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//列表输出
-//		response.setContentType("text/html;charset=utf-8");
 		
 		HttpSession session = request.getSession();
 		if((String)session.getAttribute("username")!="admin") {			
@@ -38,11 +37,12 @@ public class AddGarbageClassServlet extends HttpServlet {
 				if(gcd.addgarbage(gc)) {
 					request.getRequestDispatcher("jsp/garbageclass/ShowGarbageClass.jsp").forward(request, response);
 				}
+			
+				System.out.println("--------------\n" + "添加垃圾：" + searchgarbagename + "\n种类："+ searchgarbageclass + "---------成功\n" + "--------------");
 			}else{
 				response.getWriter().print("<script>alert('Alert:Please add information correctly!');window.location.href='jsp/garbageclass/Garbage.jsp'</script>");
-//				request.setAttribute("xiaoxi", "添加失败，请正确填写添加项！");
-//				request.getRequestDispatcher("jsp/others/Failure_new.jsp").forward(request, response);
-//				response.sendRedirect("jsp/others/Failure_new.jsp");//重定向到首页
+				
+				System.out.println("--------------\n" + "添加垃圾：" + searchgarbagename + "\n种类："+ searchgarbageclass + "---------失败\n原因：未正确添加信息\n" + "--------------");
 			}
 		}
 		

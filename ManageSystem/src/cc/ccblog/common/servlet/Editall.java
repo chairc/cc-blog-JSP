@@ -34,6 +34,9 @@ public class Editall extends HttpServlet {
 				List<User> userAll = ud1.getUserAll(curPage);
 				request.setAttribute("userAll", userAll);
 				request.getRequestDispatcher("/jsp/backstage/ShowAll.jsp").forward(request, response);
+				
+				System.out.println("--------------\n" + "查找所有用户---------成功\n" + "--------------");
+
 			}
 			else {
 				String page="1";
@@ -44,18 +47,21 @@ public class Editall extends HttpServlet {
 				List<User> userAll = ud2.getUserAll(curPage);
 				request.setAttribute("userAll", userAll);
 				request.getRequestDispatcher("/jsp/backstage/ShowAll.jsp").forward(request, response);
+				
+				System.out.println("--------------\n" + "查找所有用户---------成功\n" + "--------------");
+
 			}
 		}else {
 			if(name == null || pwd == null) {
 				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='showinfo';</script>");
+				
+				System.out.println("--------------\n" + "查找所有用户---------失败\n原因：未登录\n" + "--------------");
 			}else {
 				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='showinfo';</script>");
+
+				System.out.println("--------------\n" + "查找所有用户---------失败\n原因：信息未验证正确\n" + "--------------");
 			}
-		}
-		
-		
-		
-			
+		}			
 	}
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

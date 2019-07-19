@@ -31,6 +31,8 @@ public class showinfo extends HttpServlet{
 		List<MessageInfo> inforall=sInfo.showinfo();
 		request.setAttribute("InfoAll", inforall);
 		request.getRequestDispatcher("/jsp/basic/Login_new.jsp").forward(request, response);
+		
+		//System.out.println("--------------\n" + "登录界面显示信息" + "---------成功\n" + "--------------");
 	}
 
 }

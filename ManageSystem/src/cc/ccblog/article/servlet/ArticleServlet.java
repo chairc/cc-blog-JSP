@@ -33,6 +33,8 @@ public class ArticleServlet extends HttpServlet {
 			List<Article> addartall=addart.showartinfo(curPage);
 			request.setAttribute("ArticleAll", addartall);
 			request.getRequestDispatcher("/jsp/article/Article.jsp").forward(request, response);
+			
+			//System.out.println("--------------\n" + "显示文章列表" + "---------成功\n" + "--------------");
 		}else {
 			String page="1";
 			int curPage = 1;
@@ -42,8 +44,9 @@ public class ArticleServlet extends HttpServlet {
 			List<Article> addartall=addart.showartinfo(curPage);
 			request.setAttribute("ArticleAll", addartall);
 			request.getRequestDispatcher("/jsp/article/Article.jsp").forward(request, response);
-		}	
-		
+			
+			//System.out.println("--------------\n" + "显示文章列表" + "---------成功\n" + "--------------");
+		}			
 	}
 }
 

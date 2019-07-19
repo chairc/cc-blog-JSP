@@ -1,3 +1,9 @@
+	/**
+	 * 
+	 * @author GitHub ID : chairc
+	 * 登录界面以及留言板 信息方法
+	 * 
+	 */
 package cc.ccblog.message.dao;
 
 import java.sql.ResultSet;
@@ -6,11 +12,14 @@ import java.util.List;
 
 import cc.ccblog.entity.MessageInfo;
 import cc.ccblog.util.DBconn;
-import sun.applet.resources.MsgAppletViewer;
 
 public class ShowInfoDaoImpl implements ShowInfoDao {
 
-	
+	/**
+	 * 
+	 * 展示登录界面信息
+	 * 
+	 */
 	public List<MessageInfo> showinfo() {
 		// TODO Auto-generated method stub
 		List<MessageInfo> m_list = new ArrayList<MessageInfo>();
@@ -59,7 +68,11 @@ public class ShowInfoDaoImpl implements ShowInfoDao {
 //	}
 
 	
-	
+	/**
+	 * 
+	 * 更新登录界面信息
+	 * 
+	 */
 	public boolean update(int messageid,String messagemaintitle ,String messagetitle,String messageinfo) {
 		boolean flag = false;
 		DBconn.init();
@@ -76,8 +89,17 @@ public class ShowInfoDaoImpl implements ShowInfoDao {
 	}
 
 
-	@Override
-	public List<MessageInfo> showmsinfo(int Page) {//留言板显示信息
+
+	
+	
+	
+
+	/**
+	 * 
+	 * 留言板显示信息
+	 * 
+	 */
+	public List<MessageInfo> showmsinfo(int Page) {
 		int i=1;
 		int curPage = Page - i;
 		int pageSize = 8;
@@ -106,8 +128,12 @@ public class ShowInfoDaoImpl implements ShowInfoDao {
 	}
 
 
-	@Override
-	public boolean addmsinfo(MessageInfo msg) {//留言板存入信息
+	/**
+	 * 
+	 * 留言板存入信息
+	 * 
+	 */
+	public boolean addmsinfo(MessageInfo msg) {
 		boolean flag = false;
 		DBconn.init();
 		int i =DBconn.addUpdDel("insert into user_message(addmessagename,addmessageinfo,servertime)" +

@@ -1,3 +1,9 @@
+	/**
+	 *
+	 * @author GitHub ID : chaic
+	 * 垃圾分类方法
+	 * 
+	 */
 package cc.ccblog.garbage.dao;
 
 import java.sql.ResultSet;
@@ -9,7 +15,11 @@ import cc.ccblog.util.DBconn;
 
 public class GarbageClassDaoImpl implements GarbageClassDao {
 
-	@Override
+	/**
+	 * 
+	 * 查询垃圾分类
+	 * 
+	 */
 	public List<GarbageClass> searchgarbage(String searchgarbagename) {
 		List<GarbageClass> list = new ArrayList<GarbageClass>();
     	try {
@@ -30,7 +40,13 @@ public class GarbageClassDaoImpl implements GarbageClassDao {
 		return null;
 	}
 
-	@Override
+
+
+	/**
+	 * 
+	 * 添加垃圾分类
+	 * 
+	 */
 	public boolean addgarbage(GarbageClass gc) {
 		boolean flag = false;
 		DBconn.init();
@@ -44,7 +60,12 @@ public class GarbageClassDaoImpl implements GarbageClassDao {
 		return flag;
 	}
 
-	@Override
+
+	/**
+	 * 
+	 * 查找所有垃圾
+	 * 
+	 */
 	public List<GarbageClass> searchgarbageall() {
 		List<GarbageClass> list = new ArrayList<GarbageClass>();
     	try {
@@ -65,7 +86,13 @@ public class GarbageClassDaoImpl implements GarbageClassDao {
 		return null;
 	}
 
-	@Override
+
+
+	/**
+	 * 
+	 * 查询添加的垃圾分类时判断是否垃圾名称重复
+	 * 
+	 */
 	public boolean garbagevalidation(String searchgarbagename) {
 		boolean flag = false;
 		try {

@@ -99,7 +99,9 @@ layui.use('table', function(){
       {field:'servertime', width:200, title: '最后登录时间'},
       {field:'ip', width:200, title: 'IP'},
       {field:'safequestion', width:200, title: '安全问题'},
-      {field:'safeanswer', width:200, title: '安全答案'}
+      {field:'safeanswer', width:200, title: '安全答案'},
+      {field:'whichsystem', width:200, title: '系统'},
+      {field:'whichbrowsername', width:200, title: '浏览器'}
     ]],
   });
 });

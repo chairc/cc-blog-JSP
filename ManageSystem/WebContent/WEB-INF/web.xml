@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 		 xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
-		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
-		 version="3.1" 
-		 >
+		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+		 					http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
 <!-- 		 metadata-complete="true" -->
   <display-name>ManageSystem</display-name>
   		
@@ -127,7 +126,10 @@
 <!--     <servlet-name>WriteArticleServlet</servlet-name> -->
 <!--     <servlet-class>servlet.WriteArticleServlet</servlet-class> -->
 <!--   </servlet> -->
-
+<!--   <servlet> -->
+<!--     <servlet-name>AddArticleMessageServlet</servlet-name> -->
+<!--     <servlet-class>servlet.AddArticleMessageServlet</servlet-class> -->
+<!--   </servlet> -->
 
 
 
@@ -233,14 +235,20 @@
 <!--     <servlet-mapping> -->
 <!--     <servlet-name>ArticleServlet</servlet-name> -->
 <!--     <url-pattern>/ArticleServlet</url-pattern> -->
-<!--   </servlet-mapping> --><!--     <servlet-mapping> -->
+<!--   </servlet-mapping> -->
+<!--     <servlet-mapping> -->
 <!--     <servlet-name>SeeArticleServlet</servlet-name> -->
 <!--     <url-pattern>/SeeArticleServlet</url-pattern> -->
-<!--   </servlet-mapping> --><!--     <servlet-mapping> -->
+<!--   </servlet-mapping> -->
+<!--     <servlet-mapping> -->
 <!--     <servlet-name>WriteArticleServlet</servlet-name> -->
 <!--     <url-pattern>/WriteArticleServlet</url-pattern> -->
 <!--   </servlet-mapping> -->
-
+<!--     <servlet-mapping> -->
+<!--     <servlet-name>AddArticleMessageServlet</servlet-name> -->
+<!--     <url-pattern>/AddArticleMessageServlet</url-pattern> -->
+<!--   </servlet-mapping> -->
+		
 
 
 

@@ -21,6 +21,13 @@ public class UpdateSafetyVerificationServlet extends HttpServlet {
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		/**
+		 * 
+		 * 待用ajax修改
+		 * 
+		 */
+		
 		String name = new String(request.getParameter("svname").getBytes("ISO-8859-1"),"utf-8");
 		String email = new String(request.getParameter("svemail").getBytes("ISO-8859-1"),"utf-8");
 		String phone = new String(request.getParameter("svphone").getBytes("ISO-8859-1"),"utf-8");
@@ -40,8 +47,14 @@ public class UpdateSafetyVerificationServlet extends HttpServlet {
 		
 		if(ud1.updatesafetyverification(user)){
 			response.getWriter().print("<script>window.location.href='showinfo';</script>");
+			
+			System.out.println("--------------\n" + name + "强制修改安全信息---------成功\n" + "--------------");
+
 		}else{
-			response.getWriter().print("<script>alert('Alert:Something wrong......');window.history.back(-1);</script>");
+			response.getWriter().print("<script>alert('Alert:email or phone is wrong......');window.history.back(-1);</script>");
+		
+			System.out.println("--------------\n" + name + "强制修改安全信息---------失败\n原因：email或电话错误\n" + "--------------");
+			
 		}
 		
 	}

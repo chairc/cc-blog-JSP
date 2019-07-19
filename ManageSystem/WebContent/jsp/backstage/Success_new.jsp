@@ -33,7 +33,36 @@
 <!-- 	href="https://translate.googleapis.com/translate_static/css/translateelement.css"> -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/portrait.js?t="></script>	
-	
+
+<style type="text/css">
+
+.menu-button {
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 15px;
+    z-index: 999;
+    cursor: pointer;
+    -webkit-transition: .3s;
+    transition: .3s;
+    /* background-color: #2f4154; */
+    background-color: transparent;
+}
+
+
+.bar {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 5px;
+    margin-bottom: 10px;
+    /* background-color: #fff; */
+    background-color: #2f4154;
+    border-radius: 10px;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+</style>
 </head>
 <body>
 	<div

@@ -33,6 +33,8 @@ public class MessageIndexServlet extends HttpServlet {
 			List<MessageInfo> addmsall=addms.showmsinfo(curPage);
 			request.setAttribute("MessageAll", addmsall);
 			request.getRequestDispatcher("/jsp/message/Message_Index.jsp").forward(request, response);
+			
+			//System.out.println("--------------\n" + "显示留言板" + "---------成功\n" + "--------------");
 		}else {
 			String page="1";
 			int curPage = 1;
@@ -42,6 +44,8 @@ public class MessageIndexServlet extends HttpServlet {
 			List<MessageInfo> addmsall=addms.showmsinfo(curPage);
 			request.setAttribute("MessageAll", addmsall);
 			request.getRequestDispatcher("/jsp/message/Message_Index.jsp").forward(request, response);
+			
+			//System.out.println("--------------\n" + "显示留言板" + "---------成功\n" + "--------------");
 		}		
 	}
 }

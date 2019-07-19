@@ -17,11 +17,7 @@ String P = (String)session.getAttribute("pagenum");
 <link href="${pageContext.request.contextPath}/css/flat-ui.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/layui.css" rel="stylesheet" media="all">
-<script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
-<%-- <script src="${pageContext.request.contextPath}/js/jq-paginator.js" type="text/javascript"></script> --%>
-<script src="${pageContext.request.contextPath}/js/layui.js" charset="utf-8" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/lay/modules/layer.js" charset="utf-8" type="text/javascript"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+
 <base href="<%=basePath%>">
 <title>ChairC's Blog - 编辑所有用户页面</title>
 <style type="text/css">
@@ -84,13 +80,15 @@ String P = (String)session.getAttribute("pagenum");
 										<th style="width: 100px;">密码</th>
 										<th style="width: 100px;">电子邮箱</th>
 										<th style="width: 100px;">电话</th>
-										<th style="width: 50px;">家乡</th>
-										<th style="width: 270px;">备注</th>
-										<th style="width: 150px;">最后登陆时间</th>
-										<th style="width: 150px;">Ip</th>
-										<th style="width: 150px;">安全问题</th>
-										<th style="width: 150px;">安全答案</th>
+										<th style="width: 30px;">家乡</th>
+										<th style="width: 220px;">备注</th>
+										<th style="width: 140px;">最后登陆时间</th>
+										<th style="width: 140px;">Ip</th>
+										<th style="width: 120px;">安全问题</th>
+										<th style="width: 120px;">安全答案</th>
 										<th style="width: 50px;">操作</th>
+										<th style="width: 70px;">系统</th>
+										<th style="width: 50px;">浏览器</th>
 									</tr>
 									<c:forEach var="U" items="${userAll}">
 										<form action="UpdateServlet" method="post">
@@ -108,17 +106,21 @@ String P = (String)session.getAttribute("pagenum");
 												<td><input type="text" value="${U.phone}" name="phone" maxlength="255"
 													style="width: 100px; border: 0px; background: none;"></td>
 												<td><input type="text" value="${U.home}" name="home" maxlength="255"
-													style="width: 50px; border: 0px; background: none;"></td>
+													style="width: 30px; border: 0px; background: none;"></td>
 												<td><input type="text" value="${U.info}" name="info" maxlength="255"
-													style="width: 270px; border: 0px; background: none;"></td>
+													style="width: 220px; border: 0px; background: none;"></td>
 												<td><input type="text" value="${U.servertime}" name="servertime"
-													style="width: 150px; border: 0px; background: none;" disabled="disabled"></td>
+													style="width: 140px; border: 0px; background: none;" disabled="disabled"></td>
 												<td><input type="text" value="${U.ip}" name="ip"
-													style="width: 150px; border: 0px; background: none;" disabled="disabled"></td>
+													style="width: 140px; border: 0px; background: none;" disabled="disabled"></td>
 												<td><input type="text" value="${U.safequestion}" name="safequestion" maxlength="255"
-													style="width: 150px; border: 0px; background: none;"></td>
+													style="width: 120px; border: 0px; background: none;"></td>
 												<td><input type="text" value="${U.safeanswer}" name="safeanswer" maxlength="255"
-													style="width: 150px; border: 0px; background: none;"></td>
+													style="width: 120px; border: 0px; background: none;"></td>
+												<td><input type="text" value="${U.system}" name="system" maxlength="255"
+													style="width: 70px; border: 0px; background: none;" disabled="disabled"></td>
+												<td><input type="text" value="${U.browsername}" name="browsername" maxlength="255"
+													style="width: 50px; border: 0px; background: none;" disabled="disabled"></td>
 												<td><a style="width: 50px;" href="DeleteServlet?id=${U.id}">删除</a> <input
 													class="btn btn-primary" type="submit" value="更新" /></td>
 											</tr>
@@ -153,6 +155,12 @@ String P = (String)session.getAttribute("pagenum");
 		</div>
 	</div>
 
+
+<script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/layui.js" charset="utf-8" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/lay/modules/layer.js" charset="utf-8" type="text/javascript"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+
 <script type="text/javascript">
 	var pagevalue = document.getElementById("page").value;
 	if(pagevalue =="" || page.value == null){
@@ -162,13 +170,13 @@ String P = (String)session.getAttribute("pagenum");
 	
 </script>
 <script type="text/javascript">
-$(function() {
-	var prevban=document.getElementById('page').value;
-	if(prevban==1){
-		document.getElementById("sapageprev").className="btn btn-primary disabled";
-		$("#sapageprev").attr("disabled","disabled");
-	}
-})
+	$(function() {
+		var prevban=document.getElementById('page').value;
+		if(prevban==1){
+			document.getElementById("sapageprev").className="btn btn-primary disabled";
+			$("#sapageprev").attr("disabled","disabled");
+		}
+	})
 </script>    
         
 

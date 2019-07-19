@@ -63,5 +63,7 @@ public class DownLoadFiles extends HttpServlet {
 		is.close(); //关闭输入流
 		bos.close(); //关闭输出流
 		os.close(); 
+		
+		System.out.println("--------------\n" + "下载文件为：" + downloadfilesname + "---------成功\n" + "--------------");
 	}
 }

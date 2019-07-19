@@ -587,9 +587,9 @@ body {
 
 .container {
     height: 65px;
-    max-width: 41em;
-    margin: 0 auto;
-    padding: 0 1.5em;
+/*     max-width: 70em; */
+/*     margin: 0 auto;  */
+/*     padding: 0 1.5em; */
     text-overflow:ellipsis;
     overflow: hidden;
 }
@@ -935,6 +935,7 @@ code {
     .nav__item {
         display: inline-block
     }
+    
 }
 
 .nav__item a {
@@ -1961,3 +1962,15 @@ a.subdued:hover {
     -o-animation-name: bounceOutUp;
     animation-name: bounceOutUp
 }
+
+.nav__menu{
+    float: left;
+    padding-left: 80px;
+}
+@media screen and (max-width:360px){
+	.nav__menu{
+    	display:none;
+    }
+}
+
+

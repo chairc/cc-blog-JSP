@@ -1,7 +1,6 @@
 package cc.ccblog.garbage.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -28,16 +27,16 @@ public class GarbageClassServlet extends HttpServlet {
 			List<GarbageClass> searchgarbage = gcd.searchgarbageall();
 			request.setAttribute("searchgarbage", searchgarbage);
 			request.getRequestDispatcher("/jsp/garbageclass/Garbage.jsp").forward(request, response);
+			
+			System.out.println("--------------\n" + "垃圾查询所有---------成功\n" + "--------------");
 		}else {
 			GarbageClassDao gcd = new GarbageClassDaoImpl();
 			List<GarbageClass> searchgarbage = gcd.searchgarbage(searchgarbagename);
 			request.setAttribute("searchgarbage", searchgarbage);
 			request.getRequestDispatcher("/jsp/garbageclass/Garbage.jsp").forward(request, response);
-		}
-		
-		
-		
 			
+			System.out.println("--------------\n" + "垃圾查询：" + searchgarbagename + "\n" + "--------------");
+		}			
 	}
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

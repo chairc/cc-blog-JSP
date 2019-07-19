@@ -14,6 +14,8 @@ public class User {
     private String phone;
     private String safequestion;
     private String safeanswer;
+    private String system;
+    private String browsername;
     
     //页面返回值
     private int pageback;
@@ -118,6 +120,18 @@ public class User {
 	}
 	public void setSafeanswer(String safeanswer) {
 		this.safeanswer = safeanswer;
+	}
+	public String getSystem() {
+		return system;
+	}
+	public void setSystem(String system) {
+		this.system = system;
+	}
+	public String getBrowsername() {
+		return browsername;
+	}
+	public void setBrowsername(String browsername) {
+		this.browsername = browsername;
 	}
 	
 

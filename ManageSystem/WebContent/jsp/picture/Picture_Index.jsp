@@ -46,7 +46,7 @@ String P = (String)session.getAttribute("pagenum");
                     <ul class="nav nav--main">
                         <li class="nav__item ">
                             <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="">
+                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
                                 <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
                                 <span aria-hidden="true" class="icon-pic iconfont"></span>
                                 <!--这是名字1-->
@@ -73,10 +73,18 @@ String P = (String)session.getAttribute("pagenum");
                         </li>
                     </ul>
                 </nav>
-                <a href="<%=basePath%>ChairC_Index.jsp" class="brand header__link">
+                <div class="nav__menu">
+                	
+                	<a href="<%=basePath%>ChairC_Index.jsp" class="brand header__link nav__menu__a">
                     <!--这是主页标签-->
                     <b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
-                </a>
+                </a>  
+                </div> 
+                <div class="menu-button brand" style="float: left;position: absolute;">
+					<div class="bar"></div>
+					<div class="bar"></div>
+					<div class="bar"></div>					
+				</div>               
             </div>
         </header>
     </div>

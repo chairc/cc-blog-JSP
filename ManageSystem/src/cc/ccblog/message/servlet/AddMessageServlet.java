@@ -43,7 +43,7 @@ public class AddMessageServlet extends HttpServlet{
 			String servertime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 			
 			if(addmessageinfo.equals(null)) {
-				response.getWriter().print("<script>alert('Alert:Please add information correctly!');window.location.href='jsp/backstage/Success_new.jsp'</script>");
+				response.getWriter().print("<script>alert('Alert:Please add information correctly!');window.location.href='MessageIndexServlet'</script>");
 			}else {
 				MessageInfo msg=new MessageInfo();
 				
@@ -56,15 +56,23 @@ public class AddMessageServlet extends HttpServlet{
 				if(addmsg.addmsinfo(msg)) {
 					request.setAttribute("msginfo", msg);  //向request域中放置参数
 					request.getRequestDispatcher("/MessageIndexServlet").forward(request, response);  //转发到登录页面
+				
+					System.out.println("--------------\n" + sename + "添加留言" + "---------成功\n" + "--------------");
 				}else {
-					response.getWriter().print("<script>alert('Alert:Please add information correctly!');window.location.href='jsp/backstage/Success_new.jsp'</script>");
+					response.getWriter().print("<script>alert('Alert:Please add information correctly!');window.location.href='MessageIndexServlet'</script>");
+				
+					System.out.println("--------------\n" + sename + "添加留言" + "---------失败\n原因：未正确添加信息\n" + "--------------");
 				}
 			}
 		}else {
 			if(sename == null || sepwd == null) {
 				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='showinfo';</script>");
+			
+				System.out.println("--------------\n" + sename + "添加留言" + "---------失败\n原因：未登录\n" + "--------------");
 			}else {
 				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='showinfo';</script>");
+			
+				System.out.println("--------------\n" + sename + "添加留言" + "---------失败\n原因：未正确验证信息\n" + "--------------");
 			}
 		}	
 	}

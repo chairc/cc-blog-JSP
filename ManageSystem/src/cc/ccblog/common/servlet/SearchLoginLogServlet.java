@@ -36,6 +36,8 @@ public class SearchLoginLogServlet extends HttpServlet {
 				List<User> userLogAll = ud1.getUserLogAll(name,curPage);
 				request.setAttribute("userLogAll", userLogAll);
 				request.getRequestDispatcher("/jsp/backstage/SearchLoginLog.jsp").forward(request, response);
+				
+				//System.out.println("--------------\n" + "查询日志文件---------成功" + "\n-------------");
 			}else {
 				String page="1";
 				int curPage = 1;
@@ -45,12 +47,18 @@ public class SearchLoginLogServlet extends HttpServlet {
 				List<User> userLogAll = ud2.getUserLogAll(name,curPage);
 				request.setAttribute("userLogAll", userLogAll);
 				request.getRequestDispatcher("/jsp/backstage/SearchLoginLog.jsp").forward(request, response);
+				
+				//System.out.println("--------------\n" + "查询日志文件---------成功" + "\n-------------");
 			}
 		}else {
 			if(name == null || pwd == null) {
 				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='showinfo';</script>");
+				
+				//System.out.println("--------------\n" + "查询日志文件---------失败\n原因：未登录" + "\n-------------");
 			}else {
 				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='showinfo';</script>");
+			
+				//System.out.println("--------------\n" + "查询日志文件---------失败\n原因：验证信息失败" + "\n-------------");		
 			}
 		}				
 	}

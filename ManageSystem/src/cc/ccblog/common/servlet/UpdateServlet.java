@@ -43,7 +43,6 @@ public class UpdateServlet extends HttpServlet {
 		String safequestion = new String(request.getParameter("safequestion").getBytes("ISO-8859-1"),"utf-8");
 		String safeanswer = new String(request.getParameter("safeanswer").getBytes("ISO-8859-1"),"utf-8");
 		
-		System.out.println("------------------------------------"+userId);
 		
 		User user = new User(); //实例化一个对象，组装属性
 		user.setId(userId);
@@ -60,11 +59,15 @@ public class UpdateServlet extends HttpServlet {
 		UserDao ud = new UserDaoImpl();
 		
 		if(ud.update(user)){
-//		if(ud.update(userId, name, pwd, email, phone, sex, home, info, safequestion, safeanswer)){
 			request.setAttribute("xiaoxi", "更新成功");
 			request.getRequestDispatcher("/Editall").forward(request, response);
+			
+			System.out.println("--------------\n" + "更新1条---------" + "ID" + userId + "更新用户：" + name + "成功" + "\n-------------");
 		}else{
-			response.sendRedirect("/jsp/others/Failure.jsp");
+			request.setAttribute("xiaoxi", "更新失败");
+			request.getRequestDispatcher("/Editall").forward(request, response);
+			
+			System.out.println("--------------\n" + "更新1条---------" + "ID" + userId + "更新用户：" + name + "失败" + "\n-------------");
 		}
 	}
 }

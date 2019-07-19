@@ -40,16 +40,24 @@ public class UpdateNoticeServlet extends HttpServlet {
 			if(si.update(m_id,messagemaintitle,messagetitle,messageinfo)){
 				request.setAttribute("xiaoxi", "更新成功！");
 				request.getRequestDispatcher("/Editinfo").forward(request, response);
+				
+				System.out.println("--------------\n" + "登录界面更新1条---------" + "成功" + "\n-------------");
 			}else{
 				request.setAttribute("xiaoxi", "更新失败！");
 				request.getRequestDispatcher("/Editinfo").forward(request, response);
 				//response.sendRedirect("/jsp/others/Failure.jsp");
+				
+				System.out.println("--------------\n" + "登录界面更新1条---------" + "失败" + "\n-------------");
 			}
 		}else {
 			if(name == null || pwd == null) {
 				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='showinfo';</script>");
+			
+				System.out.println("--------------\n" + "修改登录界面信息---------失败\n原因：未登录\n" + "--------------");
 			}else {
 				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='showinfo';</script>");
+			
+				System.out.println("--------------\n" + "修改登录界面信息---------失败\n原因：信息未验证正确\n" + "--------------");
 			}
 		}		
 	}
