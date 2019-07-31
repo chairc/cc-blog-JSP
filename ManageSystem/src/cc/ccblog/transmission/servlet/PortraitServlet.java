@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.transmission.servlet;
 
 import java.io.File;
@@ -17,7 +22,16 @@ import javax.servlet.http.Part;
 @WebServlet("/PortraitServlet")
 public class PortraitServlet extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+				doPost(request, response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		
 		response.setContentType("application/text; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
@@ -27,7 +41,7 @@ public class PortraitServlet extends HttpServlet {
             return;
         }  
           
-        if (filePart.getSize() > 3000 * 3000) {
+        if (filePart.getSize() > 5000 * 5000) {
             response.getWriter().print("文件太大");
             return;
         }
@@ -44,12 +58,6 @@ public class PortraitServlet extends HttpServlet {
         filePart.write(realPath + "/" + filename);//将文件写入磁盘
               
         out.print(1);
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

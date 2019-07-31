@@ -36,30 +36,35 @@
             <div class="container">
                 <nav id="nav" class="nav-wrapper" role="navigation">
                     <ul class="nav nav--main">
+                    	<li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>ArticleServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
+								</span>
+                                <span class="complimentary push--left">归档</span>
+                            </a>
+                        </li>
                         <li class="nav__item ">
-                            <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
-                                <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-pic iconfont"></span>
-                                <!--这是名字1-->
+                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
+                                </span>
+                                <span class="complimentary push--left">留言</span>
+                            </a>
+                        </li>
+                        <li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>PictureServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+                                </span>
                                 <span class="complimentary push--left">图片</span>
                             </a>
                         </li>
                         <li class="nav__item ">
-                            <!--这是名字2的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
-                                <!--这是图标2（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-comments iconfont"></span>
-                                <!--这是名字2-->
-                                <span class="complimentary push--left">留言板</span>
-                            </a>
-                        </li>
-                        <li class="nav__item ">
-                            <!--这是名字3的链接地址-->
                             <a class="header__link subdued" href="<%=basePath%>LoginBackstageServlet">
-                                <!--这是图标3（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-denglu iconfont"></span>
-                                <!--这是名字3-->
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/people.svg">
+                                </span>
                                 <span class="complimentary push--left">个人</span>
                             </a>
                         </li>
@@ -67,7 +72,6 @@
                 </nav>
                 <div class="nav__menu">
                 	<a href="<%=basePath%>" class="brand header__link">
-                    	<!--这是主页标签-->
                     	<b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
                 	</a>  
                 </div> 
@@ -109,6 +113,14 @@
 					</div>
 					<ul class="menu__ul">
 						<li>
+							<a href="<%=basePath%>">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/home.svg">
+								</span>
+								<span class="menu__ul_li">首页</span>
+							</a>
+						</li>
+						<li>
 							<a href="<%=basePath%>ArticleServlet">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
@@ -121,7 +133,15 @@
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
 								</span>
-								<span class="menu__ul_li">留言板</span>
+								<span class="menu__ul_li">留言</span>
+							</a>
+						</li>
+						<li>
+							<a href="<%=basePath%>PictureServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+								</span>
+								<span class="menu__ul_li">图片栏</span>
 							</a>
 						</li>
 						<li>
@@ -149,7 +169,7 @@
 						</li>
 						
 						<li>
-							<a href="">
+							<a href="<%=basePath%>jsp/others/Donation.jsp">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/donate.svg">
 								</span>
@@ -157,7 +177,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="<%=basePath%>jsp/others/Aboutus.jsp">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/aboutus.svg">
 								</span>
@@ -317,14 +337,25 @@
     </div> 
     <div class="bottom-all">
     	<div class="bottom-div-t">
-    		<p class="bottom-p">
-        		<a href="http://www.beian.miit.gov.cn/" target="_blank" class="bottom-t-a">
-        			<font color="#2c3e50">鲁ICP备19032053号</font>
-        		</a>
-        	</p>
-    	</div>        
+    		<div class="bottom-div-t-l">
+    			<p class="bottom-t-p-l">
+    				<a href="http://www.beian.miit.gov.cn/" target="_blank" class="bottom-t-a-l">
+        				<font color="#2c3e50">鲁ICP备19032053号</font>
+        			</a>
+    			</p>
+    		</div>
+    		<div class="bottom-div-t-r">
+    			<p class="bottom-t-p-r">
+    				<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000778" 
+		 				target="_blank" class="bottom-t-a-r">
+		 				<img src="<%=basePath%>images/beian.png">
+		 				<font color="#2c3e50">鲁公网安备 37010302000778号</font>
+		 			</a>
+		 		</p>
+    		</div>	      	
+    	</div>	       
         <div class="bottom-div-b">
-        	<p class="bottom-p">
+        	<p class="bottom-b-p" style="font-size: 12px;">
         		<a href="<%=basePath%>jsp/others/Aboutus.jsp" target="_blank" class="bottom-b-a">关于我们</a>
         		<a href="" target="_blank" class="bottom-b-a">联系我们</a>
 			</p>

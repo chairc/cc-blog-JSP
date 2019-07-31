@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.common.servlet;
  
 
@@ -27,6 +32,12 @@ public class SearchLoginLogServlet extends HttpServlet {
 		
 		UserDao ud = new UserDaoImpl();
 		if(ud.login(name, pwd)) {
+			
+			UserDao udcount = new UserDaoImpl();
+			int i = udcount.sllpagecount(name);
+			int pagecount = (i + 10 - 1)/10;
+			request.getSession().setAttribute("pageall",pagecount);
+			
 			if(request.getParameter("page")!=null) {
 				String page = new String(request.getParameter("page").getBytes("ISO-8859-1"),"utf-8");
 				int curPage = Integer.parseInt(page);

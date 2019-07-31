@@ -20,23 +20,24 @@ public class ArticleDaoImpl implements ArticleDao{
 	 * 展示所有文章列表
 	 * 
 	 */
+	@Override
 	public List<Article> showartinfo(int Page) {
 		int i=1;
 		int curPage = Page - i;
-		int pageSize = 8;
+		int pageSize = 10;
 		int startRow = (curPage) * pageSize;		
 		
 		List<Article> list = new ArrayList<Article>();
 		try {
 			DBconn.init();
-			ResultSet rs= DBconn.selectSql("select * from user_article limit "+startRow+",8");
+			ResultSet rs= DBconn.selectSql("select * from user_article order by articleid desc limit "+startRow+",10");
 			while (rs.next()) {
 				Article article=new Article();
 				article.setArticleid(rs.getInt("articleid"));
 				article.setArticleauthor(rs.getString("articleauthor"));
 				article.setArticletime(rs.getString("articletime"));
 				article.setArticletitle(rs.getString("articletitle"));
-//				article.setArticlemain(rs.getString("articlemain"));
+				article.setArticlemain(rs.getString("articlemain"));
 				list.add(article);
 			}
 					
@@ -56,6 +57,7 @@ public class ArticleDaoImpl implements ArticleDao{
 	 * 单独文章显示
 	 * 
 	 */
+	@Override
 	public List<Article> showartmaininfo(String articletitle) {
 		List<Article> list = new ArrayList<Article>();
 		try {
@@ -88,6 +90,7 @@ public class ArticleDaoImpl implements ArticleDao{
 	 * 添加文章
 	 * 
 	 */
+	@Override
 	public boolean addartinfo(Article wa) {
 		boolean flag = false;
 		DBconn.init();
@@ -108,6 +111,7 @@ public class ArticleDaoImpl implements ArticleDao{
 	  * 文章留言
 	 * 
 	 */
+	@Override
 	public boolean addartmsinfo(Article msg) {
 		boolean flag = false;
 		DBconn.init();
@@ -126,6 +130,7 @@ public class ArticleDaoImpl implements ArticleDao{
 	 * 文章留言展示
 	 * 
 	 */
+	@Override
 	public List<Article> showartmsginfo(String articletitle) {
 		List<Article> list = new ArrayList<Article>();
 		try {
@@ -156,6 +161,7 @@ public class ArticleDaoImpl implements ArticleDao{
 	 * 文章模糊搜素
 	 * 
 	 */
+	@Override
 	public List<Article> searcharticletitle(int Page,String searcharticletitle) {
 		int i=1;
 		int curPage = Page - i;
@@ -184,10 +190,26 @@ public class ArticleDaoImpl implements ArticleDao{
 	}
 
 
-
-	
-	
-
-	
+	/**
+	 * 
+	 * 文章总数
+	 * 
+	 */
+	@Override
+	public int artpagecount() {
+		try {
+			DBconn.init();
+			ResultSet rs = DBconn.selectSql("select * from user_article");
+			int rowCount = 0;
+			while(rs.next()) {
+			    rowCount++;
+			}
+			DBconn.closeConn();
+			return rowCount;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	
 }

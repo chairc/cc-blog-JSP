@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.common.servlet;
 
 import java.io.IOException;
@@ -15,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import cc.ccblog.common.dao.UserDao;
 import cc.ccblog.common.dao.UserDaoImpl;
 import cc.ccblog.entity.User;
-import javafx.scene.layout.Border;
 import nl.bitwalker.useragentutils.Browser;
 import nl.bitwalker.useragentutils.OperatingSystem;
 import nl.bitwalker.useragentutils.UserAgent;
@@ -34,8 +38,6 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 		
 		String servertime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());//获取登录时间
 		
-		request.getSession().setAttribute("username",name);//将用户名保存在整个会话期间
-		request.getSession().setAttribute("password", pwd);
 				
 		String ip = request.getHeader("x-forwarded-for"); 
 	    if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) { 
@@ -70,7 +72,12 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 	    OperatingSystem os = userAgent.getOperatingSystem();//获取系统信息    
 	    String system = os.getName();//系统名称	    
 	    String browsername = browser.getName();//浏览器名称
-		
+
+	    /*
+	         *  将信息保存在整个会话期间，关闭网页后自动销毁
+	     */
+		request.getSession().setAttribute("username",name);
+		request.getSession().setAttribute("password", pwd);
 	    request.getSession().setAttribute("ipaddress",ip);
 	    request.getSession().setAttribute("system",system);
 	    request.getSession().setAttribute("browsername",browsername);
@@ -78,6 +85,7 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 	    
 	    UserDao ud = new UserDaoImpl();
 		
+	    
 		if(ud.login(name, pwd)){//进行登录判断
 			if(ud.Searchsafetyverification(name)) {
 				
@@ -108,10 +116,7 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 			
 			System.out.println("--------------\n" + "登录人员：" + name + "时间" + servertime + "获取客户端ip: " + ip +"\n"+ "登录状态：失败（用户名或密码无效）\n" + "--------------");
 
-			response.getWriter().print("<script>alert('Alert:Please add information correctly!');window.location.href='showinfo';</script>");
-//			request.setAttribute("xiaoxi", "登录失败！");
-//			request.getRequestDispatcher("jsp/others/Failure_new.jsp").forward(request, response);
-//			response.sendRedirect("jsp/others/Failure.jsp"); //重定向到首页			
+			response.getWriter().print("<script>alert('Alert:Please add information correctly!');window.location.href='showinfo';</script>");		
 		}
 	}
 }

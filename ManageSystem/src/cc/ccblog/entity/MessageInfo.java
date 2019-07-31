@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.entity;
 
 public class MessageInfo {
@@ -12,6 +17,8 @@ public class MessageInfo {
 	private String servertime;
 	
 	private String selectsafequestion;//安全问题列表    *未完成
+	
+	private int messagepagecount;
 	
 	public int getMessageid() {
 		return messageid;
@@ -83,6 +90,14 @@ public class MessageInfo {
 
 	public void setSelectsafequestion(String selectsafequestion) {
 		this.selectsafequestion = selectsafequestion;
+	}
+
+	public int getMessagepagecount() {
+		return messagepagecount;
+	}
+
+	public void setMessagepagecount(int messagepagecount) {
+		this.messagepagecount = messagepagecount;
 	}
 	
 }

@@ -1,6 +1,16 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
+
 @charset "UTF-8";
-body,html{height:100%}
-body,h1,h2,h3,h4,h5,h6,ul,a{margin:0}
+body,html{
+	height:100%
+}
+body,h1,h2,h3,h4,h5,h6,ul,a{
+	margin:0
+}
 
 
 .nav_all{
@@ -87,9 +97,68 @@ body,h1,h2,h3,h4,h5,h6,ul,a{margin:0}
 .overflow_char{
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 3;/*æ˜¾ç¤ºå‡ è¡Œ*/
+	-webkit-line-clamp: 3;/*ÏÔÊ¾¼¸ÐÐ*/
 	overflow: hidden;
 }
-.menu-nav{
+
+
+
+/*Article.jsp*/
+.article_main_div{
+	width: 70%; 
+	height: auto;
+	margin: 0 auto; 
+	padding-bottom: 200px; 
+	padding-top: 10px; 
+	text-align: left;
+}
+.article_div{
+	width:100%;
+	height:auto;
+	border: 1px solid #dddddd;
+	padding: 4%;
+/* 	margin-left:10%; */
+	border-radius: 15px;
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,.12), 
+				inset 0 -1px 0 0 #dadce0;
+}
+.article_div:hover{
+/* 	width:100%; */
+/* 	margin-left:0; */
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,.2), 
+				inset 0 -1px 0 0 #dadce0;
+}
+.article_div_l{
+	width:100%;
+}
+.article_div_r{
 	
 }
+.article_div_r img{
+	
+}
+@media screen and (max-width:600px){
+	.article_main_div{
+		width: 80%; 
+		height: auto;
+		margin: 0 auto; 
+		padding-bottom: 200px; 
+		padding-top: 10px; 
+		text-align: left;
+	}
+	.article_div_l{
+		width:100%;
+		height:auto;
+	}
+	.article_div_r{
+		
+	}
+	.article_div_r img{
+		
+	}
+}
+
+
+
+
+

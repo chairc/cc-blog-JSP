@@ -52,30 +52,35 @@ String P = (String)session.getAttribute("pagenum");
             <div class="container">
                 <nav id="nav" class="nav-wrapper" role="navigation">
                     <ul class="nav nav--main">
+                    	<li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>ArticleServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
+								</span>
+                                <span class="complimentary push--left">归档</span>
+                            </a>
+                        </li>
                         <li class="nav__item ">
-                            <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
-                                <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-pic iconfont"></span>
-                                <!--这是名字1-->
+                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
+                                </span>
+                                <span class="complimentary push--left">留言</span>
+                            </a>
+                        </li>
+                        <li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>PictureServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+                                </span>
                                 <span class="complimentary push--left">图片</span>
                             </a>
                         </li>
                         <li class="nav__item ">
-                            <!--这是名字2的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
-                                <!--这是图标2（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-comments iconfont"></span>
-                                <!--这是名字2-->
-                                <span class="complimentary push--left">留言板</span>
-                            </a>
-                        </li>
-                        <li class="nav__item ">
-                            <!--这是名字3的链接地址-->
                             <a class="header__link subdued" href="<%=basePath%>LoginBackstageServlet">
-                                <!--这是图标3（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-denglu iconfont"></span>
-                                <!--这是名字3-->
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/people.svg">
+                                </span>
                                 <span class="complimentary push--left">个人</span>
                             </a>
                         </li>
@@ -83,7 +88,6 @@ String P = (String)session.getAttribute("pagenum");
                 </nav>
                 <div class="nav__menu">
                 	<a href="<%=basePath%>" class="brand header__link">
-                    	<!--这是主页标签-->
                     	<b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
                 	</a>  
                 </div> 
@@ -125,6 +129,14 @@ String P = (String)session.getAttribute("pagenum");
 					</div>
 					<ul class="menu__ul">
 						<li>
+							<a href="<%=basePath%>">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/home.svg">
+								</span>
+								<span class="menu__ul_li">首页</span>
+							</a>
+						</li>
+						<li>
 							<a href="<%=basePath%>ArticleServlet">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
@@ -137,7 +149,15 @@ String P = (String)session.getAttribute("pagenum");
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
 								</span>
-								<span class="menu__ul_li">留言板</span>
+								<span class="menu__ul_li">留言</span>
+							</a>
+						</li>
+						<li>
+							<a href="<%=basePath%>PictureServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+								</span>
+								<span class="menu__ul_li">图片栏</span>
 							</a>
 						</li>
 						<li>
@@ -165,7 +185,7 @@ String P = (String)session.getAttribute("pagenum");
 						</li>
 						
 						<li>
-							<a href="">
+							<a href="<%=basePath%>jsp/others/Donation.jsp">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/donate.svg">
 								</span>
@@ -173,7 +193,7 @@ String P = (String)session.getAttribute("pagenum");
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="<%=basePath%>jsp/others/Aboutus.jsp">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/aboutus.svg">
 								</span>
@@ -200,14 +220,14 @@ String P = (String)session.getAttribute("pagenum");
 				</div>
 			</div>
 
-			<div class="re" style="">
+			<div class="re">
 				<form action="<%=basePath%>RegisterServlet" method="post"
 					style="padding-top: -700px">
 					<div>
 						请输入用户名：
 						<input class="form-control" id="name" name="name" type="text" style="width: 100%;"
 							placeholder="请输入用户名,请不要输入汉字" required="required"
-							onkeyup="value=value.replace(/[\W]/g,'') " maxlength="255"
+							onkeyup="value=value.replace(/[\W]/g,'') " maxlength="255" onblur="validation()"
 							onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
 					</div>
 					<div style="padding-top: 13px;">
@@ -218,12 +238,12 @@ String P = (String)session.getAttribute("pagenum");
 					<div style="padding-top: 13px;">
 						请输入邮箱：
 						<input class="form-control" id="email" name="email" type="email" style="width: 100%;"
-							placeholder="请输入邮箱" required="required" maxlength="255">
+							placeholder="请输入邮箱" required="required" maxlength="255" onblur="validation()">
 					</div>
 					<div style="padding-top: 13px;">
 						请输入手机号：
 						<input class="form-control" id="phone" name="phone" type="number" style="width: 100%;"
-							placeholder="请输入手机号" required="required" maxlength="20">					
+							placeholder="请输入手机号" required="required" maxlength="20" onblur="validation()">					
 					</div>
 					<div style="padding-top: 13px;padding-bottom:13px;float: left;width: 100%;">
 						请选择性别: <input class="custom-radio" type="radio" name="sex"
@@ -268,10 +288,15 @@ String P = (String)session.getAttribute("pagenum");
 								value="重置">
 						</div>						
 					</div>
-					<div
-						style="text-align: center; float: left; width: 100%; padding-top: 20px;">
-						<input class="btn btn-primary" type="button"
-							onclick="JavaScript:history.go(-1)" style="width: 100%" value="返回">
+					<div style="text-align: center;padding-top: 20px;">
+						<div style="float: left; width: 49%;">
+							<input class="btn btn-primary" type="button" disabled="disabled"
+							onclick="validation()" style="width: 100%;text-align: center;" value="验证重复">
+						</div>
+						<div style="float: right; width: 49%;">
+							<input class="btn btn-primary" type="button"
+							onclick="JavaScript:history.go(-1)" style="width: 100%;text-align: center;" value="返回">
+						</div>
 					</div>
 				</form>
 			</div>
@@ -325,7 +350,30 @@ String P = (String)session.getAttribute("pagenum");
 	//var scrollTop  = document.documentElement.scrollTop||document.body.scrollTop;//兼容性写法，并且在滚动事件内可以实时获得滚动条距顶部的距离 ;
 	btn.onclick = function(){
  		$('body,html').animate({scrollTop:0},300)
-	};	
+	};
+	
+	
+	function validation() {
+//		var vaname = document.getElementById('#name').value;
+//		var vaphone = document.getElementById('#phone').value;
+//		var vaemail = document.getElementById('#email').value;
+		
+//		$.ajax({
+//			type:"Get",
+//			url:"RegisterValidationServlet?vasname="+vaname+"&vasphone="+vaphone+"&vasemail="+vaemail+"",
+//			dataType:"text",
+//			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+//			data:str,
+//			success:function(true){
+//				alert('Alert:Success!');
+//			},
+//			error:function(false){
+//				alert('Alert:Error!');
+//			}
+//		})
+	}
+	
+	alert("亲爱的新用户们，你们好！\n注册时请注意以下几点：\n1.用户名输入英文\n2.如果点击注册后弹出提醒Username or phone or email is not unique!，说明用户名或手机或邮箱有重复\n3.成功注册后直接返回主页");
 </script>
 
 <script type="text/javascript">

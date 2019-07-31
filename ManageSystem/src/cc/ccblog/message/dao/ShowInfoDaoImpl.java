@@ -20,6 +20,7 @@ public class ShowInfoDaoImpl implements ShowInfoDao {
 	 * 展示登录界面信息
 	 * 
 	 */
+	@Override
 	public List<MessageInfo> showinfo() {
 		// TODO Auto-generated method stub
 		List<MessageInfo> m_list = new ArrayList<MessageInfo>();
@@ -43,7 +44,7 @@ public class ShowInfoDaoImpl implements ShowInfoDao {
 		return null;
 	}
 
-		
+//	@Override
 //	public List<MessageInfo> editinfo(){
 //		List<MessageInfo> m_editall = new ArrayList<MessageInfo>();
 //		try {
@@ -73,6 +74,7 @@ public class ShowInfoDaoImpl implements ShowInfoDao {
 	 * 更新登录界面信息
 	 * 
 	 */
+	@Override
 	public boolean update(int messageid,String messagemaintitle ,String messagetitle,String messageinfo) {
 		boolean flag = false;
 		DBconn.init();
@@ -99,16 +101,17 @@ public class ShowInfoDaoImpl implements ShowInfoDao {
 	 * 留言板显示信息
 	 * 
 	 */
+	@Override
 	public List<MessageInfo> showmsinfo(int Page) {
 		int i=1;
 		int curPage = Page - i;
-		int pageSize = 8;
+		int pageSize = 10;
 		int startRow = (curPage) * pageSize;		
 		
 		List<MessageInfo> msg_list = new ArrayList<MessageInfo>();
 		try {
 			DBconn.init();
-			ResultSet rs= DBconn.selectSql("select * from user_message limit "+startRow+",8");
+			ResultSet rs= DBconn.selectSql("select * from user_message order by addmessageid desc limit "+startRow+",10");
 			while (rs.next()) {
 				MessageInfo setms=new MessageInfo();
 				setms.setAddmessageid(rs.getInt("addmessageid"));
@@ -133,6 +136,7 @@ public class ShowInfoDaoImpl implements ShowInfoDao {
 	 * 留言板存入信息
 	 * 
 	 */
+	@Override
 	public boolean addmsinfo(MessageInfo msg) {
 		boolean flag = false;
 		DBconn.init();
@@ -143,5 +147,22 @@ public class ShowInfoDaoImpl implements ShowInfoDao {
 		}
 		DBconn.closeConn();
 		return flag;
+	}
+
+	@Override
+	public int msgpagecount() {
+		try {
+			DBconn.init();
+			ResultSet rs = DBconn.selectSql("select * from user_message");
+			int rowCount = 0;
+			while(rs.next()) {
+			    rowCount++;
+			}
+			DBconn.closeConn();
+			return rowCount;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

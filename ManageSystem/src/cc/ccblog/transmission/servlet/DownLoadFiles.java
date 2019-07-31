@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.transmission.servlet;
 
 import java.io.BufferedInputStream;
@@ -36,11 +41,15 @@ public class DownLoadFiles extends HttpServlet {
 		response.addHeader("Content-Disposition", "attachment;filename="+filedisplay);
 		
 		
-		/* InputStream 是字节输入流的所有类的超类，一般用子类FileInputStream
+		/*	注释：
+		 * 
+		 * InputStream 是字节输入流的所有类的超类，一般用子类FileInputStream
 		 * OutputStream是字节输出流的所有类的超类，一般用子类FileOutputStream
 		 * BufferedInputStream是带缓存区的字节输入流，减少磁盘访问次数，增加读取速度
 		 * BufferedOutputStream是带缓存区的字节输出流，提高文件写入效率
-		 */ 
+		 *
+		 */
+		
 		
 		
 		InputStream is = null; 
@@ -59,8 +68,8 @@ public class DownLoadFiles extends HttpServlet {
 			bos.write(bt,0,len); //将读取的字节转为字符串对象
 		} 
 		     
-		bis.close(); 
-		is.close(); //关闭输入流
+		bis.close(); //关闭输入流
+		is.close(); 
 		bos.close(); //关闭输出流
 		os.close(); 
 		

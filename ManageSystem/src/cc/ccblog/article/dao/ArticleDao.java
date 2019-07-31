@@ -1,3 +1,9 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
+
 package cc.ccblog.article.dao;
 
 import java.util.List;
@@ -17,6 +23,8 @@ public interface ArticleDao {
 	List<Article> showartmsginfo(String articletitle);//文章底部留言展示
 
 	List<Article> searcharticletitle(int curPage,String searcharticletitle);//模糊搜索文章
+
+	int artpagecount();
 
 
 }

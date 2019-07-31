@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.message.dao;
 
 import java.util.List;
@@ -15,6 +20,8 @@ public interface ShowInfoDao {
 	List<MessageInfo> showmsinfo(int curPage);//留言板信息展示
 
 	boolean addmsinfo(MessageInfo msg);//留言板留言
+
+	int msgpagecount();
 
 
 

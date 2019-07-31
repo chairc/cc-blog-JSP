@@ -29,7 +29,8 @@ String name = (String) session.getAttribute("username");
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/flat-ui.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css" type="text/css">
 
 
@@ -43,46 +44,155 @@ String name = (String) session.getAttribute("username");
             <div class="container">
                 <nav id="nav" class="nav-wrapper" role="navigation">
                     <ul class="nav nav--main">
+                    	<li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>ArticleServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
+								</span>
+                                <span class="complimentary push--left">归档</span>
+                            </a>
+                        </li>
                         <li class="nav__item ">
-                            <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
-                                <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-pic iconfont"></span>
-                                <!--这是名字1-->
+                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
+                                </span>
+                                <span class="complimentary push--left">留言</span>
+                            </a>
+                        </li>
+                        <li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>PictureServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+                                </span>
                                 <span class="complimentary push--left">图片</span>
                             </a>
                         </li>
                         <li class="nav__item ">
-                            <!--这是名字2的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
-                                <!--这是图标2（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-comments iconfont"></span>
-                                <!--这是名字2-->
-                                <span class="complimentary push--left">留言板</span>
-                            </a>
-                        </li>
-                        <li class="nav__item ">
-                            <!--这是名字3的链接地址-->
                             <a class="header__link subdued" href="<%=basePath%>LoginBackstageServlet">
-                                <!--这是图标3（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-denglu iconfont"></span>
-                                <!--这是名字3-->
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/people.svg">
+                                </span>
                                 <span class="complimentary push--left">个人</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <div class="nav__menu">
-                	
-                	<a href="<%=basePath%>" class="brand header__link nav__menu__a">
-                    <!--这是主页标签-->
-                    <b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
-                </a>  
+                	<a href="<%=basePath%>" class="brand header__link">
+                    	<b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
+                	</a>  
                 </div> 
-                <div class="menu-button brand" style="float: left;position: absolute;">
+                <div id="menuclick" class="menu-button brand" style="float: left;position: absolute;">
 					<div class="bar"></div>
 					<div class="bar"></div>
 					<div class="bar"></div>					
+				</div>
+				<div id="menudiv" class="menu__div" >
+					<div style="text-align: center;">
+						<a href="<%=basePath%>" class="brand__forename" style="color: #34495e">
+							<span style="font-size: 25px;">欢迎来到ChairC's Blog！</span>
+						</a>						
+					</div>
+					<div class="menu__gif">
+						<img src="<%=basePath%>images/picture/index/gifhome.gif">
+					</div>
+					<div style="width: 100%;height: 50px;border-bottom:1px solid #dddddd;text-align: center; ">
+						<div style="width: 25%;float: left;">
+							<a href="https://github.com/chairc" target="_blank">
+								<img src="<%=basePath%>images/picture/index/github.svg" width="30px" height="30px" title="GitHub">
+							</a>			
+						</div>
+						<div style="width: 25%;float: left;">
+							<a href="https://weibo.com/u/1802917091" target="_blank">
+								<img src="<%=basePath%>images/picture/index/weiBo.svg" width="30px" height="30px" title="微博">
+							</a>						
+						</div>
+						<div style="width: 25%;float: left;">
+							<a href="https://music.163.com/#/user/home?id=320416909" target="_blank">
+								<img src="<%=basePath%>images/picture/index/wymusic.svg" width="30px" height="30px" title="网易云音乐">
+							</a>							
+						</div>
+						<div style="width: 25%;float: left;">
+							<a href="">
+								<img src="<%=basePath%>images/picture/index/mail.svg" width="30px" height="30px" title="Email:chenyu1998424@gmail.com">
+							</a>
+						</div>
+					</div>
+					<ul class="menu__ul">
+						<li>
+							<a href="<%=basePath%>">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/home.svg">
+								</span>
+								<span class="menu__ul_li">首页</span>
+							</a>
+						</li>
+						<li>
+							<a href="<%=basePath%>ArticleServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
+								</span>
+								<span class="menu__ul_li">归档</span>
+							</a>
+						</li>
+						<li>
+							<a href="<%=basePath%>MessageIndexServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
+								</span>
+								<span class="menu__ul_li">留言</span>
+							</a>
+						</li>
+						<li>
+							<a href="<%=basePath%>PictureServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+								</span>
+								<span class="menu__ul_li">图片栏</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/link.svg">
+								</span>
+								<span class="menu__ul_li">发现伙伴</span>
+								
+							</a>
+						</li>
+						<li>
+							<span>
+								<img class="menu__img_svg" src="<%=basePath%>images/picture/index/application.svg">
+							</span>
+							<span>小应用</span>
+							<ul style="text-decoration: none;list-style: none;font-size: 15px;">
+								<li class="menu__ul_li">
+									<a href="<%=basePath%>jsp/garbageclass/Garbage.jsp">
+										<span></span>
+										<span>垃圾分类</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+						
+						<li>
+							<a href="<%=basePath%>jsp/others/Donation.jsp">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/donate.svg">
+								</span>
+								<span class="menu__ul_li">赞助</span>
+							</a>
+						</li>
+						<li>
+							<a href="<%=basePath%>jsp/others/Aboutus.jsp">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/aboutus.svg">
+								</span>
+								<span class="menu__ul_li">关于</span>
+							</a>
+						</li>
+					</ul>
 				</div>               
             </div>
         </header>
@@ -100,7 +210,7 @@ String name = (String) session.getAttribute("username");
 
 			<div style="width: 100%; padding-left: 10%; padding-right: 10%;">
 				<form action="WriteArticleServlet" method="post">
-					<div style="">
+					<div>
 						<div>
 							<input type="text" style="width: 100%;" class="form-control"
 								name="articletitle" placeholder="文章题目">
@@ -178,8 +288,27 @@ String name = (String) session.getAttribute("username");
   
 </script>
 
-<!--******************************上面是导航栏方法******************************-->
+
 <script type="text/javascript">
 //	var um = UM.getEditor('myEditor');
+</script>
+
+<script type="text/javascript">
+	//侧栏
+	$("#menuclick").on("click", function(e){
+		if($("#menudiv").is(":hidden")){
+			$('#menudiv').show(800);
+	    }else{
+	    	$('#menudiv').hide(800);
+	    }
+		$(document).one("click", function(){
+			$('#menudiv').hide(800);
+		});		
+		e.stopPropagation();	
+	});
+	
+	$("#menudiv").on("click", function(e){
+		e.stopPropagation();
+	});
 </script>
 </html>

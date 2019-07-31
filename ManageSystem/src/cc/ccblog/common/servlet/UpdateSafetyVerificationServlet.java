@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.common.servlet;
 
 import java.io.IOException;
@@ -45,16 +50,26 @@ public class UpdateSafetyVerificationServlet extends HttpServlet {
 		
 		UserDao ud1 = new UserDaoImpl();
 		
-		if(ud1.updatesafetyverification(user)){
+		/**
+		 * 这下面这段代码运行效率太低了！疯狂吐槽！我手撸不出来更优化的了日哦！详情就去UserDaoImpl看！我要哭了
+		 */
+		String flag = ud1.updatesafetyverification(user);
+		if(flag == "allyes") {
 			response.getWriter().print("<script>window.location.href='showinfo';</script>");
 			
 			System.out.println("--------------\n" + name + "强制修改安全信息---------成功\n" + "--------------");
-
-		}else{
-			response.getWriter().print("<script>alert('Alert:email or phone is wrong......');window.history.back(-1);</script>");
-		
-			System.out.println("--------------\n" + name + "强制修改安全信息---------失败\n原因：email或电话错误\n" + "--------------");
+		}else if(flag == "phoneerror") {
+			response.getWriter().print("<script>alert('Alert:phone is wrong......');window.history.back(-1);</script>");
 			
+			System.out.println("--------------\n" + name + "强制修改安全信息---------失败\n原因：电话错误\n" + "--------------");
+		}else if (flag == "emailerror") {
+			response.getWriter().print("<script>alert('Alert:email is wrong......');window.history.back(-1);</script>");
+		
+			System.out.println("--------------\n" + name + "强制修改安全信息---------失败\n原因：email错误\n" + "--------------");
+		}else {
+			response.getWriter().print("<script>alert('Alert:email and phone is wrong......');window.history.back(-1);</script>");
+		
+			System.out.println("--------------\n" + name + "强制修改安全信息---------失败\n原因：email和电话错误\n" + "--------------");
 		}
 		
 	}

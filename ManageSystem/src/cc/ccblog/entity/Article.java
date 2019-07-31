@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.entity;
 
 public class Article {
@@ -14,6 +19,7 @@ public class Article {
 	private String addarticlemessageinfo;
 	private String addarticlemessagetime;
 	
+	private int articlepage;
 	
 	public int getArticleid() {
 		return articleid;
@@ -75,6 +81,13 @@ public class Article {
 	public void setAddarticlemessagetime(String addarticlemessagetime) {
 		this.addarticlemessagetime = addarticlemessagetime;
 	}
+	public int getArticlepage() {
+		return articlepage;
+	}
+	public void setArticlepage(int articlepage) {
+		this.articlepage = articlepage;
+	}
+	
 	
 	
 	

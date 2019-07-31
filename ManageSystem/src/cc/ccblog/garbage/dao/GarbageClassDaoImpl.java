@@ -20,6 +20,7 @@ public class GarbageClassDaoImpl implements GarbageClassDao {
 	 * 查询垃圾分类
 	 * 
 	 */
+	@Override
 	public List<GarbageClass> searchgarbage(String searchgarbagename) {
 		List<GarbageClass> list = new ArrayList<GarbageClass>();
     	try {
@@ -47,6 +48,7 @@ public class GarbageClassDaoImpl implements GarbageClassDao {
 	 * 添加垃圾分类
 	 * 
 	 */
+	@Override
 	public boolean addgarbage(GarbageClass gc) {
 		boolean flag = false;
 		DBconn.init();
@@ -66,6 +68,7 @@ public class GarbageClassDaoImpl implements GarbageClassDao {
 	 * 查找所有垃圾
 	 * 
 	 */
+	@Override
 	public List<GarbageClass> searchgarbageall() {
 		List<GarbageClass> list = new ArrayList<GarbageClass>();
     	try {
@@ -93,6 +96,7 @@ public class GarbageClassDaoImpl implements GarbageClassDao {
 	 * 查询添加的垃圾分类时判断是否垃圾名称重复
 	 * 
 	 */
+	@Override
 	public boolean garbagevalidation(String searchgarbagename) {
 		boolean flag = false;
 		try {

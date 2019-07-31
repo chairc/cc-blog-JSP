@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.message.servlet;
 
 import java.io.IOException;
@@ -23,6 +28,11 @@ public class MessageIndexServlet extends HttpServlet {
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		ShowInfoDao sid = new ShowInfoDaoImpl();
+		int i = sid.msgpagecount();
+		int pagecount = (i + 10 - 1)/10;
+		request.getSession().setAttribute("pageall",pagecount);
 		
 		if(request.getParameter("page")!=null) {
 			String page = new String(request.getParameter("page").getBytes("ISO-8859-1"),"utf-8");

@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.common.servlet;
  
 import java.io.IOException;
@@ -45,7 +50,12 @@ public class RegisterServlet extends HttpServlet {
 		
 		UserDao ud = new UserDaoImpl();
 		
-		if(ud.registevalidation(name))
+		
+		/**
+		 * 这下面这段代码运行效率太低了！疯狂吐槽！我手撸不出来更优化的了日哦！详情就去UserDaoImpl看！我要哭了
+		 */
+		String flag = ud.registevalidation(user);
+		if(flag == "allyes")
 		{
 			if(ud.register(user)){
 				
@@ -57,20 +67,36 @@ public class RegisterServlet extends HttpServlet {
 			}else {
 				System.out.println("--------------\n" + "注册人员：" + name +"\n"+ "注册状态：失败\n" + "--------------");
 				
-				response.getWriter().print("<script>alert('Alert:Please add text correctly!');window.location.href='jsp/basic/Register_new.jsp'</script>");
-				
-				//request.setAttribute("xiaoxi", "注册失败，请检查填写内容！");
-				//request.getRequestDispatcher("/jsp/others/Failure_new.jsp").forward(request, response);
-				//response.sendRedirect("jsp/others/Failure_new.jsp");//重定向到首页
+				response.getWriter().print("<script>alert('Alert:Please add text correctly!');window.history.back(-1);</script>");
 			}	
-		}else{
+		}else if(flag == "nameerror") {
 			System.out.println("--------------\n" + "注册人员：" + name +"\n"+ "注册状态：用户名重复\n" + "--------------");
 			
-			response.getWriter().print("<script>alert('Alert:Username is not unique!');window.location.href='jsp/basic/Register_new.jsp'</script>");
+			response.getWriter().print("<script>alert('Alert:Username is not unique!');window.history.back(-1);</script>");
+		}else if(flag == "emailerror") {
+			System.out.println("--------------\n" + "注册人员：" + name +"\n"+ "注册状态：邮箱重复\n" + "--------------");
 			
-			//request.setAttribute("xiaoxi", "注册失败，用户名重复！");
-			//request.getRequestDispatcher("/jsp/others/Failure_new.jsp").forward(request, response);
-			//response.sendRedirect("jsp/others/Failure_new.jsp");//重定向到首页
+			response.getWriter().print("<script>alert('Alert:Email is not unique!');window.history.back(-1);</script>");
+		}else if(flag == "phoneerror") {
+			System.out.println("--------------\n" + "注册人员：" + name +"\n"+ "注册状态：电话重复\n" + "--------------");
+			
+			response.getWriter().print("<script>alert('Alert:Phone is not unique!');window.history.back(-1);</script>");
+		}else if(flag == "nameemailerror") {
+			System.out.println("--------------\n" + "注册人员：" + name +"\n"+ "注册状态：用户名和邮箱重复\n" + "--------------");
+			
+			response.getWriter().print("<script>alert('Alert:Username and email are not unique!');window.history.back(-1);</script>");
+		}else if(flag == "namephoneerror") {
+			System.out.println("--------------\n" + "注册人员：" + name +"\n"+ "注册状态：用户名和电话重复\n" + "--------------");
+			
+			response.getWriter().print("<script>alert('Alert:Username and phone are not unique!');window.history.back(-1);</script>");
+		}else if(flag == "emailphoneerror") {
+			System.out.println("--------------\n" + "注册人员：" + name +"\n"+ "注册状态：邮箱和电话重复\n" + "--------------");
+			
+			response.getWriter().print("<script>alert('Alert:Email and phone are not unique!');window.history.back(-1);</script>");
+		}else {
+			System.out.println("--------------\n" + "注册人员：" + name +"\n"+ "注册状态：全部重复\n" + "--------------");
+			
+			response.getWriter().print("<script>alert('Alert:Email , email and phone are not unique!');window.history.back(-1);</script>");
 		}
 	}
 }

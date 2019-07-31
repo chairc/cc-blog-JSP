@@ -22,6 +22,7 @@ public class UserDaoImpl implements UserDao{
 	 * 注册
 	 * 
 	 */
+	@Override
 	public boolean register(User user) {
 		boolean flag = false;
 		DBconn.init();
@@ -41,6 +42,7 @@ public class UserDaoImpl implements UserDao{
 	 * 登录
 	 *  
 	 */
+	@Override
     public boolean login(String name, String pwd) {
 		boolean flag = false;
 		try {
@@ -64,6 +66,7 @@ public class UserDaoImpl implements UserDao{
 	 *  输出数据库user_info内容 
 	 * 
 	 */
+	@Override
 	public List<User> getUserAll(int Page) {
 		int curPage = Page;
 		int pageSize = 8;
@@ -107,6 +110,7 @@ public class UserDaoImpl implements UserDao{
 	 * 更新
 	 * 
 	 */
+	@Override
 	public boolean update(User user) {
 		boolean flag = false;
 		DBconn.init();
@@ -134,6 +138,7 @@ public class UserDaoImpl implements UserDao{
 	 * 删除Editall信息	
 	 * 
 	 */
+	@Override
 	public boolean delete(int id) {
 		boolean flag = false;
 		DBconn.init();
@@ -152,20 +157,70 @@ public class UserDaoImpl implements UserDao{
 	 * 注册RegisterServlet冲突验证   
 	 * 
 	 */
-	public boolean registevalidation(String name) {
-		boolean flag = true;
+	@Override
+	public String registevalidation(User user) {
+		String flag = "allyes";
+		int flag1 = 0,flag2 = 0,flag3 = 0;
+		String name = user.getName();
 		try {
-			    DBconn.init();
-				ResultSet rs = DBconn.selectSql("select * from user_info where name='"+name+"'");
-				while(rs.next()){
-					if(rs.getString("name").equals(name)){
-						flag = false;
-					}
+			DBconn.init();		
+			ResultSet rs1 = DBconn.selectSql("select * from user_info where phone='"+user.getPhone()+"'");
+			while(rs1.next()){
+				String phone = user.getPhone();
+				if(rs1.getString("phone").equals(phone)){	
+					flag1 = 1;
+					System.out.println("电话重复");
+					flag = "phoneerror";		
 				}
-				DBconn.closeConn();
+			}
+			DBconn.closeConn();			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		try {
+			DBconn.init();
+			ResultSet rs2 = DBconn.selectSql("select * from user_info where email='"+user.getEmail()+"'");
+			while(rs2.next()){
+				String email = user.getEmail();
+				if(rs2.getString("email").equals(email)){
+					flag2 = 1;
+					System.out.println("email重复");
+					flag = "emailerror";			
+				}
+			}
+			DBconn.closeConn();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			DBconn.init();		
+			ResultSet rs3 = DBconn.selectSql("select * from user_info where name='"+user.getName()+"'");
+			while(rs3.next()){		
+				if(rs3.getString("name").equals(name)) {
+					flag3 = 1;
+					System.out.println("用户名重复");
+					flag = "nameerror";
+				}
+			}
+			DBconn.closeConn();			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(flag1 + flag2 + flag3 == 3) {
+			flag = "allno";
+		}else {
+			if(flag1 + flag2 == 2) {
+				flag = "emailphoneerror";
+			}else if (flag1 + flag3 == 2) {
+				flag = "namephoneerror";
+			}else if (flag2 + flag3 == 2) {
+				flag = "nameemailerror";
+			}
+		}
+		if (flag1 + flag2 + flag3 == 0) {
+			flag = "allyes";
+		}
+		DBconn.closeConn();
 		return flag;
 	}
 
@@ -175,6 +230,7 @@ public class UserDaoImpl implements UserDao{
 	 * 后台管理修改UpdateUserServlet个人信息 	    *未修改完成
 	 * 
 	 */
+	@Override
 	public boolean updateUser(String name, String pwd, String sex, String home, String info) {
 		boolean flag = false;
 		DBconn.init();
@@ -197,6 +253,7 @@ public class UserDaoImpl implements UserDao{
 	 * LoginServlet用户登录时间、IP地址判断    
 	 * 
 	 */
+	@Override
 	public boolean loginupdate(String name, String servertime, String ip, String system, String browsername) {
 		boolean flag = false;
 		DBconn.init();
@@ -220,6 +277,7 @@ public class UserDaoImpl implements UserDao{
 	 * 获取用户登录日志
 	 * 
 	 */
+	@Override
 	public List<User> getUserLogAll(String name,int Page) {
 		int curPage = Page;
 		int pageSize = 10;
@@ -234,6 +292,8 @@ public class UserDaoImpl implements UserDao{
 				//user.setLogid(rs.getInt("logid"));
 				user.setLogname(rs.getString("logname"));
 				user.setTimelog(rs.getString("logtime"));
+				user.setLogsystem(rs.getString("logsystem"));
+				user.setLogbrowsername(rs.getString("logbrowsername"));
 				list.add(user);
 			}
 			DBconn.closeConn();
@@ -251,6 +311,7 @@ public class UserDaoImpl implements UserDao{
 	 * 找回用户名和密码
 	 * 
 	 */
+	@Override
 	public List<User> retrieveaccount(String selectfindway, String findway, String safequestion, String safeanswer) {
 		List<User> list = new ArrayList<User>();
     	try {
@@ -290,7 +351,7 @@ public class UserDaoImpl implements UserDao{
 	 * 验证数据库数据是否完整，不完整则强制修改信息
 	 * 
 	 */
-
+	@Override
 	public boolean Searchsafetyverification(String name) {		
 		boolean flag = false;
 		try {
@@ -319,6 +380,7 @@ public class UserDaoImpl implements UserDao{
 	 * 强制修改信息界面信息加载
 	 * 
 	 */
+	@Override
 	public List<User> safetyverification(String name) {
 		List<User> list = new ArrayList<User>();
 		try {
@@ -344,23 +406,29 @@ public class UserDaoImpl implements UserDao{
 	}
 
 
-
 	/**
 	 *  
-	 * 强制修改信息
+	 * 强制修改信息（改）
 	 * 
 	 */
-	public boolean updatesafetyverification(User user) {
-		boolean flag = false;
-		int flag1 = 0,flag2 = 0;	
+	@Override
+	public String updatesafetyverification(User user) {
+		String flag = "allyes";
+		int flag1 = 0,flag2 = 0;
+		String name = user.getName();
 		try {
 			DBconn.init();		
 			ResultSet rs1 = DBconn.selectSql("select * from user_info where phone='"+user.getPhone()+"'");
 			while(rs1.next()){
 				String phone = user.getPhone();
 				if(rs1.getString("phone").equals(phone)){
-					flag1 = 1;
-					System.out.println("电话重复");
+					if(rs1.getString("name").equals(name)) {
+						flag1 = 0;
+					}else {
+						flag1 = 1;
+						System.out.println("电话重复");
+						flag = "phoneerror";
+					}
 				}
 			}
 			DBconn.closeConn();			
@@ -373,15 +441,22 @@ public class UserDaoImpl implements UserDao{
 			while(rs2.next()){
 				String email = user.getEmail();
 				if(rs2.getString("email").equals(email)){
-					flag2 = 1;
-					System.out.println("email重复");
+					if(rs2.getString("name").equals(name)) {
+						flag2 = 0;
+					}else {
+						flag2 = 1;
+						System.out.println("email重复");
+						flag = "emailerror";
+					}					
 				}
 			}
 			DBconn.closeConn();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		if(flag1 + flag2 == 2) {
+			flag = "allno";
+		}
 		if(flag1 + flag2 == 0) {
 			DBconn.init();
 			String sql = "update user_info set email ='"+user.getEmail()
@@ -390,12 +465,58 @@ public class UserDaoImpl implements UserDao{
 			+"' , safeanswer ='"+user.getSafeanswer()+"' where name = '"+user.getName()+"'";
 			int i =DBconn.addUpdDel(sql);
 			if(i>0){
-				flag = true;
+				flag = "allyes";
 			}
 			System.out.println("电话或email未重复");
 		}
 		DBconn.closeConn();
 		return flag;
+	}
+
+
+	/**
+	 *  
+	 * 所有人员总数
+	 * 
+	 */
+	@Override
+	public int eapagecount() {
+		try {
+			DBconn.init();
+			ResultSet rs = DBconn.selectSql("select * from user_info");
+			int rowCount = 0;
+			while(rs.next()) {
+			    rowCount++;
+			}
+			DBconn.closeConn();
+			return rowCount;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+
+	/**
+	 *  
+	 * 所有人员日志总数
+	 * 
+	 */
+	@Override
+	public int sllpagecount(String name) {
+		try {
+			DBconn.init();
+			ResultSet rs = DBconn.selectSql("select * from user_logintimelog where logname='"+name+"'");
+			int rowCount = 0;
+			while(rs.next()) {
+			    rowCount++;
+			}
+			DBconn.closeConn();
+			return rowCount;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 	
 	

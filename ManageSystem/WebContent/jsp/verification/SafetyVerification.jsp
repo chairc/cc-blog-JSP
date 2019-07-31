@@ -54,7 +54,7 @@ String P = (String)session.getAttribute("pagenum");
                     <ul class="nav nav--main">
                         <li class="nav__item ">
                             <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
+                            <a class="header__link subdued" href="<%=basePath%>PictureServlet">
                                 <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
                                 <span aria-hidden="true" class="icon-pic iconfont"></span>
                                 <!--这是名字1-->
@@ -138,6 +138,14 @@ String P = (String)session.getAttribute("pagenum");
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
 								</span>
 								<span class="menu__ul_li">留言板</span>
+							</a>
+						</li>
+						<li>
+							<a href="<%=basePath%>PictureServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+								</span>
+								<span class="menu__ul_li">图片栏</span>
 							</a>
 						</li>
 						<li>
@@ -272,6 +280,9 @@ String P = (String)session.getAttribute("pagenum");
 			</div>
 		</div>
 	</div>
+	
+	
+	
 
 	<div style="position: fixed;right: 10px;bottom: 80px;width: 50px;z-index: 1999;">
     	<button id="backtop" class="btn btn-info navguide">返回头部</button>

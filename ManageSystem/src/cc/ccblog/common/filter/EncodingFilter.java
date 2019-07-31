@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.common.filter;
 //package filter;
 //
@@ -14,19 +19,19 @@ package cc.ccblog.common.filter;
 //
 //public class EncodingFilter implements Filter {
 //	public EncodingFilter(){
-//		System.out.println("����������");
+//		System.out.println("过滤器构造");
 //	}
 //	public void destroy() {
-//		System.out.println("����������");
+//		System.out.println("过滤器销毁");
 //	}
 //	public void doFilter(ServletRequest request, ServletResponse response,FilterChain chain) throws IOException, ServletException {
-//		request.setCharacterEncoding("utf-8"); //�������Ϊutf-8
+//		request.setCharacterEncoding("utf-8");
 //		response.setContentType("text/html;charset=utf-8");
 //		chain.doFilter(request, response);
 //	}
 // 
 //	public void init(FilterConfig arg0) throws ServletException {
-//		System.out.println("��������ʼ��");
+//		System.out.println("过滤器初始化");
 //	}
 //
 //}

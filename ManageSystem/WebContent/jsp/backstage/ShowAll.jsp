@@ -7,16 +7,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%
 String P = (String)session.getAttribute("pagenum");
+int PageCount = (int)session.getAttribute("pageall");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/css/flat-ui.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/css/layui.css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flat-ui.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css" type="text/css">
 
 <base href="<%=basePath%>">
 <title>ChairC's Blog - 编辑所有用户页面</title>
@@ -69,11 +71,11 @@ String P = (String)session.getAttribute("pagenum");
 								<h3>${xiaoxi}</h3>
 							</div>
 						</div>
-						<div style="width: 100%; height: 90%;">
+						<div style="width: 100%; height: 90%;font-size: 14px;">
 											
 							<form action="" method="post" target="_self">				
-								<table width="1050px" border="1" cellpadding="0">
-									<tr>
+								<table border="1" cellpadding="0">
+									<tr style="height: 50px;">
 										<th style="width: 30px;">ID</th>
 										<th style="width: 100px;">用户名</th>
 										<th style="width: 20px;">性别</th>
@@ -85,14 +87,14 @@ String P = (String)session.getAttribute("pagenum");
 										<th style="width: 140px;">最后登陆时间</th>
 										<th style="width: 140px;">Ip</th>
 										<th style="width: 120px;">安全问题</th>
-										<th style="width: 120px;">安全答案</th>
-										<th style="width: 50px;">操作</th>
+										<th style="width: 120px;">安全答案</th>										
 										<th style="width: 70px;">系统</th>
 										<th style="width: 50px;">浏览器</th>
+										<th style="width: 50px;">操作</th>
 									</tr>
 									<c:forEach var="U" items="${userAll}">
 										<form action="UpdateServlet" method="post">
-											<tr>
+											<tr style="height: 50px;">
 												<td><input type="text" value="${U.id}" name="id"
 													style="width: 30px; border: 0px; background: none;"></td>
 												<td><input type="text" value="${U.name}" name="name" maxlength="255"
@@ -138,9 +140,16 @@ String P = (String)session.getAttribute("pagenum");
 										class="btn btn-primary" value="下一页">
 									</div>
 									<div style="float: left;padding-right: 10px;">
-										<input id="page" type="number" name="page" value="<%=P%>" 
-										placeholder="输入页码" required="required"
-										class="form-control" style="width: 100px;">
+										<div style="float: left;">
+											<input id="page" type="number" name="page" value="<%=P%>"
+												placeholder="输入页码" required="required" class="form-control"
+												style="width: 70px;">&nbsp;&nbsp;/&nbsp;&nbsp;
+										</div>						
+										<div  style="float: left;line-height: 42px;">							
+											<input id="pagecount" type="number" name="pagecount" value="<%=PageCount%>"
+												placeholder="输入页码" readonly="readonly"
+												style="width: 40px; border: 0px; background: none;">
+										</div>
 									</div>
 									<div style="float: left;">
 										<input id="pageclick" type="submit" formaction="Editall"
@@ -176,7 +185,17 @@ String P = (String)session.getAttribute("pagenum");
 			document.getElementById("sapageprev").className="btn btn-primary disabled";
 			$("#sapageprev").attr("disabled","disabled");
 		}
-	})
+	});
+	
+	
+	$(function() {
+		var nextban=document.getElementById('page').value;
+		var pagecount=document.getElementById('pagecount').value;
+		if(nextban==pagecount){
+			document.getElementById("sapagenext").className="btn btn-primary disabled";
+			$("#sapagenext").attr("disabled","disabled");
+		}
+	});
 </script>    
         
 

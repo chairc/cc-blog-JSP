@@ -53,30 +53,35 @@ String P = (String)session.getAttribute("pagenum");
             <div class="container">
                 <nav id="nav" class="nav-wrapper" role="navigation">
                     <ul class="nav nav--main">
+                    	<li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>ArticleServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
+								</span>
+                                <span class="complimentary push--left">归档</span>
+                            </a>
+                        </li>
                         <li class="nav__item ">
-                            <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
-                                <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-pic iconfont"></span>
-                                <!--这是名字1-->
+                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
+                                </span>
+                                <span class="complimentary push--left">留言</span>
+                            </a>
+                        </li>
+                        <li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>PictureServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+                                </span>
                                 <span class="complimentary push--left">图片</span>
                             </a>
                         </li>
                         <li class="nav__item ">
-                            <!--这是名字2的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
-                                <!--这是图标2（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-comments iconfont"></span>
-                                <!--这是名字2-->
-                                <span class="complimentary push--left">留言板</span>
-                            </a>
-                        </li>
-                        <li class="nav__item ">
-                            <!--这是名字3的链接地址-->
                             <a class="header__link subdued" href="<%=basePath%>LoginBackstageServlet">
-                                <!--这是图标3（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-denglu iconfont"></span>
-                                <!--这是名字3-->
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/people.svg">
+                                </span>
                                 <span class="complimentary push--left">个人</span>
                             </a>
                         </li>
@@ -84,7 +89,6 @@ String P = (String)session.getAttribute("pagenum");
                 </nav>
                 <div class="nav__menu">
                 	<a href="<%=basePath%>" class="brand header__link">
-                    	<!--这是主页标签-->
                     	<b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
                 	</a>  
                 </div> 
@@ -126,6 +130,14 @@ String P = (String)session.getAttribute("pagenum");
 					</div>
 					<ul class="menu__ul">
 						<li>
+							<a href="<%=basePath%>">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/home.svg">
+								</span>
+								<span class="menu__ul_li">首页</span>
+							</a>
+						</li>
+						<li>
 							<a href="<%=basePath%>ArticleServlet">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
@@ -138,7 +150,15 @@ String P = (String)session.getAttribute("pagenum");
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
 								</span>
-								<span class="menu__ul_li">留言板</span>
+								<span class="menu__ul_li">留言</span>
+							</a>
+						</li>
+						<li>
+							<a href="<%=basePath%>PictureServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+								</span>
+								<span class="menu__ul_li">图片栏</span>
 							</a>
 						</li>
 						<li>
@@ -166,7 +186,7 @@ String P = (String)session.getAttribute("pagenum");
 						</li>
 						
 						<li>
-							<a href="">
+							<a href="<%=basePath%>jsp/others/Donation.jsp">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/donate.svg">
 								</span>
@@ -174,7 +194,7 @@ String P = (String)session.getAttribute("pagenum");
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="<%=basePath%>jsp/others/Aboutus.jsp">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/aboutus.svg">
 								</span>
@@ -216,7 +236,7 @@ String P = (String)session.getAttribute("pagenum");
 							</select>
 						</div>
 						<div style="float: left;width: 60%;">							
-							<input type="text" class="form-control" style="width: 100%;"
+							<input type="text" class="form-control" style="width: 100%;" required="required"
 								name="findway" placeholder="找回方式"  maxlength="255">
 						</div>
 					</div>
@@ -230,7 +250,7 @@ String P = (String)session.getAttribute("pagenum");
 							</select>
 						</div>
 						<div style="float: left;width: 60%;">							
-							<input type="text" class="form-control" style="width: 100%;"
+							<input type="text" class="form-control" style="width: 100%;" required="required"
 								name="safeanswer" placeholder="安全答案"  maxlength="255">
 						</div>
 					</div>

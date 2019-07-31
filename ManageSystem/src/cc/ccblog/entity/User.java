@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.entity;
  
 public class User {
@@ -24,6 +29,10 @@ public class User {
     private int logid;    
     private String timelog;
     private String logname;
+    private String logsystem;
+    private String logbrowsername;
+    
+    private int logpagecount;
     
 	public int getId() {
 		return id;
@@ -132,6 +141,24 @@ public class User {
 	}
 	public void setBrowsername(String browsername) {
 		this.browsername = browsername;
+	}
+	public String getLogsystem() {
+		return logsystem;
+	}
+	public void setLogsystem(String logsystem) {
+		this.logsystem = logsystem;
+	}
+	public String getLogbrowsername() {
+		return logbrowsername;
+	}
+	public void setLogbrowsername(String logbrowsername) {
+		this.logbrowsername = logbrowsername;
+	}
+	public int getLogpagecount() {
+		return logpagecount;
+	}
+	public void setLogpagecount(int logpagecount) {
+		this.logpagecount = logpagecount;
 	}
 	
 

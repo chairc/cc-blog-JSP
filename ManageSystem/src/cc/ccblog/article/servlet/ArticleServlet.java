@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.article.servlet;
 
 import java.io.IOException;
@@ -24,6 +29,11 @@ public class ArticleServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		ArticleDao article = new ArticleDaoImpl();
+		int i = article.artpagecount();
+		int pagecount = (i + 10 - 1)/10;
+		request.getSession().setAttribute("pageall",pagecount);
+		
 		if(request.getParameter("page")!=null) {
 			String page = new String(request.getParameter("page").getBytes("ISO-8859-1"),"utf-8");
 			int curPage = Integer.parseInt(page);
@@ -31,6 +41,7 @@ public class ArticleServlet extends HttpServlet {
 			
 			ArticleDao addart=new ArticleDaoImpl();
 			List<Article> addartall=addart.showartinfo(curPage);
+			
 			request.setAttribute("ArticleAll", addartall);
 			request.getRequestDispatcher("/jsp/article/Article.jsp").forward(request, response);
 			
@@ -42,11 +53,12 @@ public class ArticleServlet extends HttpServlet {
 			
 			ArticleDao addart=new ArticleDaoImpl();
 			List<Article> addartall=addart.showartinfo(curPage);
+			
 			request.setAttribute("ArticleAll", addartall);
 			request.getRequestDispatcher("/jsp/article/Article.jsp").forward(request, response);
 			
 			//System.out.println("--------------\n" + "显示文章列表" + "---------成功\n" + "--------------");
-		}			
+		}		
 	}
 }
 

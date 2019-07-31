@@ -1,3 +1,8 @@
+/**
+ *
+ * @author GitHub ID : chairc
+ *
+ */
 package cc.ccblog.article.servlet;
 
 import java.io.IOException;
@@ -55,7 +60,7 @@ public class SeeArticleServlet extends HttpServlet {
 			request.getRequestDispatcher("/jsp/article/ShowArticle.jsp").forward(request, response);
 			
 			//System.out.println("--------------\n" + "显示文章与留言" + "---------成功\n" + "--------------");
-		}				
+		}
 	}
 }
 

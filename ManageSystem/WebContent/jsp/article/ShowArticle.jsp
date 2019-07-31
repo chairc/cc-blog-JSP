@@ -37,30 +37,35 @@ String P = (String)session.getAttribute("pagenum");
             <div class="container">
                 <nav id="nav" class="nav-wrapper" role="navigation">
                     <ul class="nav nav--main">
+                    	<li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>ArticleServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
+								</span>
+                                <span class="complimentary push--left">归档</span>
+                            </a>
+                        </li>
                         <li class="nav__item ">
-                            <!--这是名字1的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>jsp/picture/Picture_Index.jsp">
-                                <!--这是图标1（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-pic iconfont"></span>
-                                <!--这是名字1-->
+                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
+                                </span>
+                                <span class="complimentary push--left">留言</span>
+                            </a>
+                        </li>
+                        <li class="nav__item ">
+                            <a class="header__link subdued" href="<%=basePath%>PictureServlet">
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+                                </span>
                                 <span class="complimentary push--left">图片</span>
                             </a>
                         </li>
                         <li class="nav__item ">
-                            <!--这是名字2的链接地址-->
-                            <a class="header__link subdued" href="<%=basePath%>MessageIndexServlet">
-                                <!--这是图标2（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-comments iconfont"></span>
-                                <!--这是名字2-->
-                                <span class="complimentary push--left">留言板</span>
-                            </a>
-                        </li>
-                        <li class="nav__item ">
-                            <!--这是名字3的链接地址-->
                             <a class="header__link subdued" href="<%=basePath%>LoginBackstageServlet">
-                                <!--这是图标3（可根据从网上下载的图标中引用类型  注：请将类型写在main.css中）-->
-                                <span aria-hidden="true" class="icon-denglu iconfont"></span>
-                                <!--这是名字3-->
+                                <span>
+                                	<img class="menu__img_svg" src="<%=basePath%>images/picture/index/people.svg">
+                                </span>
                                 <span class="complimentary push--left">个人</span>
                             </a>
                         </li>
@@ -68,7 +73,6 @@ String P = (String)session.getAttribute("pagenum");
                 </nav>
                 <div class="nav__menu">
                 	<a href="<%=basePath%>" class="brand header__link">
-                    	<!--这是主页标签-->
                     	<b class="brand__forename" style="color: #34495e">ChairC's Blog</b><b class="brand__surname"></b>
                 	</a>  
                 </div> 
@@ -110,6 +114,14 @@ String P = (String)session.getAttribute("pagenum");
 					</div>
 					<ul class="menu__ul">
 						<li>
+							<a href="<%=basePath%>">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/home.svg">
+								</span>
+								<span class="menu__ul_li">首页</span>
+							</a>
+						</li>
+						<li>
 							<a href="<%=basePath%>ArticleServlet">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/article.svg">
@@ -122,7 +134,15 @@ String P = (String)session.getAttribute("pagenum");
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/message.svg">
 								</span>
-								<span class="menu__ul_li">留言板</span>
+								<span class="menu__ul_li">留言</span>
+							</a>
+						</li>
+						<li>
+							<a href="<%=basePath%>PictureServlet">
+								<span>
+									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/picture.svg">
+								</span>
+								<span class="menu__ul_li">图片栏</span>
 							</a>
 						</li>
 						<li>
@@ -150,7 +170,7 @@ String P = (String)session.getAttribute("pagenum");
 						</li>
 						
 						<li>
-							<a href="">
+							<a href="<%=basePath%>jsp/others/Donation.jsp">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/donate.svg">
 								</span>
@@ -158,7 +178,7 @@ String P = (String)session.getAttribute("pagenum");
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="<%=basePath%>jsp/others/Aboutus.jsp">
 								<span>
 									<img class="menu__img_svg" src="<%=basePath%>images/picture/index/aboutus.svg">
 								</span>
@@ -192,10 +212,10 @@ String P = (String)session.getAttribute("pagenum");
 				</div>
 			</div>
 
-			<div style="width: 80%; height: auto; margin: 0 auto; padding-bottom: 200px; padding-top: 10px; text-align: left;">
+			<div class="article_main_div">
 				<form action="" method="post">
 					<c:forEach var="A" items="${ArticleAll}">
-						<div style="border: 1px solid #dddddd;padding: 4%;border-radius: 15px;">
+						<div class="article_div">
 							<div>
 								<p style="font-size: 30px;color: #292f36;width: 100%;text-align: left;">${A.articletitle}</p>								
 							</div>
@@ -210,8 +230,8 @@ String P = (String)session.getAttribute("pagenum");
 									<font color="#6c757d" size="3px">${A.articletime}</font>
 								</p>
 							</div>
-							<div style="word-wrap: break-word" id="tb">
-								<p>${A.articlemain}</p>
+							<div style="word-wrap: break-word" >
+								${A.articlemain}
 							</div>
 						</div>
 						<div style="height: 10px;float: right;">
@@ -229,7 +249,7 @@ String P = (String)session.getAttribute("pagenum");
 							<div style="padding-top: 10px;">
 								<textarea class="form-control" name="addarticlemessageinfo"
 									row="5" id="con" wrap=hard cols="30"
-									placeholder="请输入留言内容......" style="height: 200px; width: 100%;"
+									placeholder="登录后即可输入留言内容...若未登录请点击右上角登录" style="height: 200px; width: 100%;"
 									maxlength="255"></textarea>
 							</div>
 						</div>
@@ -274,14 +294,25 @@ String P = (String)session.getAttribute("pagenum");
 	
 	<div class="bottom-all">
     	<div class="bottom-div-t">
-    		<p class="bottom-p">
-        		<a href="http://www.beian.miit.gov.cn/" target="_blank" class="bottom-t-a">
-        			<font color="#2c3e50">鲁ICP备19032053号</font>
-        		</a>
-        	</p>
-    	</div>        
+    		<div class="bottom-div-t-l">
+    			<p class="bottom-t-p-l">
+    				<a href="http://www.beian.miit.gov.cn/" target="_blank" class="bottom-t-a-l">
+        				<font color="#2c3e50">鲁ICP备19032053号</font>
+        			</a>
+    			</p>
+    		</div>
+    		<div class="bottom-div-t-r">
+    			<p class="bottom-t-p-r">
+    				<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000778" 
+		 				target="_blank" class="bottom-t-a-r">
+		 				<img src="<%=basePath%>images/beian.png">
+		 				<font color="#2c3e50">鲁公网安备 37010302000778号</font>
+		 			</a>
+		 		</p>
+    		</div>	      	
+    	</div>	       
         <div class="bottom-div-b">
-        	<p class="bottom-p">
+        	<p class="bottom-b-p" style="font-size: 12px;">
         		<a href="<%=basePath%>jsp/others/Aboutus.jsp" target="_blank" class="bottom-b-a">关于我们</a>
         		<a href="" target="_blank" class="bottom-b-a">联系我们</a>
 			</p>
@@ -290,6 +321,8 @@ String P = (String)session.getAttribute("pagenum");
 	
 	
 	<div style="position: fixed;right: 10px;bottom: 80px;width: 50px;z-index: 1999;">
+		<button class="btn btn-info navguide" onclick="location.href='<%=basePath%>ArticleServlet?page=<%=P%>'">返回目录</button>
+    	<div style="width: 50px;height: 5px;"></div>
     	<button id="backtop" class="btn btn-info navguide">返回头部</button>
     </div>
 </body>
