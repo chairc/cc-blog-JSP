@@ -26,8 +26,8 @@ public class UserDaoImpl implements UserDao{
 	public boolean register(User user) {
 		boolean flag = false;
 		DBconn.init();
-		int i =DBconn.addUpdDel("insert into user_info(name,pwd,email,phone,sex,home,info,safequestion,safeanswer)" +
-				"values('"+user.getName()+"','"+user.getPwd()+"','"+user.getEmail()+"','"+user.getPhone()+"','"+user.getSex()+"','"+user.getHome()+"','"+user.getInfo()+"','"+user.getSafequestion()+"','"+user.getSafeanswer()+"')");			
+		int i =DBconn.addUpdDel("insert into user_info(name,pwd,email,phone,sex,home,info,safequestion,safeanswer,weight)" +
+				"values('"+user.getName()+"','"+user.getPwd()+"','"+user.getEmail()+"','"+user.getPhone()+"','"+user.getSex()+"','"+user.getHome()+"','"+user.getInfo()+"','"+user.getSafequestion()+"','"+user.getSafeanswer()+"','0')");			
 		if(i>0){
 			flag = true;		
 		}
@@ -92,6 +92,7 @@ public class UserDaoImpl implements UserDao{
 				user.setSafeanswer(rs.getString("safeanswer"));
 				user.setSystem(rs.getString("whichsystem"));
 				user.setBrowsername(rs.getString("whichbrowsername"));
+				user.setWeight(rs.getInt("weight"));
 				list.add(user);
 			}
 			DBconn.closeConn();
@@ -122,7 +123,8 @@ public class UserDaoImpl implements UserDao{
 				+"' , home ='"+user.getHome()
 				+"' , info ='"+user.getInfo()
 				+"' , safequestion ='"+user.getSafequestion()
-				+"' , safeanswer ='"+user.getSafeanswer()+"' where id = "+user.getId();
+				+"' , safeanswer ='"+user.getSafeanswer()
+				+"' , weight ='"+user.getWeight()+"' where id = "+user.getId();
 		int i =DBconn.addUpdDel(sql);
 		if(i>0){
 			flag = true;
@@ -517,6 +519,26 @@ public class UserDaoImpl implements UserDao{
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+
+
+	@Override
+	public int getweight(String name) {
+		int flag = 0;
+		try {
+			DBconn.init();
+			ResultSet rs = DBconn.selectSql("select * from user_info where name='"+name+"'");
+			while(rs.next()){
+				if(rs.getInt("weight") == 1) {
+					flag = 1;
+				}
+			}
+			DBconn.closeConn();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 	
 	

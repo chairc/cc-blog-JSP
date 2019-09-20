@@ -36,7 +36,6 @@ public class AddArticleMessageServlet extends HttpServlet {
 		
 		UserDao ud = new UserDaoImpl();
 		if(ud.login(sename, sepwd)) {
-//			response.setContentType("text/html;charset=utf-8");
 			request.setCharacterEncoding("utf-8");
 			
 			String whicharticletitle = (String) request.getSession().getAttribute("articletitle");
@@ -60,8 +59,6 @@ public class AddArticleMessageServlet extends HttpServlet {
 				
 				
 				if(addmsg.addartmsinfo(msg)) {
-//					request.setAttribute("msginfo", msg);  //向request域中放置参数
-//					request.getRequestDispatcher("/SeeArticleServlet").forward(request, response);  //转发到登录页面
 					response.getWriter().print("<script>window.location.href='SeeArticleServlet';</script>");
 				
 					System.out.println("--------------\n" + "添加文章留言：" + "---------成功\n" + "--------------");
@@ -73,11 +70,11 @@ public class AddArticleMessageServlet extends HttpServlet {
 			}
 		}else {
 			if(sename == null || sepwd == null) {
-				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='showinfo';</script>");
+				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='Login';</script>");
 			
 				System.out.println("--------------\n" + "添加文章留言" + "---------失败\n原因：未登录\n" + "--------------");
 			}else {
-				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='showinfo';</script>");
+				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='Login';</script>");
 			
 				System.out.println("--------------\n" + "添加文章留言" + "---------失败\n原因：未验证信息成功\n" + "--------------");
 			}

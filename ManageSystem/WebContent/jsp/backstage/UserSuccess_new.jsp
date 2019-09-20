@@ -126,7 +126,7 @@
 								</a>
 							</li>
 							<li id="liclick" class="menu-artical-li" style="width: 50px;">
-								<a href="<%=basePath%>ChairC_Index.jsp">
+								<a href="<%=basePath%>">
 									<div>Blog</div>
 								</a>
 							</li>

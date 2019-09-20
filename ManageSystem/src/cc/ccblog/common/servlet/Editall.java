@@ -33,7 +33,7 @@ public class Editall extends HttpServlet {
 			
 			UserDao udcount = new UserDaoImpl();
 			int i = udcount.eapagecount();
-			int pagecount = (i + 10 - 1)/10;
+			int pagecount = (i + 8 - 1)/8;
 			request.getSession().setAttribute("pageall",pagecount);
 			
 			if(request.getParameter("page")!=null) {

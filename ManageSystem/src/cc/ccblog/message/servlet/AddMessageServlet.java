@@ -59,8 +59,8 @@ public class AddMessageServlet extends HttpServlet{
 				ShowInfoDao addmsg = new ShowInfoDaoImpl();
 				
 				if(addmsg.addmsinfo(msg)) {
-					request.setAttribute("msginfo", msg);  //向request域中放置参数
-					request.getRequestDispatcher("/MessageIndexServlet").forward(request, response);  //转发到登录页面
+					request.setAttribute("msginfo", msg);
+					request.getRequestDispatcher("/MessageIndexServlet").forward(request, response);
 				
 					System.out.println("--------------\n" + sename + "添加留言" + "---------成功\n" + "--------------");
 				}else {
@@ -71,11 +71,11 @@ public class AddMessageServlet extends HttpServlet{
 			}
 		}else {
 			if(sename == null || sepwd == null) {
-				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='showinfo';</script>");
+				response.getWriter().print("<script>alert('Alert:Please login......');window.location.href='Login';</script>");
 			
 				System.out.println("--------------\n" + sename + "添加留言" + "---------失败\n原因：未登录\n" + "--------------");
 			}else {
-				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='showinfo';</script>");
+				response.getWriter().print("<script>alert('Alert:Incorrect information verification!');window.location.href='Login';</script>");
 			
 				System.out.println("--------------\n" + sename + "添加留言" + "---------失败\n原因：未正确验证信息\n" + "--------------");
 			}

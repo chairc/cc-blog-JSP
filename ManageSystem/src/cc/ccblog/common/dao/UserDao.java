@@ -15,6 +15,7 @@ public interface UserDao {
 	String registevalidation(User user);//注册是重名验证优化方案
 	List<User> getUserAll(int curPage);//返回用户信息集合
 	boolean delete(int id) ;//根据id删除用户
+	int getweight(String name);//判断登录信息权重
 
 	boolean update(User user);//修改用户信息
 	boolean updateUser(String name, String pwd,String sex, String home,String info) ;//修改用户信息
@@ -27,6 +28,7 @@ public interface UserDao {
 	boolean Searchsafetyverification(String name);//验证数据库数据是否完整，不完整则强制修改信息
 	List<User> safetyverification(String name);//强制修改信息界面信息加载
 	String updatesafetyverification(User user);//强制修改信息是重名验证优化方案
+	
 	int eapagecount();
 	int sllpagecount(String name);
 	

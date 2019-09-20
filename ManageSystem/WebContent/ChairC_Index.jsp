@@ -325,6 +325,7 @@
 									<option value="mysql">MySQL8.0</option>
 									<option value="tomcat">Tomcat8.0</option>
 									<option value="navicat">Navicat</option>
+									<option value="kms">Kms</option>
                        			</select>
                         		<input type="submit" class="btn btn-inverse" 
                         		name="downloadfiles" id="downloadfiles" value="下载">

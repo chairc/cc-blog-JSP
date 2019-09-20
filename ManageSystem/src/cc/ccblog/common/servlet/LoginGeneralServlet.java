@@ -24,9 +24,9 @@ import nl.bitwalker.useragentutils.Browser;
 import nl.bitwalker.useragentutils.OperatingSystem;
 import nl.bitwalker.useragentutils.UserAgent;
 
-@WebServlet("/LoginServlet")
+@WebServlet("/LoginGeneralServlet")
 @SuppressWarnings("serial")
-public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重写doGet  doPost方法
+public class LoginGeneralServlet extends HttpServlet {//需要继承HttpServlet  并重写doGet  doPost方法
 	public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		doPost(request,response);  //将信息使用doPost方法执行   对应jsp页面中的form表单中的method
 	}
@@ -96,8 +96,8 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 				System.out.println(whichsystem + whichbrowser);
 				ud.loginupdate(name,servertime,ip,whichsystem,whichbrowser);//更新登录账户时间、登录日志、系统、浏览器
 				
-				request.setAttribute("xiaoxi", name);
-				request.getRequestDispatcher("/ChairC_Index.jsp").forward(request, response);
+				response.getWriter().print("<script>alert('Success!');window.history.go(-2);</script>");
+				
 			}else {
 				
 				System.out.println("--------------\n" + "登录人员：" + name + "\n时间" + servertime + "\n获取客户端ip: " + ip +"\n登录状态：失败（需要强制修改信息）\n" + "--------------");
@@ -115,3 +115,4 @@ public class LoginServlet extends HttpServlet {//需要继承HttpServlet  并重
 		}
 	}
 }
+

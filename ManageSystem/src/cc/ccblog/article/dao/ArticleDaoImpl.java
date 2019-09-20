@@ -38,6 +38,7 @@ public class ArticleDaoImpl implements ArticleDao{
 				article.setArticletime(rs.getString("articletime"));
 				article.setArticletitle(rs.getString("articletitle"));
 				article.setArticlemain(rs.getString("articlemain"));
+				article.setArticleclicknum(rs.getInt("articleclicknum"));
 				list.add(article);
 			}
 					
@@ -70,10 +71,17 @@ public class ArticleDaoImpl implements ArticleDao{
 				article.setArticletime(rs.getString("articletime"));
 				article.setArticletitle(rs.getString("articletitle"));
 				article.setArticlemain(rs.getString("articlemain"));
+				article.setArticleclicknum(rs.getInt("articleclicknum"));
 				list.add(article);
 				System.out.println("文章ok");
 			}
-					
+			ResultSet rs1= DBconn.selectSql("select * from user_article where articletitle = '"+articletitle+"'");
+			while(rs1.next()) {
+				int i= rs1.getInt("articleclicknum");
+				int j = i+1;
+				String sql	= "update user_article set articleclicknum = '"+ j +"' where articletitle = '"+articletitle+"'";
+				DBconn.addUpdDel(sql);
+			}			
 			DBconn.closeConn();
 			return list;
 		} catch (Exception e) {

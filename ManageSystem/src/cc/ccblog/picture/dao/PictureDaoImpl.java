@@ -25,7 +25,7 @@ public class PictureDaoImpl implements PictureDao{
 		List<Picture> list = new ArrayList<Picture>();
 		try {
 			DBconn.init();
-			ResultSet rs = DBconn.selectSql("select * from user_picture order by pictureid desc limit 0,4");
+			ResultSet rs = DBconn.selectSql("select * from user_picture order by pictureid desc limit 0,4");//限制图片数量为最新四张
 			while(rs.next()) {
 				Picture pic = new Picture();
 				pic.setPictureid(rs.getInt("pictureid"));

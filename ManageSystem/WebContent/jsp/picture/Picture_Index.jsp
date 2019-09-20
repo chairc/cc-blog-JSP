@@ -196,12 +196,12 @@ String P = (String)session.getAttribute("pagenum");
 
     <!--******************************下面是主页内容******************************-->
     <div style="padding-top:65px;"></div>
-    <div style="background-color: #ff730080;width: 100%;height: auto;">
+    <div class="pic__div">
     	<div class="swiper-container">
   			<div class="swiper-wrapper">
   				<c:forEach items="${Pic}" var="P">
 		    		<div class="swiper-slide">
-		    			<img src="<%=basePath%>images/picture/swiperbanner/${P.picturename}">
+		    			<img src="<%=basePath%>images/picture/swiperbanner/${P.picturename}" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); max-width:100%; max-height:100%">
 		    		</div>
 		    	</c:forEach>
 		  	</div>

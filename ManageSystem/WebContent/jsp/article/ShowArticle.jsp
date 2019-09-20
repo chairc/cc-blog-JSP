@@ -228,6 +228,8 @@ String P = (String)session.getAttribute("pagenum");
 							<div>
 								<p>
 									<font color="#6c757d" size="3px">${A.articletime}</font>
+									&nbsp;&nbsp;
+									<font color="#6c757d" size="2px">点击量：${A.articleclicknum}</font>
 								</p>
 							</div>
 							<div style="word-wrap: break-word" >

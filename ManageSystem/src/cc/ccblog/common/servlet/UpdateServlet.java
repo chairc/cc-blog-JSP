@@ -47,7 +47,8 @@ public class UpdateServlet extends HttpServlet {
 		String phone = new String(request.getParameter("phone").getBytes("ISO-8859-1"),"utf-8");
 		String safequestion = new String(request.getParameter("safequestion").getBytes("ISO-8859-1"),"utf-8");
 		String safeanswer = new String(request.getParameter("safeanswer").getBytes("ISO-8859-1"),"utf-8");
-		
+		String weight1 = new String(request.getParameter("weight").getBytes("ISO-8859-1"),"utf-8");
+		int weight2 = Integer.parseInt(weight1);
 		
 		User user = new User(); //实例化一个对象，组装属性
 		user.setId(userId);
@@ -60,6 +61,7 @@ public class UpdateServlet extends HttpServlet {
 		user.setPhone(phone);
 		user.setSafequestion(safequestion);
 		user.setSafeanswer(safeanswer);
+		user.setWeight(weight2);
 		
 		UserDao ud = new UserDaoImpl();
 		

@@ -9,24 +9,41 @@
 <% 
 String name = (String)session.getAttribute("username"); 
 String P = (String)session.getAttribute("pagenum");
-int PageCount = (int)session.getAttribute("pageall");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>ChairC's Blog - 归档</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flat-ui.css" type="text/css">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>ChairC's Blog - 注册</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flat-ui.css"  type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css" type="text/css">
-	
-	
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css">
+
+<style type="text/css">
+.re{
+	width: 100%; 
+	padding-left: 30%; 
+	padding-right: 30%;
+	text-align: left;
+}
+@media screen and (max-width: 700px) {
+	.re{
+		width: 100%; 
+		padding-left: 10%; 
+		padding-right: 10%;
+		text-align: left;
+	}
+}
+</style>
 </head>
 <body>
+
+
 
     <!--******************************下面是导航栏导航栏******************************-->
 
@@ -195,130 +212,106 @@ int PageCount = (int)session.getAttribute("pageall");
 
     <!--******************************下面是主页内容******************************-->
 	<div
-		style="width: 100%; height: auto; padding-top: 75px; background-color: #fff;">
+		style="width: 100%; height: 1000px; padding-top: 75px; background-color: #fff;">
 		<div style="text-align: center; padding-left: 5%; padding-right: 5%;">
-			<div style="width: 100%; height: 200px; text-align: left;">
+			<div style="width: 100%; height: 100px; text-align: left;">
 				<div style="width: 100%; float: left; padding-left: 3%;">
-					<h3 style="margin-top: 30px;margin-bottom: 15px;">归档</h3>
-				</div>
-				<div style="width: 100%; float: left; padding-left: 3%;padding-right: 3%; padding-top: 10px;text-align: center;">
-					<form action="<%=basePath%>SearchArticleServlet" method="get">
-						<input type="text" placeholder="查找的文档" class="form-control" style="width:60% " name="searcharticletitle">
-						<input class="btn btn-default"
-							type="submit" value="搜索"/>
-					</form>
+					<h3 style="margin-top: 30px; margin-bottom: 15px;">注册</h3>
 				</div>
 			</div>
 
-			<div class="article_main_div">
-				<form action="" method="get">
-					<c:forEach var="A" items="${ArticleAll}">
-						<div class="article_div">
-							<div class="article_div_l">
-								<div style="font-size: 25px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-									<a href="<%=basePath%>SeeArticleServlet?articletitle=${A.articletitle}"
-										>
-										${A.articletitle}
-									</a>
-								</div>
-								<div style="height: 50px;line-height: 50px;">							
-									<p style="height: 50px;">
-										<img src="<%=basePath%>avatorImg/${A.articleauthor}header.jpg" class="menu-nav-img-m">
-										<font color="#34495e" size="3px">${A.articleauthor}</font>
-									</p>															
-								</div>
-								<div>
-									<p>
-										<font color="#6c757d" size="3px">${A.articletime}</font>
-									</p>
-								</div>
-								<div style="height: 30px;">
-									<p>
-										<font size="3px">第${A.articleid}篇</font>
-										&nbsp;&nbsp;
-										<font size="2px">点击量：${A.articleclicknum}</font>
-									</p>						
-								</div>
-							</div>
-							<div class="article_div_r">
-<%-- 								<img src="<%=basePath%>images/ArticleImg/">文章配图 --%>
-							</div>
-						</div>
-						<div style="height: 20px;">
-						
-						</div>
-					</c:forEach>
+			<div class="re">
+				<form action="<%=basePath%>RegisterGeneralServlet" method="post"
+					style="padding-top: -700px">
+					<div>
+						请输入用户名：
+						<input class="form-control" id="name" name="name" type="text" style="width: 100%;"
+							placeholder="请输入用户名,请不要输入汉字" required="required"
+							onkeyup="value=value.replace(/[\W]/g,'') " maxlength="255" onblur="validation()"
+							onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+					</div>
+					<div style="padding-top: 13px;">
+						请输入密码：
+						<input class="form-control" name="pwd" type="password" style="width: 100%;"
+							placeholder="请输入密码" required="required" maxlength="255">
+					</div>
+					<div style="padding-top: 13px;">
+						请输入邮箱：
+						<input class="form-control" id="email" name="email" type="email" style="width: 100%;"
+							placeholder="请输入邮箱" required="required" maxlength="255" onblur="validation()">
+					</div>
+					<div style="padding-top: 13px;">
+						请输入手机号：
+						<input class="form-control" id="phone" name="phone" type="number" style="width: 100%;"
+							placeholder="请输入手机号" required="required" maxlength="20" onblur="validation()">					
+					</div>
+					<div style="padding-top: 13px;padding-bottom:13px;float: left;width: 100%;">
+						请选择性别: <input class="custom-radio" type="radio" name="sex"
+							value="男" checked>男 <input class="custom-radio"
+							type="radio" name="sex" value="女">女
+					</div>
+					<div style="padding-top: 13px;">
+						请输入家乡：
+						<input class="form-control" name="home" type="text" style="width: 100%;"
+							placeholder="请输入家乡">
+					</div>
+					<div style="padding-top: 13px;">
+						请输入个人信息：
+						<textarea class="form-control" name="info" row="5" cols="30" style="width: 100%;"
+							placeholder="请填写个人信息" maxlength="255"></textarea>
+					</div>
 					
-					<div style="padding-top: 10px;">
-						<div style="float: left; padding-right: 10px;">
-							<input id="artpageprev" name="artpageprev" type="submit"
-								formaction="Page" class="btn btn-primary" value="上一页">
+					<div style="padding-top: 13px;">
+						请输入安全问题：
+						<select id="safequestion" name="safequestion" class="form-control" style="width: 100%">
+							<option value="我的生日" selected>我的生日（输入格式例如19980424）</option>
+							<option value="我最好的朋友">我最好的朋友</option>
+							<option value="最喜欢玩的游戏">最喜欢玩的游戏</option>
+							<option value="最爱的一首歌" >最爱的一首歌</option>
+						</select>
+					</div>
+					<div style="padding-top: 13px;">
+						请输入安全答案：
+						<input class="form-control" id="safeanswer" name="safeanswer" type="text" style="width: 100%;"
+							placeholder="请输入安全问题" required="required" maxlength="255">
+					</div>
+					<div style="text-align: center; padding-top: 15px;">
+						<div style="float: left; width: 49%;">
+							<input class="btn btn-primary" type="submit" style="width: 100%;text-align: center;"
+								value="注册">
+<!-- 							<input id="btn_register" name="btn_register" class="btn btn-primary" type="button" style="width: 100%;text-align: center;" -->
+<!-- 								value="注册"> -->
+<!-- 							<button id="btn_register"class="btn btn-primary" style="width: 100%;text-align: center;">注册</button> -->
 						</div>
-						<div style="float: left; padding-right: 10px;">
-							<input id="artpagenext" name="artpagenext" type="submit"
-								formaction="Page" class="btn btn-primary" value="下一页">
+						<div style="float: right; width: 49%;">
+							<input class="btn btn-primary" type="reset" style="width: 100%;text-align: center;"
+								value="重置">
+						</div>						
+					</div>
+					<div style="text-align: center;padding-top: 20px;">
+						<div style="float: left; width: 49%;">
+							<input class="btn btn-primary" type="button" disabled="disabled"
+							onclick="validation()" style="width: 100%;text-align: center;" value="验证重复">
 						</div>
-						<div style="float: left; padding-right: 10px;">
-							<div style="float: left;">
-								<input id="page" type="number" name="page" value="<%=P%>"
-									placeholder="输入页码" required="required" class="form-control"
-									style="width: 70px;">&nbsp;&nbsp;/&nbsp;&nbsp;
-							</div>						
-							<div  style="float: left;line-height: 42px;">							
-								<input id="pagecount" type="number" name="pagecount" value="<%=PageCount%>"
-									placeholder="输入页码" readonly="readonly"
-									style="width: 40px; border: 0px; background: none;">
-							</div>
+						<div style="float: right; width: 49%;">
+							<input class="btn btn-primary" type="button"
+							onclick="window.close()" style="width: 100%;text-align: center;" value="返回">
 						</div>
-						<div style="float: left;">
-							<input id="pageclick" type="submit"
-								formaction="ArticleServlet" class="btn btn-primary"
-								value="跳转">
-						</div>
-					</div>					
+					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	
-	<div class="bottom-all">
-    	<div class="bottom-div-t">
-    		<div class="bottom-div-t-l">
-    			<p class="bottom-t-p-l">
-    				<a href="http://www.beian.miit.gov.cn/" target="_blank" class="bottom-t-a-l">
-        				<font color="#2c3e50">鲁ICP备19032053号</font>
-        			</a>
-    			</p>
-    		</div>
-    		<div class="bottom-div-t-r">
-    			<p class="bottom-t-p-r">
-    				<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000778" 
-		 				target="_blank" class="bottom-t-a-r">
-		 				<img src="<%=basePath%>images/beian.png">
-		 				<font color="#2c3e50">鲁公网安备 37010302000778号</font>
-		 			</a>
-		 		</p>
-    		</div>	      	
-    	</div>	       
-        <div class="bottom-div-b">
-        	<p class="bottom-b-p" style="font-size: 12px;">
-        		<a href="<%=basePath%>jsp/others/Aboutus.jsp" target="_blank" class="bottom-b-a">关于我们</a>
-        		<a href="" target="_blank" class="bottom-b-a">联系我们</a>
-			</p>
-        </div>       
-    </div>
-	
-	
+
 	<div style="position: fixed;right: 10px;bottom: 80px;width: 50px;z-index: 1999;">
     	<button id="backtop" class="btn btn-info navguide">返回头部</button>
     </div>
 </body>
 
-
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/index_main.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/h.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/swiper.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/swiper.min.js"></script>	
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/h.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/index_iconfont.js"></script>
 
 <script>
@@ -352,39 +345,78 @@ int PageCount = (int)session.getAttribute("pageall");
 </script>
 
 <!--******************************上面是导航栏方法******************************-->
-
-
 <script type="text/javascript">
-	
-	
-	//回到顶部
 	var btn = document.getElementById('backtop');
 	//var scrollTop  = document.documentElement.scrollTop||document.body.scrollTop;//兼容性写法，并且在滚动事件内可以实时获得滚动条距顶部的距离 ;
 	btn.onclick = function(){
  		$('body,html').animate({scrollTop:0},300)
 	};
 	
+	
+	function validation() {
+//		var vaname = document.getElementById('#name').value;
+//		var vaphone = document.getElementById('#phone').value;
+//		var vaemail = document.getElementById('#email').value;
+		
+//		$.ajax({
+//			type:"Get",
+//			url:"RegisterValidationServlet?vasname="+vaname+"&vasphone="+vaphone+"&vasemail="+vaemail+"",
+//			dataType:"text",
+//			contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+//			data:str,
+//			success:function(true){
+//				alert('Alert:Success!');
+//			},
+//			error:function(false){
+//				alert('Alert:Error!');
+//			}
+//		})
+	}
+	
+	alert("亲爱的新用户们，你们好！\n注册时请注意以下几点：\n1.用户名输入英文\n2.如果点击注册后弹出提醒Username or phone or email is not unique!，说明用户名或手机或邮箱有重复\n3.成功注册后直接返回主页");
+</script>
 
-	//禁用按钮
-	$(function() {
-		var prevban=document.getElementById('page').value;
-		if(prevban==1){
-			document.getElementById("artpageprev").className="btn btn-primary disabled";
-			$("#artpageprev").attr("disabled","disabled");
+<script type="text/javascript">
+	
+	//提取文本框的值利用ajax传入后台
+
+	/*function setRegister(){
+	
+		var btn_r = document.getElementById('#btn_register');
+		btn_r.onclick = function () {
+			
+			var map = {};
+			map["name"] = document.getElementById('name').value;
+			map["pwd"] = document.getElementById('pwd').value;
+			map["email"] = document.getElementById('email').value;
+			map["phone"] = document.getElementById('phone').value;
+			map["sex"] = document.getElementById('sex').value;
+			map["home"] = document.getElementById('home').value;
+			map["info"] = document.getElementById('info').value;
+			map["safequestion"] = document.getElementById('safequestion').value;
+			map["safeanswer"] = document.getElementById('safeanswer').value;
+			var str=JSON.stringify(list);
+			return encodeURIComponent(str);
+			
+			alert(str);
+			$.ajax({
+				type:"POST",
+				url:"RegisterServlet",
+				dataType:"json",
+				contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+				data:str,
+				success:function(data){
+					alert('Alert:Success!');
+				},
+				error:function(data){
+					alert('Alert:Error!');
+				}
+			})
 		}
-	});
+	}*/
 	
 	
-	$(function() {
-		var nextban=document.getElementById('page').value;
-		var pagecount=document.getElementById('pagecount').value;
-		if(nextban==pagecount){
-			document.getElementById("artpagenext").className="btn btn-primary disabled";
-			$("#artpagenext").attr("disabled","disabled");
-		}
-	});
-
-
+	
 	//侧栏
 	$("#menuclick").on("click", function(e){
 		if($("#menudiv").is(":hidden")){
@@ -397,11 +429,10 @@ int PageCount = (int)session.getAttribute("pageall");
 		});		
 		e.stopPropagation();	
 	});
-	
+
 	$("#menudiv").on("click", function(e){
 		e.stopPropagation();
 	});
-	
-	
 </script>
+
 </html>

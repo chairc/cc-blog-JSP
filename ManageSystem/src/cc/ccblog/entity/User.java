@@ -21,6 +21,7 @@ public class User {
     private String safeanswer;
     private String system;
     private String browsername;
+    private int weight;
     
     //页面返回值
     private int pageback;
@@ -141,6 +142,12 @@ public class User {
 	}
 	public void setBrowsername(String browsername) {
 		this.browsername = browsername;
+	}
+	public int getWeight() {
+		return weight;
+	}
+	public void setWeight(int weight) {
+		this.weight = weight;
 	}
 	public String getLogsystem() {
 		return logsystem;

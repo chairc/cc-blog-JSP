@@ -11,6 +11,7 @@ public class Article {
 	private String articlemain;
 	private String articletime;
 	private String articleauthor;
+	private int articleclicknum;
 	
 	
 	private int addarticlemessageid;
@@ -50,6 +51,12 @@ public class Article {
 	}
 	public void setArticleauthor(String articleauthor) {
 		this.articleauthor = articleauthor;
+	}
+	public int getArticleclicknum() {
+		return articleclicknum;
+	}
+	public void setArticleclicknum(int articleclicknum) {
+		this.articleclicknum = articleclicknum;
 	}
 	public int getAddarticlemessageid() {
 		return addarticlemessageid;

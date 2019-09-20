@@ -86,10 +86,11 @@ int PageCount = (int)session.getAttribute("pageall");
 										<th style="width: 220px;">备注</th>
 										<th style="width: 140px;">最后登陆时间</th>
 										<th style="width: 140px;">Ip</th>
-										<th style="width: 120px;">安全问题</th>
+										<th style="width: 100px;">安全问题</th>
 										<th style="width: 120px;">安全答案</th>										
 										<th style="width: 70px;">系统</th>
 										<th style="width: 50px;">浏览器</th>
+										<th style="width: 20px;">权重</th>
 										<th style="width: 50px;">操作</th>
 									</tr>
 									<c:forEach var="U" items="${userAll}">
@@ -116,13 +117,15 @@ int PageCount = (int)session.getAttribute("pageall");
 												<td><input type="text" value="${U.ip}" name="ip"
 													style="width: 140px; border: 0px; background: none;" disabled="disabled"></td>
 												<td><input type="text" value="${U.safequestion}" name="safequestion" maxlength="255"
-													style="width: 120px; border: 0px; background: none;"></td>
+													style="width: 100px; border: 0px; background: none;"></td>
 												<td><input type="text" value="${U.safeanswer}" name="safeanswer" maxlength="255"
 													style="width: 120px; border: 0px; background: none;"></td>
 												<td><input type="text" value="${U.system}" name="system" maxlength="255"
 													style="width: 70px; border: 0px; background: none;" disabled="disabled"></td>
 												<td><input type="text" value="${U.browsername}" name="browsername" maxlength="255"
 													style="width: 50px; border: 0px; background: none;" disabled="disabled"></td>
+												<td><input type="text" value="${U.weight}" name="weight" maxlength="2"
+													style="width: 20px; border: 0px; background: none;"></td>
 												<td><a style="width: 50px;" href="DeleteServlet?id=${U.id}">删除</a> <input
 													class="btn btn-primary" type="submit" value="更新" /></td>
 											</tr>

@@ -6,31 +6,23 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<% 
-String name = (String)session.getAttribute("username"); 
-String P = (String)session.getAttribute("pagenum");
-int PageCount = (int)session.getAttribute("pageall");
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>ChairC's Blog - 归档</title>
+<title>ChairC's Blog - 登录</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_main.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/flat-ui.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Index/index_iconfont.css" type="text/css">
-	
+
 	
 </head>
 <body>
-
-    <!--******************************下面是导航栏导航栏******************************-->
-
-    <div>
+	<div>
         <header id="header" class="header header--fixed hide-from-print animated slideDown" role="banner">
             <div class="container">
                 <nav id="nav" class="nav-wrapper" role="navigation">
@@ -188,7 +180,6 @@ int PageCount = (int)session.getAttribute("pageall");
             </div>
         </header>
     </div>
-
     <!--******************************上面是导航栏导航栏******************************-->
 
 
@@ -197,128 +188,65 @@ int PageCount = (int)session.getAttribute("pageall");
 	<div
 		style="width: 100%; height: auto; padding-top: 75px; background-color: #fff;">
 		<div style="text-align: center; padding-left: 5%; padding-right: 5%;">
-			<div style="width: 100%; height: 200px; text-align: left;">
-				<div style="width: 100%; float: left; padding-left: 3%;">
-					<h3 style="margin-top: 30px;margin-bottom: 15px;">归档</h3>
+			<div style="padding-left: 30%; padding-right: 30%;padding-bottom: 10px;">
+				<div style="padding-bottom: 100px;">
+					<h3>用户登录</h3>
 				</div>
-				<div style="width: 100%; float: left; padding-left: 3%;padding-right: 3%; padding-top: 10px;text-align: center;">
-					<form action="<%=basePath%>SearchArticleServlet" method="get">
-						<input type="text" placeholder="查找的文档" class="form-control" style="width:60% " name="searcharticletitle">
-						<input class="btn btn-default"
-							type="submit" value="搜索"/>
-					</form>
-				</div>
-			</div>
+				<form action="LoginGeneralServlet" method="post"
+					style="padding-top: -700px;">
+					<div style="width: 100%;padding-top: 10px;">
+						<div style="text-align: center;">
+							<div style="float: left; width: 100%;">
+								<input id="loginusername" class="form-control" type="text" name="name" placeholder="请输入用户名"
+									value="" required="required" style="width: 100%"  onkeyup="value=value.replace(/[\W]/g,'') ">
+							</div>
+							<div style="float: right;">
+								<p><font size="2px"><a href="<%=basePath%>jsp/basic/RetrieveAccount.jsp">忘记用户名</a></font></p>
+							</div>
+						</div>
 
-			<div class="article_main_div">
-				<form action="" method="get">
-					<c:forEach var="A" items="${ArticleAll}">
-						<div class="article_div">
-							<div class="article_div_l">
-								<div style="font-size: 25px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-									<a href="<%=basePath%>SeeArticleServlet?articletitle=${A.articletitle}"
-										>
-										${A.articletitle}
-									</a>
-								</div>
-								<div style="height: 50px;line-height: 50px;">							
-									<p style="height: 50px;">
-										<img src="<%=basePath%>avatorImg/${A.articleauthor}header.jpg" class="menu-nav-img-m">
-										<font color="#34495e" size="3px">${A.articleauthor}</font>
-									</p>															
-								</div>
-								<div>
-									<p>
-										<font color="#6c757d" size="3px">${A.articletime}</font>
-									</p>
-								</div>
-								<div style="height: 30px;">
-									<p>
-										<font size="3px">第${A.articleid}篇</font>
-										&nbsp;&nbsp;
-										<font size="2px">点击量：${A.articleclicknum}</font>
-									</p>						
-								</div>
+						<div style="padding-top: 55px;text-align: center;">
+							<div style="float: left; width: 100%;" >
+								<input id="loginpassword" class="form-control" type="password" name="pwd" placeholder="请输入密码"
+									value="" required="required" style="width: 100%">
 							</div>
-							<div class="article_div_r">
-<%-- 								<img src="<%=basePath%>images/ArticleImg/">文章配图 --%>
+							<div style="float: right;">
+								<p><font size="2px"><a href="<%=basePath%>jsp/basic/RetrieveAccount.jsp">忘记密码</a></font></p>
 							</div>
 						</div>
-						<div style="height: 20px;">
-						
-						</div>
-					</c:forEach>
-					
-					<div style="padding-top: 10px;">
-						<div style="float: left; padding-right: 10px;">
-							<input id="artpageprev" name="artpageprev" type="submit"
-								formaction="Page" class="btn btn-primary" value="上一页">
-						</div>
-						<div style="float: left; padding-right: 10px;">
-							<input id="artpagenext" name="artpagenext" type="submit"
-								formaction="Page" class="btn btn-primary" value="下一页">
-						</div>
-						<div style="float: left; padding-right: 10px;">
-							<div style="float: left;">
-								<input id="page" type="number" name="page" value="<%=P%>"
-									placeholder="输入页码" required="required" class="form-control"
-									style="width: 70px;">&nbsp;&nbsp;/&nbsp;&nbsp;
-							</div>						
-							<div  style="float: left;line-height: 42px;">							
-								<input id="pagecount" type="number" name="pagecount" value="<%=PageCount%>"
-									placeholder="输入页码" readonly="readonly"
-									style="width: 40px; border: 0px; background: none;">
+						<div style="float:left;width:100%;padding-top: 10px;text-align: center;">
+							<div style="float:left; width: 49%;">
+								<input id="loginbtn"
+									class="btn btn-primary" style="width: 100%;" type="submit"
+									value="登录">
+<!-- 								<button id="loginbtn" class="btn btn-primary" style="width: 100%;">登录</button> -->
 							</div>
-						</div>
-						<div style="float: left;">
-							<input id="pageclick" type="submit"
-								formaction="ArticleServlet" class="btn btn-primary"
-								value="跳转">
-						</div>
-					</div>					
+							<div style="float:right; width: 49%;">
+								<input class="btn btn-primary" style="width: 100%;"
+									type="reset" value="重置">													
+							</div>
+						</div>											
+					</div>
 				</form>
+				<div style="padding-top: 70px;padding-bottom: 10px;">
+					<form action="<%=basePath%>Register" target="_blank">
+						<input class="btn btn-primary" style="width: 100%;"
+							type="submit" value="新用户注册">
+					</form>								
+				</div>
 			</div>
 		</div>
 	</div>
-	
-	<div class="bottom-all">
-    	<div class="bottom-div-t">
-    		<div class="bottom-div-t-l">
-    			<p class="bottom-t-p-l">
-    				<a href="http://www.beian.miit.gov.cn/" target="_blank" class="bottom-t-a-l">
-        				<font color="#2c3e50">鲁ICP备19032053号</font>
-        			</a>
-    			</p>
-    		</div>
-    		<div class="bottom-div-t-r">
-    			<p class="bottom-t-p-r">
-    				<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000778" 
-		 				target="_blank" class="bottom-t-a-r">
-		 				<img src="<%=basePath%>images/beian.png">
-		 				<font color="#2c3e50">鲁公网安备 37010302000778号</font>
-		 			</a>
-		 		</p>
-    		</div>	      	
-    	</div>	       
-        <div class="bottom-div-b">
-        	<p class="bottom-b-p" style="font-size: 12px;">
-        		<a href="<%=basePath%>jsp/others/Aboutus.jsp" target="_blank" class="bottom-b-a">关于我们</a>
-        		<a href="" target="_blank" class="bottom-b-a">联系我们</a>
-			</p>
-        </div>       
-    </div>
-	
-	
 	<div style="position: fixed;right: 10px;bottom: 80px;width: 50px;z-index: 1999;">
     	<button id="backtop" class="btn btn-info navguide">返回头部</button>
     </div>
 </body>
 
-
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/index_main.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/h.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/iconfont.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/swiper.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/h.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/Index/index_iconfont.js"></script>
 
 <script>
@@ -354,54 +282,58 @@ int PageCount = (int)session.getAttribute("pageall");
 <!--******************************上面是导航栏方法******************************-->
 
 
+
 <script type="text/javascript">
 	
-	
-	//回到顶部
+	/*滚动回头部*/
 	var btn = document.getElementById('backtop');
 	//var scrollTop  = document.documentElement.scrollTop||document.body.scrollTop;//兼容性写法，并且在滚动事件内可以实时获得滚动条距顶部的距离 ;
 	btn.onclick = function(){
- 		$('body,html').animate({scrollTop:0},300)
-	};
-	
+ 	$('body,html').animate({scrollTop:0},300)
+}
 
-	//禁用按钮
-	$(function() {
-		var prevban=document.getElementById('page').value;
-		if(prevban==1){
-			document.getElementById("artpageprev").className="btn btn-primary disabled";
-			$("#artpageprev").attr("disabled","disabled");
-		}
-	});
+	/*登录*/
+// 	var loginbtn = document.getElementById('loginbtn');
 	
+// 	var username = document.getElementById('loginusername');
+// 	var password = document.getElementById('loginpassword');
 	
-	$(function() {
-		var nextban=document.getElementById('page').value;
-		var pagecount=document.getElementById('pagecount').value;
-		if(nextban==pagecount){
-			document.getElementById("artpagenext").className="btn btn-primary disabled";
-			$("#artpagenext").attr("disabled","disabled");
-		}
-	});
+// 	var data = {username:username,password:password};
+// 	loginbtn.onclick = function loginbtn() {
+// 		$.ajax({
+// 			type:"POST",
+// 			url:"/LoginServlet",
+// 			dataType:"json",
+// 			data:data,
+// 			success:function(data){
+// 				window.location.href = "/ChairC_Index.jsp";
+// 			},
+// 			error:function(e){
+// 				alert("用户名或密码有错！");
+// 			}
+// 		})
+// 	}
+
+
 
 
 	//侧栏
 	$("#menuclick").on("click", function(e){
 		if($("#menudiv").is(":hidden")){
 			$('#menudiv').show(800);
-	    }else{
-	    	$('#menudiv').hide(800);
-	    }
+    	}else{
+    		$('#menudiv').hide(800);
+    	}
 		$(document).one("click", function(){
 			$('#menudiv').hide(800);
 		});		
 		e.stopPropagation();	
 	});
-	
+
 	$("#menudiv").on("click", function(e){
 		e.stopPropagation();
 	});
-	
-	
 </script>
+
 </html>
+				

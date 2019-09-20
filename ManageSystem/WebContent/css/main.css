@@ -397,6 +397,11 @@ body {
 .menu__gif img{
 	border-radius: 6px;
 }
+.pic__div{
+	background-color: #ff730080;
+	width: 100%;
+	height: 100%;
+}
 @media screen and (max-width:600px){
 	.menu__div{
 		width: 300px;
@@ -460,5 +465,10 @@ body {
 		font-size: 10px;
 		color:#86888d;
 	}
+	.pic__div{
+		background-color: #ff730080;
+		width: 100%;
+		height: 100%;
+}
 }
 

@@ -7,6 +7,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/flat-ui.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
+
+
+
 <style>
 html,body{
 	width: 100%;
@@ -17,28 +24,20 @@ html,body{
     height: 100%;
         }
 </style>
-<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/css/flat-ui.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
-<script src="${pageContext.request.contextPath}/js/iconfont.js" type="text/javascript"></script> 
-
 <title>Map</title>
 </head>
 <body>
-	<div style="height: 55px; width: 55px; position: absolute; z-index: 199;">
-		<a href="../backstage/IframeIndex.jsp" class="btn btn-default" style="width: 55px; height: 55px;"> 
-			<svg class="icon icon_back" aria-hidden="true">
-				<use xlink:href="#icon-fanhui"></use>
-			</svg>
-		</a>
+	<div id="container">
+	
 	</div>
-	<div id="container"></div>
+	
 	<div class="info">
     	<p id='info'></p>
 	</div>
 </body>
-<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=你的key值&plugin=AMap.CitySearch"></script>
-<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=你的key值"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/iconfont.js"></script> 
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=你的key&plugin=AMap.CitySearch"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&你的key"></script>
 <script type="text/javascript">
 		var map = new AMap.Map('container',{
 			resizeEnable: true, //是否监控地图容器尺寸变化
@@ -74,7 +73,7 @@ html,body{
 // 	        zIndex: 10
 // 	    });
 // 	    map.add(trafficLayer);//添加图层到地图
-// 	var url = 'https://webapi.amap.com/maps?v=1.4.14&key=你的key值&callback=onLoad';
+// 	var url = 'https://webapi.amap.com/maps?v=1.4.14&你的key&callback=onLoad';
 // 	var jsapi = doc.createElement('script');
 // 	jsapi.charset = 'utf-8';
 // 	jsapi.src = url;
